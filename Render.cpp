@@ -94,38 +94,29 @@ int main() {
             cout << TestHero.name;
         }
         else if (CurrentBattleLine == 25) {
-            system("echo '\\e[1;0m'{Attack}'\\e[0m'");
+            cout << FileTest;
         }
         else if (CurrentBattleLine == 27) {
-            system("echo '\\e[1;0m'{Ability}'\\e[0m'");
+            system("echo -n '\\e[1;0m'{Attack}'\\e[0m'");
+            cout << FileTest << TestHero.health << "   ";
         }
         else if (CurrentBattleLine == 29) {
-            system("echo '\\e[1;0m'{Use Item}'\\e[0m'");
+            system("echo -n '\\e[1;0m'{Use Item}'\\e[0m'");
+            cout << FileTest << TestHero.damage << "  ";
         }
         else if (CurrentBattleLine == 31) {
-            system("echo '\\e[1;0m'{Flee}'\\e[0m'");
+            system("echo -n '\\e[1;0m'{Ability}'\\e[0m'");
+            cout << FileTest << TestHero.armour << "  ";
+        }
+        else if (CurrentBattleLine == 33) {
+            system("echo -n '\\e[1;0m'{Flee}'\\e[0m'");
+            cout << FileTest << TestHero.battery << " ";
         }
         else if (CurrentBattleLine == 35) {
             cout << FileTest;
-            cout << TestHero.health << "   ";
+            cout << TestHero.data << "   ";
         }
-        else if (CurrentBattleLine == 37) {
-            cout << FileTest;
-            cout << TestHero.damage << "  ";
-        }
-        else if (CurrentBattleLine == 39) {
-            cout << FileTest;
-            cout << TestHero.armour << "  ";
-        }
-        else if (CurrentBattleLine == 41) {
-            cout << FileTest;
-            cout << TestHero.battery << " ";
-        }
-        else if (CurrentBattleLine == 43) {
-            cout << FileTest;
-            cout << TestHero.data << "  ";
-        }
-        else if (CurrentBattleLine == 46) {
+        else if (CurrentBattleLine == 38) {
             cout << FileTest;
             cout << TestHero.status;
         }
