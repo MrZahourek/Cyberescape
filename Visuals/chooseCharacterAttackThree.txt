@@ -1,0 +1,31 @@
+                                                            
+                       Attack three                         
+                       ============                         
+                                                            
+         SQL injection                                      
+         =============                                      
+                                                            
+        Cost: 40 data, 15 battery                           
+                                                            
+                                                            
+                                                            
+        Effect:                                             
+           Deal normal amount of damage (your atk stat)     
+           to your enemy. Than lower the data stat of       
+           your enemy by 20.                                
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            

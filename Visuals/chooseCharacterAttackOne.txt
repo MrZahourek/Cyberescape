@@ -1,0 +1,31 @@
+                                                            
+                        Attack one                          
+                        ==========                          
+                                                            
+         Data leach                                         
+         ==========                                         
+                                                            
+        Cost: 40 battery                                    
+                                                            
+                                                            
+                                                            
+        Effect:                                             
+           Lower the current stat of data of your enemy     
+           by 25% and add this amount to your data stat.    
+           After this deal lower damage to your enemy.      
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
