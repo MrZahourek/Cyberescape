@@ -23,6 +23,323 @@
 
 using namespace std;
 
+void renderChooseYourHeroes(string battleClass = inferno.fighterClass, string name = inferno.name, int hp = inferno.hp, int arm = inferno.arm, int atk = inferno.atk, int bat = inferno.bat, int dat = inferno.dat) {
+    //Prepare
+    prepareForOutput();
+    //local variables
+    string chooseYourHeroesFileString;
+    int currentLine = 0;
+
+    // File prep
+    ifstream chooseYourHeroesFileFile("Visuals/chooseCharacter.txt");
+
+    // Code
+
+    while (getline(chooseYourHeroesFileFile,chooseYourHeroesFileString)) {
+        currentLine++;
+        if(currentLine == 1) {
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 14) {
+            if (chooseCharacter.currentPositionX == 1) {
+                setcolor(0);
+            }
+            cout << chooseYourHeroesFileString;
+            setcolor(15);
+            cout << name;
+        }
+        else if (currentLine == 27) {
+            cout << chooseYourHeroesFileString << chooseCharacterAbilityOrAttackString << endl;
+        }
+        else if (currentLine == 31) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 1);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 1);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 32) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 2);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 2);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+            cout << chooseYourHeroesFileString << battleClass << endl;
+        }
+        else if (currentLine == 33) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 3);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 3);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 34) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 4);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 4);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 35) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 5);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 5);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 36) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 37) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 7);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 7);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 38) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 8);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 8);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+            cout << chooseYourHeroesFileString << " " << hp << endl;
+        }
+        else if (currentLine == 39) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 9);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 9);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 40) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 10);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 10);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+            cout << chooseYourHeroesFileString << " " << arm << endl;
+        }
+        else if (currentLine == 41) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 11);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 11);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 42) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 12);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 12);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+            cout << chooseYourHeroesFileString << " " << atk << endl;
+        }
+        else if (currentLine == 43) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 13);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 13);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 44) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 14);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 14);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+            cout << chooseYourHeroesFileString << " " << bat << endl;
+        }
+        else if (currentLine == 45) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 15);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 15);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 46) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 16);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 16);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+            cout << chooseYourHeroesFileString << " " << dat << endl;
+        }
+        else if (currentLine == 47) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 17);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 17);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 48) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 18);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 18);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 49) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 19);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 19);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 50) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 20);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 20);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 51) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 21);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 21);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 52) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 22);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 22);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 53) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 23);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 23);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 54) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 24);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 24);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 55) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 25);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 25);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 56) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 26);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 26);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 57) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 27);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 27);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 58) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 28);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 28);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 59) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 29);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 29);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 60) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 30);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 30);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+            cout << chooseYourHeroesFileString << endl;
+        }
+        else if (currentLine == 61) {
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackOne.txt", 31);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackTwo.txt", 31);
+            cout << "║";
+            loadLine("Visuals/chooseCharacterAttackThree.txt", 31);
+            cout << chooseYourHeroesFileString << endl;
+        }
+
+
+        else {
+            cout << chooseYourHeroesFileString << endl;
+        }
+    }
+}
+
+
+
 void renderShop() {
     //prep
     prepareForOutput();
@@ -2505,7 +2822,7 @@ void renderShop() {
         }
         else if(currentLine == 10) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 1) {
                 setcolor(14);
                 cout << "► items";
             }
@@ -2517,7 +2834,7 @@ void renderShop() {
         else if(currentLine == 11) {
             cout << shopFileString;
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item1;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem1;
 
@@ -2534,7 +2851,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item1,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item2;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem2;
 
@@ -2551,7 +2868,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item2,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item3;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem3;
 
@@ -2568,7 +2885,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item3,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item4;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem4;
 
@@ -2585,7 +2902,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item4,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item5;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem5;
 
@@ -2602,7 +2919,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item5,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 1) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 1) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item6;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem6;
 
@@ -2623,7 +2940,7 @@ void renderShop() {
         }
         else if(currentLine == 13) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 2) {
                 setcolor(14);
                 cout << "► weapons";
             }
@@ -2634,7 +2951,7 @@ void renderShop() {
         }
         else if(currentLine == 16) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 3) {
                 setcolor(14);
                 cout << "► armours";
             }
@@ -2645,7 +2962,7 @@ void renderShop() {
         }
         else if(currentLine == 19) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 4) {
                 setcolor(14);
                 cout << "► upgrade";
             }
@@ -2657,7 +2974,7 @@ void renderShop() {
         else if (currentLine == 20) {
             cout << shopFileString;
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item7;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem7;
 
@@ -2674,7 +2991,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item7,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item8;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem8;
 
@@ -2691,7 +3008,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item8,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item9;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem9;
 
@@ -2708,7 +3025,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item9,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item10;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem10;
 
@@ -2725,7 +3042,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item10,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item11;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem11;
 
@@ -2742,7 +3059,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item11,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 2) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 2) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item12;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem12;
 
@@ -2763,7 +3080,7 @@ void renderShop() {
         }
         else if(currentLine == 22) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 5) {
                 setcolor(14);
                 cout << "► inventory";
             }
@@ -2774,7 +3091,7 @@ void renderShop() {
         }
         else if (currentLine == 25) {
             cout << shopFileString;
-            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 0 && shopPosition.currentPositionY == 6) {
                 setcolor(14);
                 cout << "► leave";
             }
@@ -2787,7 +3104,7 @@ void renderShop() {
             cout << shopFileString;
 
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item13;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem13;
 
@@ -2804,7 +3121,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item13,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item14;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem14;
 
@@ -2821,7 +3138,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item14,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item15;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem15;
 
@@ -2838,7 +3155,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item15,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item16;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem16;
 
@@ -2855,7 +3172,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item16,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item17;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem17;
 
@@ -2872,7 +3189,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item17,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 3) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 3) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item18;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem18;
 
@@ -2895,7 +3212,7 @@ void renderShop() {
             cout << shopFileString;
 
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item19;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem19;
 
@@ -2912,7 +3229,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item19,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item20;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem20;
 
@@ -2929,7 +3246,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item20,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item21;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem21;
 
@@ -2946,7 +3263,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item21,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item22;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem22;
 
@@ -2963,7 +3280,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item22,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item23;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem23;
 
@@ -2980,7 +3297,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item23,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 4) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 4) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item24;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem24;
 
@@ -3003,7 +3320,7 @@ void renderShop() {
             cout << shopFileString;
 
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item25;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem25;
 
@@ -3020,7 +3337,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item25,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item26;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem26;
 
@@ -3037,7 +3354,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item26,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item27;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem27;
 
@@ -3054,7 +3371,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item27,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item28;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem28;
 
@@ -3071,7 +3388,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item28,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item29;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem29;
 
@@ -3088,7 +3405,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item29,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 5) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 5) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item30;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem30;
 
@@ -3112,7 +3429,7 @@ void renderShop() {
             cout << shopFileString;
 
 
-            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 1 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item31;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem31;
 
@@ -3129,7 +3446,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item31,' ');
             }
 
-            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 2 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item32;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem32;
 
@@ -3146,7 +3463,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item32,' ');
             }
 
-            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 3 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item33;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem33;
 
@@ -3163,7 +3480,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item33,' ');
             }
 
-            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 4 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item34;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem34;
 
@@ -3180,7 +3497,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item34,' ');
             }
 
-            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 5 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item35;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem35;
 
@@ -3197,7 +3514,7 @@ void renderShop() {
                 fillerOfEmptinessStr(31,activeItemsOnDisplayItems.item35,' ');
             }
 
-            if (shopPosition.currentPositionX == 7 && shopPosition.currentPositionY == 6) {
+            if (shopPosition.currentPositionX == 6 && shopPosition.currentPositionY == 6) {
                 ShopInfo.selectedItem = activeItemsOnDisplayItems.item36;
                 ShopInfo.selectedItemPrice = activeItemsOnDisplayPrices.priceItem36;
 
@@ -3219,42 +3536,52 @@ void renderShop() {
         }
         else if (currentLine == 56) {
             cout << shopFileString;
-            if (ShopInfo.selectedItem != "" /*|| ShopInfo.selectedItem != "#----------------"*/ ) {
-                // first lets prevent ► from being here when we render it second time
-                string preventionOfChar = "►";
-
-                size_t found = ShopInfo.selectedItem.find(preventionOfChar);
-                if (found != string::npos) {
-                    ShopInfo.selectedItem = "\b\b" + ShopInfo.selectedItem;
-
-                    setcolor(3);
-                    cout << ShopInfo.selectedItem;
+            if (firstTime != true) {
+                if (shopPosition.currentPositionX == 0) {
+                    cout << "                                                                                                                                            ║";
                 }
                 else {
-                    setcolor(3);
-                    cout << ShopInfo.selectedItem;
-                }
-
-                if (chosenOptionInShop == "inventory") {
-                    fillerOfEmptinessStr(130,ShopInfo.selectedItem,' ');
-                }
-                else {
-                    fillerOfEmptinessStr(18,ShopInfo.selectedItem,' ');
-
-                    if (ShopInfo.selectedItemPrice > 0) {
-                        setcolor(6);
-                        cout << "price: " << ShopInfo.selectedItemPrice << " coin(s)";
-                        setcolor(7);
-                        string howLongIsPrice = to_string(ShopInfo.selectedItemPrice);
-                        fillerOfEmptinessInt(96 - howLongIsPrice.length() + 1,ShopInfo.selectedItemPrice + ShopInfo.selectedItem.length() + 9,' ', "║");
+                    if (ShopInfo.selectedItem == "#----------------" || ShopInfo.selectedItem == "► #----------------") {
+                        cout << "                                                                                                                                            ║";
                     }
                     else {
-                        fillerOfEmptinessInt(98,ShopInfo.selectedItemPrice + ShopInfo.selectedItem.length() + 9,' ', "║");
+                        // first lets prevent ► from being here when we render it second time
+                        string preventionOfChar = "►";
+
+                        size_t found = ShopInfo.selectedItem.find(preventionOfChar);
+                        if (found != string::npos) {
+                            ShopInfo.selectedItem = "\b\b" + ShopInfo.selectedItem;
+
+                            setcolor(3);
+                            cout << ShopInfo.selectedItem;
+                        }
+                        else {
+                            setcolor(3);
+                            cout << ShopInfo.selectedItem;
+                        }
+
+                        if (chosenOptionInShop == "inventory") {
+                            fillerOfEmptinessStr(132,ShopInfo.selectedItem,' ');
+                        }
+                        else {
+                            fillerOfEmptinessStr(30,ShopInfo.selectedItem,' ');
+
+                            if (ShopInfo.selectedItemPrice > 0) {
+                                setcolor(6);
+                                cout << "price: " << ShopInfo.selectedItemPrice << " coin(s)";
+                                setcolor(7);
+                                string howLongIsPrice = to_string(ShopInfo.selectedItemPrice);
+                                fillerOfEmptinessInt(94 - howLongIsPrice.length() + 1,ShopInfo.selectedItemPrice + ShopInfo.selectedItem.length() + 9,' ', "║");
+                            }
+                            else {
+                                fillerOfEmptinessInt(100,ShopInfo.selectedItemPrice + ShopInfo.selectedItem.length() + 9,' ', "║");
+                            }
+                        }
                     }
                 }
             }
-            else {
-                cout << "                                                                                                                                  ║";
+            if (firstTime == true) {
+                cout << "                                                                                                                                            ║";
             }
             setcolor(7);
             cout << endl;
@@ -3272,6 +3599,260 @@ void renderShop() {
             cout << shopFileString << endl;
         }
     }
+}
+
+void renderShopInfo(string item = stupendousEmporiumItemsInventoryItemsDescriptions.item1) {
+    //prep
+    prepareForOutput();
+    //variables
+    int currentLine = 0;
+    string shopInfoFileString;
+    string shopInfoDescriptionFileString;
+    // file prep
+    fstream shopInfoFileFile ("Visuals/shopTemplateInfo.txt");
+    ofstream shopInfoDescriptionFileFile("Visuals/itemDescription.txt");
+
+    // code
+
+    shopInfoDescriptionFileFile << item;
+
+    shopInfoDescriptionFileFile.close();
+
+    while(getline(shopInfoFileFile,shopInfoFileString)) {
+        currentLine++;
+        if (currentLine == 1) {
+            cout << shopInfoFileString << endl;
+        }
+        else if(currentLine == 4 ) {
+            loadFile("Visuals/shopTitle.txt");
+        }
+        else if (currentLine == 9) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",1, true);
+        }
+        else if (currentLine == 10) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",2, true);
+        }
+        else if (currentLine == 11) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",3, true);
+        }
+        else if (currentLine == 12) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",4, true);
+        }
+        else if (currentLine == 13) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",5, true);
+        }
+        else if (currentLine == 14) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",6, true);
+        }
+        else if (currentLine == 15) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",7, true);
+        }
+        else if (currentLine == 16) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",8, true);
+        }
+        else if (currentLine == 17) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",9, true);
+        }
+        else if (currentLine == 18) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",10, true);
+        }
+        else if (currentLine == 19) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",11, true);
+        }
+        else if (currentLine == 20) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",12, true);
+        }
+        else if (currentLine == 21) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",13, true);
+        }
+        else if (currentLine == 22) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",14, true);
+        }
+        else if (currentLine == 23) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",15, true);
+        }
+        else if (currentLine == 24) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",16, true);
+        }
+        else if (currentLine == 25) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",17, true);
+        }
+        else if (currentLine == 26) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",18, true);
+        }
+        else if (currentLine == 27) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",19, true);
+        }
+        else if (currentLine == 28) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",20, true);
+        }
+        else if (currentLine == 29) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",21, true);
+        }
+        else if (currentLine == 30) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",22, true);
+        }
+        else if (currentLine == 31) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",23, true);
+        }
+        else if (currentLine == 32) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",24, true);
+        }
+        else if (currentLine == 33) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",25, true);
+        }
+        else if (currentLine == 34) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",26, true);
+        }
+        else if (currentLine == 35) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",27, true);
+        }
+        else if (currentLine == 36) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",28, true);
+        }
+        else if (currentLine == 37) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",29, true);
+        }
+        else if (currentLine == 38) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",30, true);
+        }
+        else if (currentLine == 39) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",31, true);
+        }
+        else if (currentLine == 40) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",32, true);
+        }
+        else if (currentLine == 41) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",33, true);
+        }
+        else if (currentLine == 42) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",34, true);
+        }
+        else if (currentLine == 43) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",35, true);
+        }
+        else if (currentLine == 44) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",36, true);
+        }
+        else if (currentLine == 45) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",37, true);
+        }
+        else if (currentLine == 46) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",38, true);
+        }
+        else if (currentLine == 47) {
+            cout << shopInfoFileString;
+            loadLine("Visuals/itemDescription.txt",1, true);
+        }
+
+        else {
+            cout << shopInfoFileString << endl;
+        }
+    }
+}
+
+void renderMainBattleScene (string enemyName = arian.name, string enemyEffect = arian.effect, int enemyHp = arian.hp, int enemyArm = arian.arm, int enemyAtk = arian.atk, int enemyBat = arian.bat, int enemyDat = arian.dat, string heroName = active.name, string heroEffect = active.effect, int heroHp = active.hp, int heroArm = active.arm, int heroAtk = active.atk, int heroBat = active.bat, int heroDat = active.dat) {
+    //prep
+    prepareForOutput();
+    //variables
+    int currentLine;
+    string MainBattleSceneFileString;
+    //File prep
+    ifstream MainBattleSceneFileFile ("Visuals/battleSceneMain.txt");
+
+    // code
+    while (getline(MainBattleSceneFileFile, MainBattleSceneFileString)) {
+        currentLine++;
+
+        if(currentLine == 1 ){
+            cout << MainBattleSceneFileString << endl;
+        }
+        else if(currentLine == 2){
+            cout << MainBattleSceneFileString << enemyName << endl;
+        }
+        else if(currentLine == 6) {
+            cout << MainBattleSceneFileString << enemyEffect << endl;
+        }
+        else if(currentLine == 11) {
+            cout << MainBattleSceneFileString << enemyHp << endl;
+        }
+        else if(currentLine == 13) {
+            cout << MainBattleSceneFileString << enemyArm << endl;
+        }
+        else if(currentLine == 15) {
+            cout << MainBattleSceneFileString << enemyAtk << endl;
+        }
+        else if(currentLine == 17) {
+            cout << MainBattleSceneFileString << enemyBat << endl;
+        }
+        else if(currentLine == 19) {
+            cout << MainBattleSceneFileString << enemyDat << endl;
+        }
+        else if(currentLine == 24) {
+            cout << MainBattleSceneFileString << heroName << endl;
+        }
+        else if(currentLine == 28) {
+            cout << MainBattleSceneFileString << heroEffect << endl;
+        }
+        else if(currentLine == 33) {
+            cout << MainBattleSceneFileString << heroHp << endl;
+        }
+        else if(currentLine == 35) {
+            cout << MainBattleSceneFileString << heroArm << endl;
+        }
+        else if(currentLine == 37) {
+            cout << MainBattleSceneFileString << heroAtk << endl;
+        }
+        else if(currentLine == 39) {
+            cout << MainBattleSceneFileString << heroBat << endl;
+        }
+        else if(currentLine == 41) {
+            cout << MainBattleSceneFileString << heroDat << endl;
+        }
+
+        else {
+            cout << MainBattleSceneFileString << endl;
+        }
+    }
+
 }
 
 #endif //GAME_RENDERS_H
