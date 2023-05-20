@@ -22,10 +22,12 @@
 
 using namespace std;
 
+// sets console to UTF - 8
 void prepareForOutput() {
     SetConsoleOutputCP(CP_UTF8);
 }
 
+// fills up space after a word until the specified stop point
 void fillerOfEmptinessStr(int stopPoint = 10, string startingFromWorld = "abc", char fillingChar = ' ', string lastChar = "") {
     for (int i = startingFromWorld.length(); i <= stopPoint; i++) {
         cout << fillingChar;
@@ -33,6 +35,7 @@ void fillerOfEmptinessStr(int stopPoint = 10, string startingFromWorld = "abc", 
     cout << lastChar;
 }
 
+// fills up space after a number until the specified stop point
 void fillerOfEmptinessInt(int stopPoint = 10, int startingFromNum = 123, char fillingChar = ' ', string lastChar = "") {
     string startingFromWorld = to_string(startingFromNum);
     for (int i = startingFromWorld.length(); i <= stopPoint; i++) {
@@ -98,6 +101,65 @@ void loadFile(string pathToFile = "") {
     while (getline(fileInput, fileOutput)) {
         cout << fileOutput << endl;
     }
+}
+
+
+
+// functions for specific parts of game
+
+// prepares the title of shop and makes preparations for loading in the items to the shop
+int prepareShopTitle() {
+    //prep
+    prepareForOutput();
+
+    // file prep
+    ofstream title("Visuals/shopTitle.txt");
+
+    // variables
+    string whatShopWeGenerate;
+
+
+    //code
+    srand((unsigned) time(NULL));
+    shopNumber = rand() % 7;
+    shopNumber++;
+
+    shopNumber = 1;
+
+    if (shopNumber == 1) {
+        title << stupendousEmporium.shopTitle;
+        title.close();
+        return 1;
+    } else if (shopNumber == 2) {
+        title << justMonsters.shopTitle;
+        title.close();
+        return 2;
+    } else if (shopNumber == 3) {
+        title << rosesFlowerShop.shopTitle;
+        title.close();
+        return 3;
+    } else if (shopNumber == 4) {
+        title << clydeHealery.shopTitle;
+        title.close();
+        return 4;
+    } else if (shopNumber == 5) {
+        title << swordsAndMore.shopTitle;
+        title.close();
+        return 5;
+    } else if (shopNumber == 6) {
+        title << violinViolence.shopTitle;
+        title.close();
+        return 6;
+    } else if (shopNumber == 7) {
+        title << assisiAssistance.shopTitle;
+        title.close();
+        return 7;
+    } else if (shopNumber == 8) {
+        title << snackVagon.shopTitle;
+        title.close();
+        return 8;
+    }
+
 }
 
 #endif //GAME_MYFCE_H

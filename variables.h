@@ -5,21 +5,6 @@
 #ifndef GAME_VARIABLES_H
 #define GAME_VARIABLES_H
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <conio.h>
-#include <windows.h>
-#include <stdlib.h>
-
-#include "attacks.h"
-#include "abilities.h"
-#include "renders.h"
-#include "shops.h"
-#include "characters.h"
-#include "info.h"
-#include "myFce.h"
-
 using namespace std;
 
 //Variables
