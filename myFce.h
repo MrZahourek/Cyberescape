@@ -124,8 +124,6 @@ int prepareShopTitle() {
     shopNumber = rand() % 7;
     shopNumber++;
 
-    shopNumber = 1;
-
     if (shopNumber == 1) {
         title << stupendousEmporium.shopTitle;
         title.close();
