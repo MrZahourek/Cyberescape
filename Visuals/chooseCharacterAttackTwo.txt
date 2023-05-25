@@ -2,16 +2,16 @@
                         Attack two                          
                         ==========                          
                                                             
-          Data Leak                                         
-          =========                                         
+      Volume ++                                             
+      =========                                             
                                                             
-        Cost: 100% data                                     
+        Cost: 40 battery                                    
                                                             
                                                             
                                                             
         Effect:                                             
-           For every 10 data spent when this activated      
-           deal one damage yo your enemy.                   
+           Deal high damage to your enemy.                  
+                                                            
                                                             
                                                             
                                                             

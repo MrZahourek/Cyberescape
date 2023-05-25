@@ -2,18 +2,17 @@
                         Attack one                          
                         ==========                          
                                                             
-         Data leach                                         
-         ==========                                         
+      Rewire implants                                       
+      ===============                                       
                                                             
-        Cost: 40 battery                                    
+        Cost: 40 battery, 15 data                           
                                                             
                                                             
                                                             
         Effect:                                             
-           Lower the current stat of data of your enemy     
-           by 25% and add this amount to your data stat.    
-           After this deal lower damage to your enemy.      
-                                                            
+           Deal low damage to your enemy, that enemy        
+           will skip their next turn (you have one          
+           more action).                                    
                                                             
                                                             
                                                             

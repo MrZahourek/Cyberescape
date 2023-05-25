@@ -1,0 +1,137 @@
+Notes:
+
+
+╚ (alt + 200) ╔ (alt + 201) ╩ (alt + 202) ╦ (alt + 203) ╠ (alt + 204) ═ (alt + 205) ╬ (alt + 206) ╣ (alt + 185) ║ (alt + 186) ╗ (alt + 187) ╝ (alt + 188) ► (alt + 16)
+
+Legend:
+- deals damage = attack with strenght of a the attack stat
+- deals higer damage = attack with strenght of the attack stat + 2
+- deals lower damage = attack with strenght of the attack stat - 2
+	Characters:
+			- Inferno -- > class fighter
+				    -- > attacks:
+							1) Sheild Melt = uses lot of battery, destroys sheild/attacks armour & deals damage;
+							2) Flamethrower Overclock = uses data and battery, deals higer damage & gives burrning effect;
+							3) Smoke granade = uses battery and data, give burrning and poison effect to your enemy;
+					-- > abilites:
+							1) Firewall = uses data, create a sheild (+2 arm.)
+							2) Fire kills germs = uses battery, clear all effect put on pyro
+							3) Fight fire with fire = uses battery and data, for the next 3 turns pyro can't get burrning effect
+					-- > Stats:
+							HP: 35
+							ARM: --
+							ATK: 7
+							BAT: 100
+							DAT: 75
+			
+			- Atlas -- > class fighter/support
+					-- > attacks:
+							1) Data leach = uses lot of battery, deals lower damage & steal 25% of your enemy data;
+							2) Data Leak = uses all data, for every 10 data you will deal one damage;
+							3) SQL injection = uses battery and data, deals damage & lower enemy's battery by 20;
+					-- > abilites:
+							1) Import library = free, + 20 data
+							2) Open backdoor = uses data, next turn you will switch active hero after you perform an action
+							3) Value change = uses data and battery, heal 2 hp
+					-- > Stats:
+							HP: 40
+							ARM: --
+							ATK: 6
+							BAT: 100
+							DAT: 250
+			
+			- Hanibal -- > class: fighter
+						-- > attacks:
+								1) 
+								2) 
+								3) 
+						-- > abilites:
+								1)
+								2)
+								3)
+						-- > Stats:
+								HP:
+								ARM:
+								ATK:
+								BAT:
+								DAT:
+			
+			- Mono I. -- > class: Tank
+						-- > attacks:
+								1) 
+								2) 
+								3) 
+						-- > abilites:
+								1)
+								2)
+								3)
+						-- > Stats:
+								HP:
+								ARM:
+								ATK:
+								BAT:
+								DAT:
+			
+			- Biohazard -- > class: Tank
+						-- > attacks:
+								1) Spore rain = uses data and battery, deal normal damage to your enemy but ignore their shield;
+								2) Wood hammer = uses lot of data, deal higer damage to your enemy and give them poison effect;
+								3) Flowers burn = uses lot of battery, deal hight damage to your enemy and give them burning effect;
+						-- > abilites:
+								1) Fungus sheild = uses lot of battery, summon a shield with strenght of 5 and for every turn its not destroied it will add +1 to itself;
+								2) Regrow = uses lot of data, summon a sheild with strenght of your strongest fungus sheild(after it was destroied);
+								3) Sheild heal = uses lot of data, heal yourself by the same strenght as your enemy's sheild;
+						-- > Stats:
+								HP: 50
+								ARM: --
+								ATK: 3
+								BAT: 100
+								DAT: 150
+			
+			- Zip -- > class: Tank
+						-- > attacks:
+								1) Compression = uses data and battery, deal low damage to your enemy and lower their attack stat by one;
+								2) Zap = uses battery, deal higer damage;
+								3) Decompress sheild, uses lot of data, deal low damage to your enemy and create a sheild with the strenght of 3;
+						-- > abilites:
+								1) Sheild compression = uses lot of data, destroy sheild of your enemy and clear yourself of any effect;
+								2) Decompress hp = uses data and lot of battery, heal 5 hp;
+								3) Zip them up = uses lot of battery, next turn your enemy will skip a turn;
+						-- > Stats:
+								HP: 47
+								ARM: --
+								ATK: 3
+								BAT: 200
+								DAT: 100
+			
+			- Plagy -- > class: support
+					-- > attacks:
+							1) Release the cyberplague = uses lot of data, deal normal damage while ignoring sheild of your enemy;
+							2) Germs in wound = uses lot of battery, deal normal damage and give poison effect to your enemy;
+							3) Put on the drain worm = uses lot of data and battery, put drain effect on your enemy now it cant get any other effects but can be put away if the enemy activates sheild or clears effects;
+					-- > abilites:
+							1) Pick up drain worm = free, for every turn the drain effect was active heal one hp of any hero;
+							2) Good old surgery = uses battery, heal 5 hp to any of your characters;
+							3) Masive surgery = uses battery and data, heal 2 hp of every character;
+					-- > Stats:
+							HP: 17
+							ARM: --
+							ATK: 4
+							BAT: 150
+							DAT: 200
+			
+			- Amper -- > class: support
+					-- > attacks:
+							1) Trojan bug = uses lot of data, heal 2 hp and deal 2 damage to your enemy;
+							2) Virtual punch = uses lot of battery and data, deal higer damage;
+							3) Brute force attack = uses lot of battery and data, ignore sheild and deal low damage to your enemy;
+					-- > abilites:
+							1) Reload Hp = uses battery, choose any other alive hero and change their hp stat to be same as yours;
+							2) Reload Arm = uses battery, choose any other alive hero and change their Arm stat to be same as yours;
+							3) Recive Hp = uses data, choose any other alive hero and copy their hp stat;
+					-- > Stats:
+							HP: 15
+							ARM: --
+							ATK: 3
+							BAT: 150
+							DAT: 150

@@ -3789,6 +3789,70 @@ void renderShopInfo(string item = stupendousEmporiumItemsInventoryItemsDescripti
     }
 }
 
+
+
+void renderMap(){
+    //prep
+    prepareForOutput();
+    //variables
+    int currentLine = 0;
+    string mapFileString;
+    //file prep
+    fstream mapFileFile("Visuals/map.txt");
+
+    // code
+
+    while(getline(mapFileFile,mapFileString)){
+        currentLine++;
+
+        if (currentLine == 1) {
+            cout << mapFileString << endl;
+        }
+        else if(currentLine == 33) {
+            cout << mapFileString;
+            if(LevelInfo.currentLevel < 10) {
+                cout << "0";
+            }
+            cout << LevelInfo.currentLevel;
+        }
+
+
+        else {
+            cout << mapFileString << endl;
+        }
+    }
+}
+
+void renderCharacterSheet() {
+    // prep
+    prepareForOutput();
+    // variables
+    int currentLine = 0;
+    string characterSheetRenderFileString;
+    // file prep
+    fstream characterSheetRenderFileFile ("Visuals/characterSheet.txt");
+
+    // code
+    while (getline(characterSheetRenderFileFile,characterSheetRenderFileString)) {
+        currentLine++;
+
+        if(currentLine == 1) {
+            cout << characterSheetRenderFileString << endl;
+        }
+        else if (currentLine == 6) {
+            cout << characterSheetRenderFileString << active.name << "│                                                                                                            ║" << endl;
+        }
+
+
+
+        else {
+            cout << characterSheetRenderFileString << endl;
+        }
+    }
+}
+
+
+
 void renderMainBattleScene (string enemyName = arian.name, string enemyEffect = arian.effect, int enemyHp = arian.hp, int enemyArm = arian.arm, int enemyAtk = arian.atk, int enemyBat = arian.bat, int enemyDat = arian.dat, string heroName = active.name, string heroEffect = active.effect, int heroHp = active.hp, int heroArm = active.arm, int heroAtk = active.atk, int heroBat = active.bat, int heroDat = active.dat) {
     //prep
     prepareForOutput();

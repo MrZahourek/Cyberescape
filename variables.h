@@ -9,7 +9,7 @@ using namespace std;
 
 //Variables
 // string
-string whatScreenWeSee = "Shop";
+string whatScreenWeSee = "Choose Character";
 string chooseCharacterAbilityOrAttackString = " Attacks ";
 string chosenOptionInShop = "items";
 // int
