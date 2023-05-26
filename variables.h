@@ -15,6 +15,8 @@ string chosenOptionInShop = "items";
 // int
 int characterSlots = 0;
 int shopNumber = 0;
+int lowestPointInChoosingHeroes = 1;
+int higestPointInChoosingHeroes = 8;
 // char
 char pressedKey;
 // bool

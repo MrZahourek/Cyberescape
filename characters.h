@@ -50,11 +50,12 @@ public:
 //Characters
 characters       inferno("      Inferno      ", "Clear", "                       Fighter", "Shield melt", "Flamethrower", "Smoke grenade", "Firewall","Fire kills germs","Fight fire with fire", 35, 0, 7, 100, 75, false, false);
 characters         atlas("       Atlas       ", "Clear", "                   Fighter/Support                   ", "Data leach", "Data leak", "SQL injection","Import library","Open backdoor","Value change", 40, 0, 6, 100, 250, false, false);
-characters    staticTheI("  Static the III.  ", "Clear", "                       Fighter","Rewire implants","Volume ++", "110% overclock", "Swap channel", "", "",35, 0, 5, 200, 200,false,false);
-characters   staticTheII("  Static the III.  ", "Clear", "                       Fighter","Error 404","Blue screen", "White screen", "Swap channel", "", "",35, 0, 5, 200, 200,false,false);
-characters  staticTheIII("  Static the III.  ", "Clear", "                       Fighter","Signal gathering","Scan battlefield", "Exposed wires", "Swap channel", "", "",0, 20, 5, 200, 200,false,false);
-characters       hanibal("     Hanibal       ", "Clear", "                       Fighter","Big bite", "Scrap reuse", "Spine snap", "Chew off flesh", "Eat up", "",25,0,8,350,0,false,false);
-characters         monoI("     Mono I.       ", "Clear", "                       Defence","Shield infection", "Meat hook", "Armour repair", "Live shield", "Super shield", "", 50, 0, 3, 150, 100, false, false);
+characters       hanibal("      Hanibal      ", "Clear", "                       Fighter","Big bite", "Scrap reuse", "Spine snap bite", "Chew off flesh", "Eat up", "Bite off achilles",25,0,8,350,80,false,false);
+characters         monoI("      Mono I.      ", "Clear", "                       Defence","Shield infection", "Meat hook", "Iron punch", "Live shield", "Armour repair", "Super shield", 50, 0, 3, 150, 100, false, false);
+characters     biohazard("     Biohazard     ", "Clear", "                        Tank","Spore rain","Wood hammer","Flowers burn","Fungus shield","Regrow","Shield heal", 50, 0, 3, 100, 150, false, false);
+characters           zip("        Zip        ", "Clear", "                        Tank", "Compression", "Zap", "Decompress shield", "Shield compression", "Decompress hp", "Zip them up", 47, 0, 3, 200, 100, false, false);
+characters         plagy("       Plagy       ", "Clear", "                      Supporter", "Release the cyberplague", "Germs in wound", "Put on the drain worm", "Pick up drain worm", "Good old surgery", "Massive surgery", 17, 0, 4, 150, 200, false, false);
+characters         amper("       Amper       ", "Clear", "                      Supporter", "Trojan bug", "Virtual punch", "Brute force attack", "Reload Hp", "Reload Arm", "Receive Hp", 15, 0, 3, 150, 150, false, false);
 
 //Enemies
 characters arian("Arian", "Clear", "", "Atk 1", "Atk 2", "Atk 3", "Abt 1", "Abt 2", "Abt 3", 10, 5, 1, 100, 100, false, false);

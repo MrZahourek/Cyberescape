@@ -1,17 +1,17 @@
                                                             
-                        Attack two                          
-                        ==========                          
+                        Ability two                         
+                        ===========                         
                                                             
-      Volume ++                                             
-      =========                                             
+      Reload Arm                                            
+      ==========                                            
                                                             
-        Cost: 40 battery                                    
+        | Cost: 15 battery                                  
                                                             
                                                             
                                                             
-        Effect:                                             
-           Deal high damage to your enemy.                  
-                                                            
+        | Effect:                                           
+           Choose any other alive hero and change           
+           their Arm stat to be same as yours.              
                                                             
                                                             
                                                             

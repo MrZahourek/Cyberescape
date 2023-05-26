@@ -1,18 +1,18 @@
                                                             
-                        Attack one                          
-                        ==========                          
+                        Ability one                         
+                        ===========                         
                                                             
-      Rewire implants                                       
-      ===============                                       
+      Reload Hp                                             
+      =========                                             
                                                             
-        Cost: 40 battery, 15 data                           
+        | Cost: 15 battery                                  
                                                             
                                                             
                                                             
-        Effect:                                             
-           Deal low damage to your enemy, that enemy        
-           will skip their next turn (you have one          
-           more action).                                    
+        | Effect:                                           
+           Choose any other alive hero and change           
+           their hp stat to be same as yours.               
+                                                            
                                                             
                                                             
                                                             

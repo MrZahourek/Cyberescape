@@ -57,22 +57,30 @@ int main() {
                 startOfCycle:
                 system("cls");
                 // First render for specific character
-                if (chooseCharacter.currentPositionX == 1) { /* class, name, hp, arm, atk, bat, dat */
+                if (chooseCharacter.currentPositionX <= 1) { /* class, name, hp, arm, atk, bat, dat */
                     renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,inferno.bat, inferno.dat);
                 }
                 else if (chooseCharacter.currentPositionX == 2) {
                     renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,atlas.dat);
                 }
                 else if (chooseCharacter.currentPositionX == 3) {
-                    renderChooseYourHeroes(staticTheIII.fighterClass, staticTheIII.name, staticTheIII.hp, staticTheIII.atk, staticTheIII.arm, staticTheIII.bat, staticTheIII.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 4) {
                     renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk, hanibal.bat, hanibal.dat);
                 }
-                else if (chooseCharacter.currentPositionX == 5) {
-                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk, monoI.bat, monoI.bat);
+                else if (chooseCharacter.currentPositionX == 4) {
+                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk,monoI.bat, monoI.dat);
                 }
-
+                else if (chooseCharacter.currentPositionX == 5) {
+                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm, biohazard.atk,biohazard.bat, biohazard.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 6) {
+                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk,zip.bat, zip.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 7) {
+                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat, plagy.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 8) {
+                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat, amper.dat);
+                }
                 // Get key
                 pressedKey = getch();
 
@@ -99,7 +107,7 @@ int main() {
 
                         case 3:
                         {
-                            if (staticTheIII.picked == true) {
+                            if (hanibal.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
@@ -107,7 +115,7 @@ int main() {
 
                         case 4:
                         {
-                            if (hanibal.picked == true) {
+                            if (monoI.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
@@ -115,10 +123,31 @@ int main() {
 
                         case 5:
                         {
-                            if (monoI.picked == true) {
+                            if (biohazard.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
+                        }
+
+                        case 6:
+                        {
+                            if (zip.picked == true) {
+                                chooseCharacter.currentPositionX--;
+                            }
+                        }
+
+                        case 7:
+                        {
+                            if (plagy.picked == true) {
+                                chooseCharacter.currentPositionX--;
+                            }
+                        }
+
+                        case 8:
+                        {
+                            if (amper.picked == true) {
+                                chooseCharacter.currentPositionX--;
+                            }
                         }
                     }
                 } // A
@@ -144,7 +173,7 @@ int main() {
 
                         case 3:
                         {
-                            if (staticTheIII.picked == true) {
+                            if (hanibal.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
@@ -152,7 +181,7 @@ int main() {
 
                         case 4:
                         {
-                            if (hanibal.picked == true) {
+                            if (monoI.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
@@ -160,104 +189,39 @@ int main() {
 
                         case 5:
                         {
-                            if (monoI.picked == true) {
+                            if (biohazard.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
+                        }
+
+                        case 6:
+                        {
+                            if (zip.picked == true) {
+                                chooseCharacter.currentPositionX++;
+                            }
+                        }
+
+                        case 7:
+                        {
+                            if (plagy.picked == true) {
+                                chooseCharacter.currentPositionX++;
+                            }
+                        }
+
+                        case 8:
+                        {
+                            if (amper.picked == true) {
+                                chooseCharacter.currentPositionX++;
+                            }
                         }
                     }
                 } // D
                 else if (int(pressedKey) == 87 || int(pressedKey) == 119) { // W or w
-                    chooseCharacter.currentPositionX--;
-
-                    switch(chooseCharacter.currentPositionX) {
-                        case 1:
-                        {
-                            if (inferno.picked == true) {
-                                chooseCharacter.currentPositionX--;
-                            }
-                            break;
-                        }
-
-                        case 2:
-                        {
-                            if (atlas.picked == true) {
-                                chooseCharacter.currentPositionX--;
-                            }
-                            break;
-                        }
-
-                        case 3:
-                        {
-                            if (staticTheIII.picked == true) {
-                                chooseCharacter.currentPositionX--;
-                            }
-                            break;
-                        }
-
-                        case 4:
-                        {
-                            if (hanibal.picked == true) {
-                                chooseCharacter.currentPositionX--;
-                            }
-                            break;
-                        }
-
-                        case 5:
-                        {
-                            if (monoI.picked == true) {
-                                chooseCharacter.currentPositionX--;
-                            }
-                            break;
-                        }
-                    }
+                    chooseCharacter.currentPositionY--;
                 } // W
                 else if (int(pressedKey) == 83 || int(pressedKey) == 115) { // S or s
-                    chooseCharacterAbilityOrAttack.currentPositionX++;
-
-                    chooseCharacter.currentPositionX++;
-
-                    switch(chooseCharacter.currentPositionX) {
-                        case 1:
-                        {
-                            if (inferno.picked == true) {
-                                chooseCharacter.currentPositionX++;
-                            }
-                            break;
-                        }
-
-                        case 2:
-                        {
-                            if (atlas.picked == true) {
-                                chooseCharacter.currentPositionX++;
-                            }
-                            break;
-                        }
-
-                        case 3:
-                        {
-                            if (staticTheIII.picked == true) {
-                                chooseCharacter.currentPositionX++;
-                            }
-                            break;
-                        }
-
-                        case 4:
-                        {
-                            if (hanibal.picked == true) {
-                                chooseCharacter.currentPositionX++;
-                            }
-                            break;
-                        }
-
-                        case 5:
-                        {
-                            if (monoI.picked == true) {
-                                chooseCharacter.currentPositionX++;
-                            }
-                            break;
-                        }
-                    }
+                    chooseCharacter.currentPositionY++;
                 } // S
                 else if (int(pressedKey) == 69 || int(pressedKey) == 101) { // E or e
                     if (chooseCharacter.currentPositionX == 1) { // inferno
@@ -292,36 +256,46 @@ int main() {
                         chooseCharacter.currentPositionX++;
                     }
                     else if (chooseCharacter.currentPositionX == 3) {
-                        staticTheI.picked = true;
-                        staticTheII.picked = true;
-                        staticTheIII.picked = true;
-                        staticTheIII.active = true;
-
-                        characterSlots++;
-                        chooseCharacter.currentPositionX++;
-                    }
-                    else if (chooseCharacter.currentPositionX == 4) {
                         hanibal.picked = true;
                         hanibal.active = true;
 
                         characterSlots++;
                         chooseCharacter.currentPositionX++;
                     }
-                    else if (chooseCharacter.currentPositionX == 5) {
+                    else if (chooseCharacter.currentPositionX == 4) {
                         monoI.picked = true;
                         monoI.active = true;
 
                         characterSlots++;
                         chooseCharacter.currentPositionX++;
                     }
+                    else if (chooseCharacter.currentPositionX == 5) {
+                        biohazard.picked = true;
+                        biohazard.active = true;
+
+                        characterSlots++;
+                        chooseCharacter.currentPositionX++;
+                    }
                     else if (chooseCharacter.currentPositionX == 6) {
-                        // Biohazard
+                        zip.picked = true;
+                        zip.active = true;
+
+                        characterSlots++;
+                        chooseCharacter.currentPositionX++;
                     }
                     else if (chooseCharacter.currentPositionX == 7) {
-                        // Zip
+                        plagy.picked = true;
+                        plagy.active = true;
+
+                        characterSlots++;
+                        chooseCharacter.currentPositionX++;
                     }
                     else if (chooseCharacter.currentPositionX == 8) {
-                        // Plagy
+                        amper.picked = true;
+                        amper.active = true;
+
+                        characterSlots++;
+                        chooseCharacter.currentPositionX++;
                     }
                 } // E
 
@@ -331,8 +305,7 @@ int main() {
 
                 //prepare re-renders
                 //choose character change attacks and abilities
-                /// homework - finish this shit you need to do this like just do it already dont forget about it just type it all out there its not that hard
-                if (chooseCharacter.currentPositionX == 1) {
+                if (chooseCharacter.currentPositionX == 1 && chooseCharacter.currentPositionY == 1) {
                     file.open("Visuals/chooseCharacterAttackOne.txt");
                     clearFile("Visuals/chooseCharacterAttackOne.txt");
                     file << infernoAttacks.attackOneDescriptionChooseYourCharacter;
@@ -348,7 +321,7 @@ int main() {
                     file << infernoAttacks.attackThreeDescriptionChooseYourCharacter;
                     file.close();
                 }
-                else if (chooseCharacter.currentPositionX == 2) {
+                else if (chooseCharacter.currentPositionX == 2 && chooseCharacter.currentPositionY == 1) {
                     file.open("Visuals/chooseCharacterAttackOne.txt");
                     clearFile("Visuals/chooseCharacterAttackOne.txt");
                     file << atlasAttacks.attackOneDescriptionChooseYourCharacter;
@@ -364,23 +337,7 @@ int main() {
                     file << atlasAttacks.attackThreeDescriptionChooseYourCharacter;
                     file.close();
                 }
-                else if (chooseCharacter.currentPositionX == 3) {
-                    file.open("Visuals/chooseCharacterAttackOne.txt");
-                    clearFile("Visuals/chooseCharacterAttackOne.txt");
-                    file << staticTheIAttacks.attackOneDescriptionChooseYourCharacter;
-                    file.close();
-
-                    file.open("Visuals/chooseCharacterAttackTwo.txt");
-                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
-                    file << staticTheIAttacks.attackTwoDescriptionChooseYourCharacter;
-                    file.close();
-
-                    file.open("Visuals/chooseCharacterAttackThree.txt");
-                    clearFile("Visuals/chooseCharacterAttackThree.txt");
-                    file << staticTheIAttacks.attackThreeDescriptionChooseYourCharacter;
-                    file.close();
-                }
-                else if (chooseCharacter.currentPositionX == 4) {
+                else if (chooseCharacter.currentPositionX == 3 && chooseCharacter.currentPositionY == 1) {
                     file.open("Visuals/chooseCharacterAttackOne.txt");
                     clearFile("Visuals/chooseCharacterAttackOne.txt");
                     file << hanibalAttacks.attackOneDescriptionChooseYourCharacter;
@@ -388,20 +345,229 @@ int main() {
 
                     file.open("Visuals/chooseCharacterAttackTwo.txt");
                     clearFile("Visuals/chooseCharacterAttackTwo.txt");
-                    file << staticTheIAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file << hanibalAttacks.attackTwoDescriptionChooseYourCharacter;
                     file.close();
 
                     file.open("Visuals/chooseCharacterAttackThree.txt");
                     clearFile("Visuals/chooseCharacterAttackThree.txt");
-                    file << staticTheIAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file << hanibalAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 4 && chooseCharacter.currentPositionY == 1) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << monoIAttacks.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << monoIAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << monoIAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 5 && chooseCharacter.currentPositionY == 1) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << biohazardAttacks.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << biohazardAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << biohazardAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 6 && chooseCharacter.currentPositionY == 1) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << zipAttacks.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << zipAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << zipAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 7 && chooseCharacter.currentPositionY == 1) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << plagyAttacks.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << plagyAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << plagyAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 8 && chooseCharacter.currentPositionY == 1) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << amperAttacks.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << amperAttacks.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << amperAttacks.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+
+                if (chooseCharacter.currentPositionX == 1 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << infernoAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << infernoAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << infernoAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 2 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << atlasAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << atlasAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << atlasAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 3 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << hanibalAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << hanibalAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << hanibalAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 4 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << monoIAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << monoIAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << monoIAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 5 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << biohazardAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << biohazardAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << biohazardAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 6 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << zipAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << zipAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << zipAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 7 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << plagyAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << plagyAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << plagyAbilities.attackThreeDescriptionChooseYourCharacter;
+                    file.close();
+                }
+                else if (chooseCharacter.currentPositionX == 8 && chooseCharacter.currentPositionY == 2) {
+                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                    file << amperAbilities.attackOneDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                    file << amperAbilities.attackTwoDescriptionChooseYourCharacter;
+                    file.close();
+
+                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                    file << amperAbilities.attackThreeDescriptionChooseYourCharacter;
                     file.close();
                 }
 
                 //choose character attack or ability
-                if (chooseCharacterAbilityOrAttack.currentPositionX == 1) {
+                if (chooseCharacter.currentPositionY == 1) {
                     chooseCharacterAbilityOrAttackString = " Attacks ";
                 }
-                else if (chooseCharacterAbilityOrAttack.currentPositionX == 2) {
+                else if (chooseCharacter.currentPositionY == 2) {
                     chooseCharacterAbilityOrAttackString = "Abilities";
                 }
 
@@ -414,11 +580,11 @@ int main() {
                 }
 
                 //Round up the numbers
-                if (chooseCharacterAbilityOrAttack.currentPositionX >= 2) {
-                    chooseCharacterAbilityOrAttack.currentPositionX = 2;
+                if (chooseCharacter.currentPositionY >= 2) {
+                    chooseCharacter.currentPositionY = 2;
                 }
-                else if (chooseCharacterAbilityOrAttack.currentPositionX <= 1) {
-                    chooseCharacterAbilityOrAttack.currentPositionX = 1;
+                else if (chooseCharacter.currentPositionY <= 1) {
+                    chooseCharacter.currentPositionY = 1;
                 }
 
                 if (chooseCharacter.currentPositionX >= 8) {
@@ -436,13 +602,22 @@ int main() {
                     renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,atlas.dat);
                 }
                 else if (chooseCharacter.currentPositionX == 3) {
-                    renderChooseYourHeroes(staticTheIII.fighterClass, staticTheIII.name, staticTheIII.hp, staticTheIII.atk, staticTheIII.arm, staticTheIII.bat, staticTheIII.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 4) {
                     renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk, hanibal.bat, hanibal.dat);
                 }
+                else if (chooseCharacter.currentPositionX == 4) {
+                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk,monoI.bat, monoI.dat);
+                }
                 else if (chooseCharacter.currentPositionX == 5) {
-                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk, monoI.bat, monoI.bat);
+                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm, biohazard.atk,biohazard.bat, biohazard.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 6) {
+                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk,zip.bat, zip.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 7) {
+                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat, plagy.dat);
+                }
+                else if (chooseCharacter.currentPositionX == 8) {
+                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat, amper.dat);
                 }
             }
         }

@@ -41,7 +41,15 @@ void renderChooseYourHeroes(string battleClass = inferno.fighterClass, string na
             cout << chooseYourHeroesFileString << endl;
         }
         else if (currentLine == 14) {
-            if (chooseCharacter.currentPositionX == 1) {
+            if (chooseCharacter.currentPositionX == lowestPointInChoosingHeroes) {
+                setcolor(0);
+            }
+            cout << chooseYourHeroesFileString;
+            setcolor(15);
+            cout << name;
+        }
+        else if (currentLine == 15) {
+            if (chooseCharacter.currentPositionX == higestPointInChoosingHeroes) {
                 setcolor(0);
             }
             cout << chooseYourHeroesFileString;
@@ -50,6 +58,14 @@ void renderChooseYourHeroes(string battleClass = inferno.fighterClass, string na
         }
         else if (currentLine == 27) {
             cout << chooseYourHeroesFileString << chooseCharacterAbilityOrAttackString << endl;
+        }
+        else if (currentLine == 29) {
+            if (chooseCharacterAbilityOrAttackString == " Attacks ") {
+                cout << chooseYourHeroesFileString << " Attack 1                          ║                          Attack 2                          ║                          Attack 3                          ║\t\t\tClass" << endl;
+            }
+            else if (chooseCharacterAbilityOrAttackString == "Abilities") {
+                cout << chooseYourHeroesFileString << "Ability  1                         ║                         Ability  2                         ║                        Ability  3                          ║\t\t\tClass" << endl;
+            }
         }
         else if (currentLine == 31) {
             cout << "║";
