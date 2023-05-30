@@ -38,7 +38,7 @@ levelInfo tutorial ("Arian");
 
 // positions
 levelInfo chooseCharacter(1,1);
-//levelInfo chooseCharacterAbilityOrAttack(1);
 levelInfo shopPosition(0, 1);
+levelInfo characterSheetPosition(1,1);
 
 #endif //GAME_INFO_H

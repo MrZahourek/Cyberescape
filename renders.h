@@ -54,7 +54,6 @@ void renderChooseYourHeroes(string battleClass = inferno.fighterClass, string na
             }
             cout << chooseYourHeroesFileString;
             setcolor(15);
-            cout << name;
         }
         else if (currentLine == 27) {
             cout << chooseYourHeroesFileString << chooseCharacterAbilityOrAttackString << endl;
@@ -3839,7 +3838,7 @@ void renderMap(){
     }
 }
 
-void renderCharacterSheet() {
+void renderCharacterSheet(string name = characterOne.name, int hp = characterOne.hp, int arm = characterOne.arm, int atk = characterOne.atk, int bat = characterOne.bat, int dat = characterOne.dat) {
     // prep
     prepareForOutput();
     // variables
@@ -3856,8 +3855,568 @@ void renderCharacterSheet() {
             cout << characterSheetRenderFileString << endl;
         }
         else if (currentLine == 6) {
-            cout << characterSheetRenderFileString << active.name << "│                                                                                                            ║" << endl;
+            if (characterSheetPosition.currentPositionY == 1) {
+                setcolor(6);
+                cout << characterSheetRenderFileString << "\b\b\b\b ► " << name << " ◄";
+            }
+            else {
+                cout << characterSheetRenderFileString << "\b" << name << "\b";
+            }
+            setcolor(15);
+            fillerOfEmptinessStr(124,name,' ',"\n");
         }
+        else if (currentLine == 14) {
+            cout << characterSheetRenderFileString << hp;
+            fillerOfEmptinessInt(4,hp,' ',"║");
+            fillerOfEmptinessStr(107,"",' ',"║\n");
+        }
+        else if (currentLine == 16) {
+            cout << characterSheetRenderFileString << arm;
+            fillerOfEmptinessInt(4,arm,' ',"║");
+            fillerOfEmptinessStr(107,"",' ',"║\n");
+        }
+        else if (currentLine == 18) {
+            if (characterSheetPosition.currentPositionY == 1 && characterSheetPosition.currentPositionX == 1){
+                setcolor(0);
+                cout << "  <---  ";
+            }
+            else {
+                cout << "  <---  ";
+            }
+            setcolor(15);
+            cout << characterSheetRenderFileString << atk;
+            fillerOfEmptinessInt(4,atk,' ',"║");
+            fillerOfEmptinessStr(99,"",' ',"║");
+
+            if (characterSheetPosition.currentPositionY == 1 && characterSheetPosition.currentPositionX == 3){
+                setcolor(0);
+                cout << "  --->  " << endl;
+            }
+            else {
+                cout << "  --->  " << endl;
+            }
+            setcolor(15);
+        }
+        else if (currentLine == 20) {
+            cout << characterSheetRenderFileString << bat;
+            fillerOfEmptinessInt(3,bat,' ',"║");
+            fillerOfEmptinessStr(107,"",' ',"║\n");
+        }
+        else if (currentLine == 22) {
+            cout << characterSheetRenderFileString << dat;
+            fillerOfEmptinessInt(6,dat,' ',"║");
+            fillerOfEmptinessStr(107,"",' ',"║\n");
+        }
+        else if (currentLine == 31) {
+            cout << characterSheetRenderFileString;
+            if (characterSheetPosition.currentPositionY == 2) {
+                setcolor(6);
+                cout << "► Attacks ◄";
+            }
+            else {
+                cout << "  Attacks  ";
+            }
+            setcolor(15);
+
+            cout << "                                                                                                                ║" << endl;
+        }
+        else if (currentLine == 38) {
+            if (characterSheetPosition.currentPositionY == 3 && characterSheetPosition.currentPositionX == 1) {
+                setcolor(0);
+                cout <<  "  <---  ";
+            }
+            else {
+                cout << "  <---  ";
+            }
+            setcolor(15);
+
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 3 && characterSheetPosition.currentPositionX == 3) {
+                setcolor(0);
+                cout <<  "  --->  " << endl;
+            }
+            else {
+                cout << "  --->  " << endl;
+            }
+            setcolor(15);
+        }
+        else if (currentLine == 45) {
+            cout << characterSheetRenderFileString;
+            if (characterSheetPosition.currentPositionY == 4) {
+                setcolor(6);
+                cout << "► Equipped things ◄";
+            }
+            else{
+                cout << "  Equipped things  ";
+            }
+            setcolor(15);
+            fillerOfEmptinessStr(126,"  Equipped things  ", ' ', "║\n");
+        }
+        else if (currentLine == 51) {
+            cout << characterSheetRenderFileString;
+            if (characterSheetPosition.currentPositionY == 5) {
+                setcolor(6);
+                cout << "► Inventory ◄";
+            }
+            else {
+                cout << "  Inventory  ";
+            }
+            setcolor(15);
+            fillerOfEmptinessStr(123, "  Inventory  ", ' ', "║\n");
+        }
+        else if (currentLine == 54) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 1) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item1;
+                fillerOfEmptinessStr(30,"► " + playerInventory.item1,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item1;
+                fillerOfEmptinessStr(30, playerInventory.item1,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 2) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item2;
+                fillerOfEmptinessStr(30,"► " + playerInventory.item2,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item2;
+                fillerOfEmptinessStr(30, playerInventory.item2,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 3) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item3;
+                fillerOfEmptinessStr(30,"► " + playerInventory.item3,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item3;
+                fillerOfEmptinessStr(30, playerInventory.item3,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 4) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item4;
+                fillerOfEmptinessStr(30,"► " + playerInventory.item4,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item4;
+                fillerOfEmptinessStr(30, playerInventory.item4,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 5) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item5;
+                fillerOfEmptinessStr(30,"► " + playerInventory.item5,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item5;
+                fillerOfEmptinessStr(30, playerInventory.item5,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 6 && characterSheetPosition.currentPositionX == 6) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item6;
+                fillerOfEmptinessStr(44,"► " + playerInventory.item6,' ',"║\n");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item6;
+                fillerOfEmptinessStr(44,playerInventory.item6,' ',"║\n");
+            }
+        }
+        else if (currentLine == 56) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 1) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item7;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item7,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item7;
+                fillerOfEmptinessStr(21, playerInventory.item7,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 2) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item8;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item8,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item8;
+                fillerOfEmptinessStr(21, playerInventory.item8,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 3) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item9;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item9,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item9;
+                fillerOfEmptinessStr(21, playerInventory.item9,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 4) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item10;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item10,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item10;
+                fillerOfEmptinessStr(21, playerInventory.item10,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 5) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item11;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item11,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item11;
+                fillerOfEmptinessStr(21, playerInventory.item11,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 6) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item12;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item12,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item12;
+                fillerOfEmptinessStr(21, playerInventory.item12,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 7) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item13;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item13,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item13;
+                fillerOfEmptinessStr(21, playerInventory.item13,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 8) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item14;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item14,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item14;
+                fillerOfEmptinessStr(21, playerInventory.item14,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 9) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item15;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item15,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item15;
+                fillerOfEmptinessStr(21, playerInventory.item15,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 7 && characterSheetPosition.currentPositionX == 10) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item16;
+                fillerOfEmptinessStr(25,"► " + playerInventory.item16,' ',"║\n");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item16;
+                fillerOfEmptinessStr(25, playerInventory.item16,' ',"║\n");
+            }
+
+        }
+        else if (currentLine == 58) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 1) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item17;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item17,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item17;
+                fillerOfEmptinessStr(21,playerInventory.item17,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 2) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item18;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item18,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item18;
+                fillerOfEmptinessStr(21,playerInventory.item18,' ',"");}
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 3) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item19;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item19,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item19;
+                fillerOfEmptinessStr(21,playerInventory.item19,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 4) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item20;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item20,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item20;
+                fillerOfEmptinessStr(21,playerInventory.item20,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 5) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item21;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item21,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item21;
+                fillerOfEmptinessStr(21,playerInventory.item21,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 6) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item22;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item22,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item22;
+                fillerOfEmptinessStr(21,playerInventory.item22,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 7) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item23;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item23,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item23;
+                fillerOfEmptinessStr(21,playerInventory.item23,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 8) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item24;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item24,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item24;
+                fillerOfEmptinessStr(21,playerInventory.item24,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 9) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item25;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item25,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item25;
+                fillerOfEmptinessStr(21,playerInventory.item25,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 8 && characterSheetPosition.currentPositionX == 10) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item26;
+                fillerOfEmptinessStr(25,"► " + playerInventory.item26,' ',"║\n");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item26;
+                fillerOfEmptinessStr(25,playerInventory.item26,' ',"║\n");
+            }
+        }
+        else if (currentLine == 60) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 1) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item27;
+                fillerOfEmptinessStr(21," ► " + playerInventory.item27,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item27;
+                fillerOfEmptinessStr(21,playerInventory.item27,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 2) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item28;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item28,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item28;
+                fillerOfEmptinessStr(21,playerInventory.item28,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 3) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item29;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item29,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item29;
+                fillerOfEmptinessStr(21,playerInventory.item29,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 4) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item30;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item30,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item30;
+                fillerOfEmptinessStr(21,playerInventory.item30,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 5) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item31;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item31,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item31;
+                fillerOfEmptinessStr(21,playerInventory.item31,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 6) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item32;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item32,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item32;
+                fillerOfEmptinessStr(21,playerInventory.item32,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 7) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item33;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item33,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item33;
+                fillerOfEmptinessStr(21, playerInventory.item33,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 8) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item34;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item34,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item34;
+                fillerOfEmptinessStr(21, playerInventory.item34,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 9) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item35;
+                fillerOfEmptinessStr(23,"► " + playerInventory.item35,' ',"");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item35;
+                fillerOfEmptinessStr(21,playerInventory.item35,' ',"");
+            }
+            if (characterSheetPosition.currentPositionY == 9 && characterSheetPosition.currentPositionX == 10) {
+                setcolor(6);
+
+                cout << "► " + playerInventory.item36;
+                fillerOfEmptinessStr(25,"► " + playerInventory.item36,' ',"║\n");
+            }
+            else {
+                setcolor(15);
+
+                cout << playerInventory.item36;
+                fillerOfEmptinessStr(25,playerInventory.item36,' ',"║\n");
+            }
+
+        }
+
+
+
 
 
 

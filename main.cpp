@@ -17,16 +17,6 @@
 using namespace std;
 
 
-
-
-
-
-
-// Functions
-
-
-// Render functions
-
 int main() {
     prepareForOutput();
 
@@ -39,7 +29,10 @@ int main() {
 
     //loadFile("Visuals/shopTemplate.txt");
 
-    //return 0;
+    system("cls");
+    renderCharacterSheet();
+
+    return 0;
 
     while (1) {
         while (whatScreenWeSee == "Tutorial") {}
@@ -48,38 +41,51 @@ int main() {
             // first render
             if (firstTime == true) {
                 system("cls");
-                renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,
-                                       inferno.bat, inferno.dat);
+
+                file.open("Visuals/chooseCharacterAttackOne.txt");
+                clearFile("Visuals/chooseCharacterAttackOne.txt");
+                file << infernoAttacks.attackOneDescriptionChooseYourCharacter;
+                file.close();
+
+                file.open("Visuals/chooseCharacterAttackTwo.txt");
+                clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                file << infernoAttacks.attackTwoDescriptionChooseYourCharacter;
+                file.close();
+
+                file.open("Visuals/chooseCharacterAttackThree.txt");
+                clearFile("Visuals/chooseCharacterAttackThree.txt");
+                file << infernoAttacks.attackThreeDescriptionChooseYourCharacter;
+                file.close();
+
+                renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,inferno.bat, inferno.dat);
                 firstTime = false;
             }
             // Choose Character loop
             if (_kbhit()) {
-                startOfCycle:
                 system("cls");
                 // First render for specific character
-                if (chooseCharacter.currentPositionX <= 1) { /* class, name, hp, arm, atk, bat, dat */
+                if (chooseCharacter.currentPositionX == 1) {
                     renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,inferno.bat, inferno.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 2) {
-                    renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,atlas.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 3) {
-                    renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk, hanibal.bat, hanibal.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 4) {
-                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk,monoI.bat, monoI.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 5) {
-                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm, biohazard.atk,biohazard.bat, biohazard.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 6) {
-                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk,zip.bat, zip.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 7) {
-                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat, plagy.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 8) {
-                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat, amper.dat);
+                } else if (chooseCharacter.currentPositionX == 2) {
+                    renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,
+                                           atlas.dat);
+                } else if (chooseCharacter.currentPositionX == 3) {
+                    renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk,
+                                           hanibal.bat, hanibal.dat);
+                } else if (chooseCharacter.currentPositionX == 4) {
+                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk, monoI.bat,
+                                           monoI.dat);
+                } else if (chooseCharacter.currentPositionX == 5) {
+                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm,
+                                           biohazard.atk, biohazard.bat, biohazard.dat);
+                } else if (chooseCharacter.currentPositionX == 6) {
+                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk, zip.bat, zip.dat);
+                } else if (chooseCharacter.currentPositionX == 7) {
+                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat,
+                                           plagy.dat);
+                } else if (chooseCharacter.currentPositionX == 8) {
+                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat,
+                                           amper.dat);
                 }
                 // Get key
                 pressedKey = getch();
@@ -88,63 +94,55 @@ int main() {
                 if (int(pressedKey) == 65 || int(pressedKey) == 97) { // A or a
                     chooseCharacter.currentPositionX--;
 
-                    switch(chooseCharacter.currentPositionX) {
-                        case 1:
-                        {
+                    switch (chooseCharacter.currentPositionX) {
+                        case 1: {
                             if (inferno.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
                         }
 
-                        case 2:
-                        {
+                        case 2: {
                             if (atlas.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
                         }
 
-                        case 3:
-                        {
+                        case 3: {
                             if (hanibal.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
                         }
 
-                        case 4:
-                        {
+                        case 4: {
                             if (monoI.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
                         }
 
-                        case 5:
-                        {
+                        case 5: {
                             if (biohazard.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                             break;
                         }
 
-                        case 6:
-                        {
+                        case 6: {
                             if (zip.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                         }
 
-                        case 7:
-                        {
+                        case 7: {
                             if (plagy.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
                         }
 
-                        case 8:
-                        {
+                        case 8: {
                             if (amper.picked == true) {
                                 chooseCharacter.currentPositionX--;
                             }
@@ -154,63 +152,55 @@ int main() {
                 else if (int(pressedKey) == 68 || int(pressedKey) == 100) { // D or d
                     chooseCharacter.currentPositionX++;
 
-                    switch(chooseCharacter.currentPositionX) {
-                        case 1:
-                        {
+                    switch (chooseCharacter.currentPositionX) {
+                        case 1: {
                             if (inferno.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
                         }
 
-                        case 2:
-                        {
+                        case 2: {
                             if (atlas.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
                         }
 
-                        case 3:
-                        {
+                        case 3: {
                             if (hanibal.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
                         }
 
-                        case 4:
-                        {
+                        case 4: {
                             if (monoI.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
                         }
 
-                        case 5:
-                        {
+                        case 5: {
                             if (biohazard.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                             break;
                         }
 
-                        case 6:
-                        {
+                        case 6: {
                             if (zip.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                         }
 
-                        case 7:
-                        {
+                        case 7: {
                             if (plagy.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
                         }
 
-                        case 8:
-                        {
+                        case 8: {
                             if (amper.picked == true) {
                                 chooseCharacter.currentPositionX++;
                             }
@@ -228,7 +218,7 @@ int main() {
                         inferno.picked = true;
                         inferno.active = true;
 
-                        active.name  = inferno.name;
+                        active.name = inferno.name;
                         active.effect = inferno.effect;
                         active.fighterClass = inferno.fighterClass;
                         active.attackOne = inferno.attackOne;
@@ -245,6 +235,65 @@ int main() {
                         active.active = inferno.active;
                         active.picked = inferno.picked;
 
+                        if (characterOne.name == "") {
+                            characterOne.name = inferno.name;
+                            characterOne.effect = inferno.effect;
+                            characterOne.fighterClass = inferno.fighterClass;
+                            characterOne.attackOne = inferno.attackOne;
+                            characterOne.abilityTwo = inferno.abilityTwo;
+                            characterOne.attackThree = inferno.attackThree;
+                            characterOne.abilityOne = inferno.abilityOne;
+                            characterOne.abilityTwo = inferno.abilityTwo;
+                            characterOne.abilityThree = inferno.abilityThree;
+                            characterOne.hp = inferno.hp;
+                            characterOne.arm = inferno.arm;
+                            characterOne.atk = inferno.atk;
+                            characterOne.bat = inferno.bat;
+                            characterOne.dat = inferno.dat;
+                            characterOne.active = inferno.active;
+                            characterOne.picked = inferno.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = inferno.name;
+                                characterTwo.effect = inferno.effect;
+                                characterTwo.fighterClass = inferno.fighterClass;
+                                characterTwo.attackOne = inferno.attackOne;
+                                characterTwo.abilityTwo = inferno.abilityTwo;
+                                characterTwo.attackThree = inferno.attackThree;
+                                characterTwo.abilityOne = inferno.abilityOne;
+                                characterTwo.abilityTwo = inferno.abilityTwo;
+                                characterTwo.abilityThree = inferno.abilityThree;
+                                characterTwo.hp = inferno.hp;
+                                characterTwo.arm = inferno.arm;
+                                characterTwo.atk = inferno.atk;
+                                characterTwo.bat = inferno.bat;
+                                characterTwo.dat = inferno.dat;
+                                characterTwo.active = inferno.active;
+                                characterTwo.picked = inferno.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = inferno.name;
+                                    characterThree.effect = inferno.effect;
+                                    characterThree.fighterClass = inferno.fighterClass;
+                                    characterThree.attackOne = inferno.attackOne;
+                                    characterThree.abilityTwo = inferno.abilityTwo;
+                                    characterThree.attackThree = inferno.attackThree;
+                                    characterThree.abilityOne = inferno.abilityOne;
+                                    characterThree.abilityTwo = inferno.abilityTwo;
+                                    characterThree.abilityThree = inferno.abilityThree;
+                                    characterThree.hp = inferno.hp;
+                                    characterThree.arm = inferno.arm;
+                                    characterThree.atk = inferno.atk;
+                                    characterThree.bat = inferno.bat;
+                                    characterThree.dat = inferno.dat;
+                                    characterThree.active = inferno.active;
+                                    characterThree.picked = inferno.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
                         chooseCharacter.currentPositionX++;
                     }
@@ -252,50 +301,582 @@ int main() {
                         atlas.picked = true;
                         atlas.active = true;
 
+                        active.name = atlas.name;
+                        active.effect = atlas.effect;
+                        active.fighterClass = atlas.fighterClass;
+                        active.attackOne = atlas.attackOne;
+                        active.abilityTwo = atlas.abilityTwo;
+                        active.attackThree = atlas.attackThree;
+                        active.abilityOne = atlas.abilityOne;
+                        active.abilityTwo = atlas.abilityTwo;
+                        active.abilityThree = atlas.abilityThree;
+                        active.hp = atlas.hp;
+                        active.arm = atlas.arm;
+                        active.atk = atlas.atk;
+                        active.bat = atlas.bat;
+                        active.dat = atlas.dat;
+                        active.active = atlas.active;
+                        active.picked = atlas.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = atlas.name;
+                            characterOne.effect = atlas.effect;
+                            characterOne.fighterClass = atlas.fighterClass;
+                            characterOne.attackOne = atlas.attackOne;
+                            characterOne.abilityTwo = atlas.abilityTwo;
+                            characterOne.attackThree = atlas.attackThree;
+                            characterOne.abilityOne = atlas.abilityOne;
+                            characterOne.abilityTwo = atlas.abilityTwo;
+                            characterOne.abilityThree = atlas.abilityThree;
+                            characterOne.hp = atlas.hp;
+                            characterOne.arm = atlas.arm;
+                            characterOne.atk = atlas.atk;
+                            characterOne.bat = atlas.bat;
+                            characterOne.dat = atlas.dat;
+                            characterOne.active = atlas.active;
+                            characterOne.picked = atlas.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = atlas.name;
+                                characterTwo.effect = atlas.effect;
+                                characterTwo.fighterClass = atlas.fighterClass;
+                                characterTwo.attackOne = atlas.attackOne;
+                                characterTwo.abilityTwo = atlas.abilityTwo;
+                                characterTwo.attackThree = atlas.attackThree;
+                                characterTwo.abilityOne = atlas.abilityOne;
+                                characterTwo.abilityTwo = atlas.abilityTwo;
+                                characterTwo.abilityThree = atlas.abilityThree;
+                                characterTwo.hp = atlas.hp;
+                                characterTwo.arm = atlas.arm;
+                                characterTwo.atk = atlas.atk;
+                                characterTwo.bat = atlas.bat;
+                                characterTwo.dat = atlas.dat;
+                                characterTwo.active = atlas.active;
+                                characterTwo.picked = atlas.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = atlas.name;
+                                    characterThree.effect = atlas.effect;
+                                    characterThree.fighterClass = atlas.fighterClass;
+                                    characterThree.attackOne = atlas.attackOne;
+                                    characterThree.abilityTwo = atlas.abilityTwo;
+                                    characterThree.attackThree = atlas.attackThree;
+                                    characterThree.abilityOne = atlas.abilityOne;
+                                    characterThree.abilityTwo = atlas.abilityTwo;
+                                    characterThree.abilityThree = atlas.abilityThree;
+                                    characterThree.hp = atlas.hp;
+                                    characterThree.arm = atlas.arm;
+                                    characterThree.atk = atlas.atk;
+                                    characterThree.bat = atlas.bat;
+                                    characterThree.dat = atlas.dat;
+                                    characterThree.active = atlas.active;
+                                    characterThree.picked = atlas.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 3) {
                         hanibal.picked = true;
                         hanibal.active = true;
 
+                        active.name = hanibal.name;
+                        active.effect = hanibal.effect;
+                        active.fighterClass = hanibal.fighterClass;
+                        active.attackOne = hanibal.attackOne;
+                        active.abilityTwo = hanibal.abilityTwo;
+                        active.attackThree = hanibal.attackThree;
+                        active.abilityOne = hanibal.abilityOne;
+                        active.abilityTwo = hanibal.abilityTwo;
+                        active.abilityThree = hanibal.abilityThree;
+                        active.hp = hanibal.hp;
+                        active.arm = hanibal.arm;
+                        active.atk = hanibal.atk;
+                        active.bat = hanibal.bat;
+                        active.dat = hanibal.dat;
+                        active.active = hanibal.active;
+                        active.picked = hanibal.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = hanibal.name;
+                            characterOne.effect = hanibal.effect;
+                            characterOne.fighterClass = hanibal.fighterClass;
+                            characterOne.attackOne = hanibal.attackOne;
+                            characterOne.abilityTwo = hanibal.abilityTwo;
+                            characterOne.attackThree = hanibal.attackThree;
+                            characterOne.abilityOne = hanibal.abilityOne;
+                            characterOne.abilityTwo = hanibal.abilityTwo;
+                            characterOne.abilityThree = hanibal.abilityThree;
+                            characterOne.hp = hanibal.hp;
+                            characterOne.arm = hanibal.arm;
+                            characterOne.atk = hanibal.atk;
+                            characterOne.bat = hanibal.bat;
+                            characterOne.dat = hanibal.dat;
+                            characterOne.active = hanibal.active;
+                            characterOne.picked = hanibal.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = hanibal.name;
+                                characterTwo.effect = hanibal.effect;
+                                characterTwo.fighterClass = hanibal.fighterClass;
+                                characterTwo.attackOne = hanibal.attackOne;
+                                characterTwo.abilityTwo = hanibal.abilityTwo;
+                                characterTwo.attackThree = hanibal.attackThree;
+                                characterTwo.abilityOne = hanibal.abilityOne;
+                                characterTwo.abilityTwo = hanibal.abilityTwo;
+                                characterTwo.abilityThree = hanibal.abilityThree;
+                                characterTwo.hp = hanibal.hp;
+                                characterTwo.arm = hanibal.arm;
+                                characterTwo.atk = hanibal.atk;
+                                characterTwo.bat = hanibal.bat;
+                                characterTwo.dat = hanibal.dat;
+                                characterTwo.active = hanibal.active;
+                                characterTwo.picked = hanibal.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = hanibal.name;
+                                    characterThree.effect = hanibal.effect;
+                                    characterThree.fighterClass = hanibal.fighterClass;
+                                    characterThree.attackOne = hanibal.attackOne;
+                                    characterThree.abilityTwo = hanibal.abilityTwo;
+                                    characterThree.attackThree = hanibal.attackThree;
+                                    characterThree.abilityOne = hanibal.abilityOne;
+                                    characterThree.abilityTwo = hanibal.abilityTwo;
+                                    characterThree.abilityThree = hanibal.abilityThree;
+                                    characterThree.hp = hanibal.hp;
+                                    characterThree.arm = hanibal.arm;
+                                    characterThree.atk = hanibal.atk;
+                                    characterThree.bat = hanibal.bat;
+                                    characterThree.dat = hanibal.dat;
+                                    characterThree.active = hanibal.active;
+                                    characterThree.picked = hanibal.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 4) {
                         monoI.picked = true;
                         monoI.active = true;
 
+                        active.name = monoI.name;
+                        active.effect = monoI.effect;
+                        active.fighterClass = monoI.fighterClass;
+                        active.attackOne = monoI.attackOne;
+                        active.abilityTwo = monoI.abilityTwo;
+                        active.attackThree = monoI.attackThree;
+                        active.abilityOne = monoI.abilityOne;
+                        active.abilityTwo = monoI.abilityTwo;
+                        active.abilityThree = monoI.abilityThree;
+                        active.hp = monoI.hp;
+                        active.arm = monoI.arm;
+                        active.atk = monoI.atk;
+                        active.bat = monoI.bat;
+                        active.dat = monoI.dat;
+                        active.active = monoI.active;
+                        active.picked = monoI.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = monoI.name;
+                            characterOne.effect = monoI.effect;
+                            characterOne.fighterClass = monoI.fighterClass;
+                            characterOne.attackOne = monoI.attackOne;
+                            characterOne.abilityTwo = monoI.abilityTwo;
+                            characterOne.attackThree = monoI.attackThree;
+                            characterOne.abilityOne = monoI.abilityOne;
+                            characterOne.abilityTwo = monoI.abilityTwo;
+                            characterOne.abilityThree = monoI.abilityThree;
+                            characterOne.hp = monoI.hp;
+                            characterOne.arm = monoI.arm;
+                            characterOne.atk = monoI.atk;
+                            characterOne.bat = monoI.bat;
+                            characterOne.dat = monoI.dat;
+                            characterOne.active = monoI.active;
+                            characterOne.picked = monoI.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = monoI.name;
+                                characterTwo.effect = monoI.effect;
+                                characterTwo.fighterClass = monoI.fighterClass;
+                                characterTwo.attackOne = monoI.attackOne;
+                                characterTwo.abilityTwo = monoI.abilityTwo;
+                                characterTwo.attackThree = monoI.attackThree;
+                                characterTwo.abilityOne = monoI.abilityOne;
+                                characterTwo.abilityTwo = monoI.abilityTwo;
+                                characterTwo.abilityThree = monoI.abilityThree;
+                                characterTwo.hp = monoI.hp;
+                                characterTwo.arm = monoI.arm;
+                                characterTwo.atk = monoI.atk;
+                                characterTwo.bat = monoI.bat;
+                                characterTwo.dat = monoI.dat;
+                                characterTwo.active = monoI.active;
+                                characterTwo.picked = monoI.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = monoI.name;
+                                    characterThree.effect = monoI.effect;
+                                    characterThree.fighterClass = monoI.fighterClass;
+                                    characterThree.attackOne = monoI.attackOne;
+                                    characterThree.abilityTwo = monoI.abilityTwo;
+                                    characterThree.attackThree = monoI.attackThree;
+                                    characterThree.abilityOne = monoI.abilityOne;
+                                    characterThree.abilityTwo = monoI.abilityTwo;
+                                    characterThree.abilityThree = monoI.abilityThree;
+                                    characterThree.hp = monoI.hp;
+                                    characterThree.arm = monoI.arm;
+                                    characterThree.atk = monoI.atk;
+                                    characterThree.bat = monoI.bat;
+                                    characterThree.dat = monoI.dat;
+                                    characterThree.active = monoI.active;
+                                    characterThree.picked = monoI.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 5) {
                         biohazard.picked = true;
                         biohazard.active = true;
 
+                        active.name = biohazard.name;
+                        active.effect = biohazard.effect;
+                        active.fighterClass = biohazard.fighterClass;
+                        active.attackOne = biohazard.attackOne;
+                        active.abilityTwo = biohazard.abilityTwo;
+                        active.attackThree = biohazard.attackThree;
+                        active.abilityOne = biohazard.abilityOne;
+                        active.abilityTwo = biohazard.abilityTwo;
+                        active.abilityThree = biohazard.abilityThree;
+                        active.hp = biohazard.hp;
+                        active.arm = biohazard.arm;
+                        active.atk = biohazard.atk;
+                        active.bat = biohazard.bat;
+                        active.dat = biohazard.dat;
+                        active.active = biohazard.active;
+                        active.picked = biohazard.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = biohazard.name;
+                            characterOne.effect = biohazard.effect;
+                            characterOne.fighterClass = biohazard.fighterClass;
+                            characterOne.attackOne = biohazard.attackOne;
+                            characterOne.abilityTwo = biohazard.abilityTwo;
+                            characterOne.attackThree = biohazard.attackThree;
+                            characterOne.abilityOne = biohazard.abilityOne;
+                            characterOne.abilityTwo = biohazard.abilityTwo;
+                            characterOne.abilityThree = biohazard.abilityThree;
+                            characterOne.hp = biohazard.hp;
+                            characterOne.arm = biohazard.arm;
+                            characterOne.atk = biohazard.atk;
+                            characterOne.bat = biohazard.bat;
+                            characterOne.dat = biohazard.dat;
+                            characterOne.active = biohazard.active;
+                            characterOne.picked = biohazard.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = biohazard.name;
+                                characterTwo.effect = biohazard.effect;
+                                characterTwo.fighterClass = biohazard.fighterClass;
+                                characterTwo.attackOne = biohazard.attackOne;
+                                characterTwo.abilityTwo = biohazard.abilityTwo;
+                                characterTwo.attackThree = biohazard.attackThree;
+                                characterTwo.abilityOne = biohazard.abilityOne;
+                                characterTwo.abilityTwo = biohazard.abilityTwo;
+                                characterTwo.abilityThree = biohazard.abilityThree;
+                                characterTwo.hp = biohazard.hp;
+                                characterTwo.arm = biohazard.arm;
+                                characterTwo.atk = biohazard.atk;
+                                characterTwo.bat = biohazard.bat;
+                                characterTwo.dat = biohazard.dat;
+                                characterTwo.active = biohazard.active;
+                                characterTwo.picked = biohazard.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = biohazard.name;
+                                    characterThree.effect = biohazard.effect;
+                                    characterThree.fighterClass = biohazard.fighterClass;
+                                    characterThree.attackOne = biohazard.attackOne;
+                                    characterThree.abilityTwo = biohazard.abilityTwo;
+                                    characterThree.attackThree = biohazard.attackThree;
+                                    characterThree.abilityOne = biohazard.abilityOne;
+                                    characterThree.abilityTwo = biohazard.abilityTwo;
+                                    characterThree.abilityThree = biohazard.abilityThree;
+                                    characterThree.hp = biohazard.hp;
+                                    characterThree.arm = biohazard.arm;
+                                    characterThree.atk = biohazard.atk;
+                                    characterThree.bat = biohazard.bat;
+                                    characterThree.dat = biohazard.dat;
+                                    characterThree.active = biohazard.active;
+                                    characterThree.picked = biohazard.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 6) {
                         zip.picked = true;
                         zip.active = true;
 
+                        active.name = zip.name;
+                        active.effect = zip.effect;
+                        active.fighterClass = zip.fighterClass;
+                        active.attackOne = zip.attackOne;
+                        active.abilityTwo = zip.abilityTwo;
+                        active.attackThree = zip.attackThree;
+                        active.abilityOne = zip.abilityOne;
+                        active.abilityTwo = zip.abilityTwo;
+                        active.abilityThree = zip.abilityThree;
+                        active.hp = zip.hp;
+                        active.arm = zip.arm;
+                        active.atk = zip.atk;
+                        active.bat = zip.bat;
+                        active.dat = zip.dat;
+                        active.active = zip.active;
+                        active.picked = zip.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = zip.name;
+                            characterOne.effect = zip.effect;
+                            characterOne.fighterClass = zip.fighterClass;
+                            characterOne.attackOne = zip.attackOne;
+                            characterOne.abilityTwo = zip.abilityTwo;
+                            characterOne.attackThree = zip.attackThree;
+                            characterOne.abilityOne = zip.abilityOne;
+                            characterOne.abilityTwo = zip.abilityTwo;
+                            characterOne.abilityThree = zip.abilityThree;
+                            characterOne.hp = zip.hp;
+                            characterOne.arm = zip.arm;
+                            characterOne.atk = zip.atk;
+                            characterOne.bat = zip.bat;
+                            characterOne.dat = zip.dat;
+                            characterOne.active = zip.active;
+                            characterOne.picked = zip.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = zip.name;
+                                characterTwo.effect = zip.effect;
+                                characterTwo.fighterClass = zip.fighterClass;
+                                characterTwo.attackOne = zip.attackOne;
+                                characterTwo.abilityTwo = zip.abilityTwo;
+                                characterTwo.attackThree = zip.attackThree;
+                                characterTwo.abilityOne = zip.abilityOne;
+                                characterTwo.abilityTwo = zip.abilityTwo;
+                                characterTwo.abilityThree = zip.abilityThree;
+                                characterTwo.hp = zip.hp;
+                                characterTwo.arm = zip.arm;
+                                characterTwo.atk = zip.atk;
+                                characterTwo.bat = zip.bat;
+                                characterTwo.dat = zip.dat;
+                                characterTwo.active = zip.active;
+                                characterTwo.picked = zip.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = zip.name;
+                                    characterThree.effect = zip.effect;
+                                    characterThree.fighterClass = zip.fighterClass;
+                                    characterThree.attackOne = zip.attackOne;
+                                    characterThree.abilityTwo = zip.abilityTwo;
+                                    characterThree.attackThree = zip.attackThree;
+                                    characterThree.abilityOne = zip.abilityOne;
+                                    characterThree.abilityTwo = zip.abilityTwo;
+                                    characterThree.abilityThree = zip.abilityThree;
+                                    characterThree.hp = zip.hp;
+                                    characterThree.arm = zip.arm;
+                                    characterThree.atk = zip.atk;
+                                    characterThree.bat = zip.bat;
+                                    characterThree.dat = zip.dat;
+                                    characterThree.active = zip.active;
+                                    characterThree.picked = zip.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 7) {
                         plagy.picked = true;
                         plagy.active = true;
 
+                        active.name = plagy.name;
+                        active.effect = plagy.effect;
+                        active.fighterClass = plagy.fighterClass;
+                        active.attackOne = plagy.attackOne;
+                        active.abilityTwo = plagy.abilityTwo;
+                        active.attackThree = plagy.attackThree;
+                        active.abilityOne = plagy.abilityOne;
+                        active.abilityTwo = plagy.abilityTwo;
+                        active.abilityThree = plagy.abilityThree;
+                        active.hp = plagy.hp;
+                        active.arm = plagy.arm;
+                        active.atk = plagy.atk;
+                        active.bat = plagy.bat;
+                        active.dat = plagy.dat;
+                        active.active = plagy.active;
+                        active.picked = plagy.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = plagy.name;
+                            characterOne.effect = plagy.effect;
+                            characterOne.fighterClass = plagy.fighterClass;
+                            characterOne.attackOne = plagy.attackOne;
+                            characterOne.abilityTwo = plagy.abilityTwo;
+                            characterOne.attackThree = plagy.attackThree;
+                            characterOne.abilityOne = plagy.abilityOne;
+                            characterOne.abilityTwo = plagy.abilityTwo;
+                            characterOne.abilityThree = plagy.abilityThree;
+                            characterOne.hp = plagy.hp;
+                            characterOne.arm = plagy.arm;
+                            characterOne.atk = plagy.atk;
+                            characterOne.bat = plagy.bat;
+                            characterOne.dat = plagy.dat;
+                            characterOne.active = plagy.active;
+                            characterOne.picked = plagy.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = plagy.name;
+                                characterTwo.effect = plagy.effect;
+                                characterTwo.fighterClass = plagy.fighterClass;
+                                characterTwo.attackOne = plagy.attackOne;
+                                characterTwo.abilityTwo = plagy.abilityTwo;
+                                characterTwo.attackThree = plagy.attackThree;
+                                characterTwo.abilityOne = plagy.abilityOne;
+                                characterTwo.abilityTwo = plagy.abilityTwo;
+                                characterTwo.abilityThree = plagy.abilityThree;
+                                characterTwo.hp = plagy.hp;
+                                characterTwo.arm = plagy.arm;
+                                characterTwo.atk = plagy.atk;
+                                characterTwo.bat = plagy.bat;
+                                characterTwo.dat = plagy.dat;
+                                characterTwo.active = plagy.active;
+                                characterTwo.picked = plagy.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = plagy.name;
+                                    characterThree.effect = plagy.effect;
+                                    characterThree.fighterClass = plagy.fighterClass;
+                                    characterThree.attackOne = plagy.attackOne;
+                                    characterThree.abilityTwo = plagy.abilityTwo;
+                                    characterThree.attackThree = plagy.attackThree;
+                                    characterThree.abilityOne = plagy.abilityOne;
+                                    characterThree.abilityTwo = plagy.abilityTwo;
+                                    characterThree.abilityThree = plagy.abilityThree;
+                                    characterThree.hp = plagy.hp;
+                                    characterThree.arm = plagy.arm;
+                                    characterThree.atk = plagy.atk;
+                                    characterThree.bat = plagy.bat;
+                                    characterThree.dat = plagy.dat;
+                                    characterThree.active = plagy.active;
+                                    characterThree.picked = plagy.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                     else if (chooseCharacter.currentPositionX == 8) {
                         amper.picked = true;
                         amper.active = true;
 
+                        active.name = amper.name;
+                        active.effect = amper.effect;
+                        active.fighterClass = amper.fighterClass;
+                        active.attackOne = amper.attackOne;
+                        active.abilityTwo = amper.abilityTwo;
+                        active.attackThree = amper.attackThree;
+                        active.abilityOne = amper.abilityOne;
+                        active.abilityTwo = amper.abilityTwo;
+                        active.abilityThree = amper.abilityThree;
+                        active.hp = amper.hp;
+                        active.arm = amper.arm;
+                        active.atk = amper.atk;
+                        active.bat = amper.bat;
+                        active.dat = amper.dat;
+                        active.active = amper.active;
+                        active.picked = amper.picked;
+
+                        if (characterOne.name == "" ) {
+                            characterOne.name = amper.name;
+                            characterOne.effect = amper.effect;
+                            characterOne.fighterClass = amper.fighterClass;
+                            characterOne.attackOne = amper.attackOne;
+                            characterOne.abilityTwo = amper.abilityTwo;
+                            characterOne.attackThree = amper.attackThree;
+                            characterOne.abilityOne = amper.abilityOne;
+                            characterOne.abilityTwo = amper.abilityTwo;
+                            characterOne.abilityThree = amper.abilityThree;
+                            characterOne.hp = amper.hp;
+                            characterOne.arm = amper.arm;
+                            characterOne.atk = amper.atk;
+                            characterOne.bat = amper.bat;
+                            characterOne.dat = amper.dat;
+                            characterOne.active = amper.active;
+                            characterOne.picked = amper.picked;
+                        }
+                        else {
+                            if (characterTwo.name == "") {
+                                characterTwo.name = amper.name;
+                                characterTwo.effect = amper.effect;
+                                characterTwo.fighterClass = amper.fighterClass;
+                                characterTwo.attackOne = amper.attackOne;
+                                characterTwo.abilityTwo = amper.abilityTwo;
+                                characterTwo.attackThree = amper.attackThree;
+                                characterTwo.abilityOne = amper.abilityOne;
+                                characterTwo.abilityTwo = amper.abilityTwo;
+                                characterTwo.abilityThree = amper.abilityThree;
+                                characterTwo.hp = amper.hp;
+                                characterTwo.arm = amper.arm;
+                                characterTwo.atk = amper.atk;
+                                characterTwo.bat = amper.bat;
+                                characterTwo.dat = amper.dat;
+                                characterTwo.active = amper.active;
+                                characterTwo.picked = amper.picked;
+                            }
+                            else {
+                                if (characterThree.name == "") {
+                                    characterThree.name = amper.name;
+                                    characterThree.effect = amper.effect;
+                                    characterThree.fighterClass = amper.fighterClass;
+                                    characterThree.attackOne = amper.attackOne;
+                                    characterThree.abilityTwo = amper.abilityTwo;
+                                    characterThree.attackThree = amper.attackThree;
+                                    characterThree.abilityOne = amper.abilityOne;
+                                    characterThree.abilityTwo = amper.abilityTwo;
+                                    characterThree.abilityThree = amper.abilityThree;
+                                    characterThree.hp = amper.hp;
+                                    characterThree.arm = amper.arm;
+                                    characterThree.atk = amper.atk;
+                                    characterThree.bat = amper.bat;
+                                    characterThree.dat = amper.dat;
+                                    characterThree.active = amper.active;
+                                    characterThree.picked = amper.picked;
+                                }
+                            }
+                        }
+
                         characterSlots++;
-                        chooseCharacter.currentPositionX++;
+                        chooseCharacter.currentPositionX--;
                     }
                 } // E
 
@@ -566,58 +1147,76 @@ int main() {
                 //choose character attack or ability
                 if (chooseCharacter.currentPositionY == 1) {
                     chooseCharacterAbilityOrAttackString = " Attacks ";
-                }
-                else if (chooseCharacter.currentPositionY == 2) {
+                } else if (chooseCharacter.currentPositionY == 2) {
                     chooseCharacterAbilityOrAttackString = "Abilities";
                 }
 
 
                 //change screen if all characters are chosen and that will stop the render
                 if (characterSlots == 3) {
-                    //whatScreenWeSee = "Tutorial";
                     whatScreenWeSee = "Map";
                     firstTime = true;
+                }
+
+                // arrow colour check
+                if (inferno.picked == true) {
+                    lowestPointInChoosingHeroes = 2;
+                    if (atlas.picked == true) {
+                        lowestPointInChoosingHeroes = 3;
+                        if (hanibal.picked == true) {
+                            lowestPointInChoosingHeroes = 4;
+                        }
+                    }
+                }
+
+                if (amper.picked == true) {
+                    higestPointInChoosingHeroes = 7;
+                    if (plagy.picked == true) {
+                        higestPointInChoosingHeroes = 6;
+                        if (zip.picked == true) {
+                            higestPointInChoosingHeroes = 5;
+                        }
+                    }
                 }
 
                 //Round up the numbers
                 if (chooseCharacter.currentPositionY >= 2) {
                     chooseCharacter.currentPositionY = 2;
-                }
-                else if (chooseCharacter.currentPositionY <= 1) {
+                } else if (chooseCharacter.currentPositionY <= 1) {
                     chooseCharacter.currentPositionY = 1;
                 }
 
-                if (chooseCharacter.currentPositionX >= 8) {
-                    chooseCharacter.currentPositionX = 8;
-                }
-                else if (chooseCharacter.currentPositionX <= 1) {
-                    chooseCharacter.currentPositionX = 1;
+                if (chooseCharacter.currentPositionX >= higestPointInChoosingHeroes) {
+                    chooseCharacter.currentPositionX = higestPointInChoosingHeroes;
+                } else if (chooseCharacter.currentPositionX <= lowestPointInChoosingHeroes) {
+                    chooseCharacter.currentPositionX = lowestPointInChoosingHeroes;
                 }
 
                 // Re-render
                 if (chooseCharacter.currentPositionX <= 1) { /* class, name, hp, arm, atk, bat, dat */
-                    renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,inferno.bat, inferno.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 2) {
-                    renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,atlas.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 3) {
-                    renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk, hanibal.bat, hanibal.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 4) {
-                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk,monoI.bat, monoI.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 5) {
-                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm, biohazard.atk,biohazard.bat, biohazard.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 6) {
-                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk,zip.bat, zip.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 7) {
-                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat, plagy.dat);
-                }
-                else if (chooseCharacter.currentPositionX == 8) {
-                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat, amper.dat);
+                    renderChooseYourHeroes(inferno.fighterClass, inferno.name, inferno.hp, inferno.arm, inferno.atk,
+                                           inferno.bat, inferno.dat);
+                } else if (chooseCharacter.currentPositionX == 2) {
+                    renderChooseYourHeroes(atlas.fighterClass, atlas.name, atlas.hp, atlas.arm, atlas.atk, atlas.bat,
+                                           atlas.dat);
+                } else if (chooseCharacter.currentPositionX == 3) {
+                    renderChooseYourHeroes(hanibal.fighterClass, hanibal.name, hanibal.hp, hanibal.arm, hanibal.atk,
+                                           hanibal.bat, hanibal.dat);
+                } else if (chooseCharacter.currentPositionX == 4) {
+                    renderChooseYourHeroes(monoI.fighterClass, monoI.name, monoI.hp, monoI.arm, monoI.atk, monoI.bat,
+                                           monoI.dat);
+                } else if (chooseCharacter.currentPositionX == 5) {
+                    renderChooseYourHeroes(biohazard.fighterClass, biohazard.name, biohazard.hp, biohazard.arm,
+                                           biohazard.atk, biohazard.bat, biohazard.dat);
+                } else if (chooseCharacter.currentPositionX == 6) {
+                    renderChooseYourHeroes(zip.fighterClass, zip.name, zip.hp, zip.arm, zip.atk, zip.bat, zip.dat);
+                } else if (chooseCharacter.currentPositionX == 7) {
+                    renderChooseYourHeroes(plagy.fighterClass, plagy.name, plagy.hp, plagy.arm, plagy.atk, plagy.bat,
+                                           plagy.dat);
+                } else if (chooseCharacter.currentPositionX >= 8) {
+                    renderChooseYourHeroes(amper.fighterClass, amper.name, amper.hp, amper.arm, amper.atk, amper.bat,
+                                           amper.dat);
+                    cout << "amper";
                 }
             }
         }
@@ -650,7 +1249,7 @@ int main() {
                 renderMap();
                 firstTime = false;
             }
-            if(_kbhit()) {
+            if (_kbhit()) {
                 // clear
                 system("cls");
                 // first render
@@ -660,7 +1259,7 @@ int main() {
                 pressedKey = getch();
 
                 // key check
-                if (int (pressedKey) == 67 || int (pressedKey) == 99) {}
+                if (int(pressedKey) == 67 || int(pressedKey) == 99) {}
 
                 // second render
                 renderMap();

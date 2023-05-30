@@ -61,6 +61,9 @@ characters         amper("       Amper       ", "Clear", "                      
 characters arian("Arian", "Clear", "", "Atk 1", "Atk 2", "Atk 3", "Abt 1", "Abt 2", "Abt 3", 10, 5, 1, 100, 100, false, false);
 // Special
 characters active(inferno.name, inferno.effect, inferno.fighterClass, inferno.attackOne, inferno.abilityTwo, inferno.attackThree, inferno.abilityOne, inferno.abilityTwo, inferno.abilityThree, inferno.hp, inferno.arm, inferno.atk, inferno.bat, inferno.dat, inferno.active, inferno.picked);
+characters characterOne("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
+characters characterTwo("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
+characters characterThree("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
 
 
 class playerInventory{

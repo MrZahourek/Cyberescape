@@ -2,17 +2,17 @@
                         Ability one                         
                         ===========                         
                                                             
-      Reload Hp                                             
-      =========                                             
+      Fungus shield                                         
+      =============                                         
                                                             
-        | Cost: 15 battery                                  
+        | Cost: 40 battery                                  
                                                             
                                                             
                                                             
         | Effect:                                           
-           Choose any other alive hero and change           
-           their hp stat to be same as yours.               
-                                                            
+           Create a shield with strength of 5 and           
+           for every turn its not destroyed                 
+           it will add +1 to itself.                        
                                                             
                                                             
                                                             

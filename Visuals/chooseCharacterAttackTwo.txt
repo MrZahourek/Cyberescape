@@ -2,16 +2,16 @@
                         Ability two                         
                         ===========                         
                                                             
-      Reload Arm                                            
-      ==========                                            
+      Regrow                                                
+      ======                                                
                                                             
-        | Cost: 15 battery                                  
+        | Cost: 40 data                                     
                                                             
                                                             
                                                             
         | Effect:                                           
-           Choose any other alive hero and change           
-           their Arm stat to be same as yours.              
+           Create a shield with strength of your strongest  
+           fungus shield(after it was destroyed).           
                                                             
                                                             
                                                             

@@ -2,16 +2,16 @@
                        Ability three                        
                        =============                        
                                                             
-      Receive Hp                                            
-      ==========                                            
+      Shield heal                                           
+      ===========                                           
                                                             
         | Cost: 40 data                                     
                                                             
                                                             
                                                             
         | Effect:                                           
-           Choose any other alive hero and copy             
-           their hp stat so your matches theirs.            
+           Heal yourself by the same strength as            
+           your enemy's shield.                             
                                                             
                                                             
                                                             
