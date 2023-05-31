@@ -3911,18 +3911,109 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             cout << characterSheetRenderFileString;
             if (characterSheetPosition.currentPositionY == 2) {
                 setcolor(6);
-                cout << "► Attacks ◄";
+                if (characterSheetPosition.currentPositionX == 1) {
+                    cout << "► Attacks ◄";
+                }
+                else {
+                    cout << "► Abilities ◄";
+                }
+
             }
             else {
-                cout << "  Attacks  ";
+                if (characterSheetPosition.currentPositionX == 1) {
+                    cout << "   Attacks   ";
+                }
+                else {
+                    cout << "   Abilities ";
+                }
             }
             setcolor(15);
 
             cout << "                                                                                                                ║" << endl;
         }
+        else if (currentLine == 33) {
+            cout << characterSheetRenderFileString;
+
+                if (characterSheetPosition.currentPositionX == 1) {
+                    loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",1,false);
+                }
+                if (characterSheetPosition.currentPositionX == 2) {
+                    loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",1,false);
+                }
+                if (characterSheetPosition.currentPositionX == 3) {
+                    loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",1,false);
+                }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 34) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",2,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",2,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",2,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 35) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",3,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",3,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",3,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 36) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",4,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",4,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",4,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 37) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",5,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",5,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",5,false);
+            }
+
+            cout << "╔═══════╝" << endl;
+        }
         else if (currentLine == 38) {
-            if (characterSheetPosition.currentPositionY == 3 && characterSheetPosition.currentPositionX == 1) {
-                setcolor(0);
+            if (characterSheetPosition.currentPositionY == 3) {
+                if (characterSheetPosition.currentPositionX == 1) {
+                    setcolor(0);
+                }
+                else{
+                    setcolor(6);
+                }
                 cout <<  "  <---  ";
             }
             else {
@@ -3932,14 +4023,105 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
 
             cout << characterSheetRenderFileString;
 
-            if (characterSheetPosition.currentPositionY == 3 && characterSheetPosition.currentPositionX == 3) {
-                setcolor(0);
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",6,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",6,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",6,false);
+            }
+
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionY == 3) {
+                if (characterSheetPosition.currentPositionX == 3) {
+                    setcolor(0);
+                } else{
+                    setcolor(6);
+                }
                 cout <<  "  --->  " << endl;
             }
             else {
                 cout << "  --->  " << endl;
             }
             setcolor(15);
+        }
+        else if (currentLine == 39) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",7,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",7,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",7,false);
+            }
+
+            cout << "╚═══════╗" << endl;
+        }
+        else if (currentLine == 40) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",8,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",8,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",8,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 41) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",9,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",9,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",9,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 42) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",10,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",10,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",10,false);
+            }
+
+            cout << "        ║" << endl;
+        }
+        else if (currentLine == 43) {
+            cout << characterSheetRenderFileString;
+
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",11,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",11,false);
+            }
+            if (characterSheetPosition.currentPositionX == 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",11,false);
+            }
+
+            cout << "       ║" << endl;
         }
         else if (currentLine == 45) {
             cout << characterSheetRenderFileString;

@@ -112,6 +112,40 @@ attacks infernoAttacks("                                                        
                        "                                                            \n"
                        "                                                            ");
 
+attacks infernoAttacksSmall("                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                            | Effect:                                                                                                    \n"
+                            "                                                                                                                Destroy shield of the enemy, if the enemy                                                                \n"
+                            "                                                Shield Melt             | Cost: 40 battery                      doesn't have shield active deal 2 damage                                                                 \n"
+                            "                                                                                                                to their armour. Than deal normal damage                                                                 \n"
+                            "                                                                                                                to enemy.                                                                                                \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          ",
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                    | Effect:                                                                                            \n"
+                            "                                                                                                                        Deal a lot of damage to your enemy.                                                              \n"
+                            "                                                Flamethrower Overclock             | Cost: 20 battery, 20 data          Than give them burning effect.                                                                   \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          d",
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                    | Effect:                                                                                            \n"
+                            "                                                                                                                        Give your enemy two effects, burning and poison.                                                 \n"
+                            "                                                Smoke Grenade             | Cost: 30 battery, 15 data                                                                                                                    \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          ");
+
 attacks atlasAttacks ("                                                            \n"
                       "                        Attack one                          \n"
                       "                        ==========                          \n"
@@ -205,6 +239,40 @@ attacks atlasAttacks ("                                                         
                       "                                                            \n"
                       "                                                            ");
 
+attacks atlasAttacksSmall("                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                    | Effect:                                                                                            \n"
+                          "                                                                                                                        Lower the current stat of data of your enemy                                                     \n"
+                          "                                                Data leach             | Cost: 40 battery                               by 25% and add this amount to your data stat.                                                    \n"
+                          "                                                                                                                        After this deal lower damage to your enemy.                                                      \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                          ",
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                    | Effect:                                                                                            \n"
+                          "                                                                                                                        For every 10 data spent when this activated                                                      \n"
+                          "                                                Data Leak             | Cost: 100% data                                 deal one damage yo your enemy.                                                                   \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                          ",
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                    | Effect:                                                                                            \n"
+                          "                                                                                                                        Deal normal amount of damage (your atk stat)                                                     \n"
+                          "                                                SQL injection             | Cost: 40 data, 15 battery                   to your enemy. Than lower the data stat of                                                       \n"
+                          "                                                                                                                        your enemy by 20.                                                                                \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                         \n"
+                          "                                                                                                                                                                                                                          ");
+
 attacks hanibalAttacks ("                                                            \n"
                         "                        Attack one                          \n"
                         "                        ==========                          \n"
@@ -295,6 +363,40 @@ attacks hanibalAttacks ("                                                       
                         "                                                            \n"
                         "                                                            \n"
                         "                                                            ");
+
+attacks hanibalAttacksSmall("                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                    | Effect:                                                                                            \n"
+                            "                                                                                                                        Ignore armour and deal normal damage                                                             \n"
+                            "                                                Big bite             | Cost: 15 battery                                 to your enemy (lower their hp and                                                                \n"
+                            "                                                                                                                        not arm).                                                                                        \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          ",
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                    | Effect:                                                                                            \n"
+                            "                                                                                                                        Lower the Atk. stat of your enemy by                                                             \n"
+                            "                                                Scrap reuse             | Cost: 40 battery                              1, than deal lower damage to them.                                                               \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          ",
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                    | Effect:                                                                                            \n"
+                            "                                                                                                                        Deal high damage to your enemy they                                                              \n"
+                            "                                                Spine snap bite             | Cost: 40 battery, 40 data                 will skip their next turn.                                                                       \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                         \n"
+                            "                                                                                                                                                                                                                          ");
 
 attacks monoIAttacks ("                                                            \n"
                       "                         Attack one                         \n"
@@ -387,6 +489,8 @@ attacks monoIAttacks ("                                                         
                       "                                                            \n"
                       "                                                            ");
 
+attacks monoIAttacksSmall();
+
 attacks biohazardAttacks ("                                                            \n"
                           "                        Attack one                          \n"
                           "                        ==========                          \n"
@@ -477,6 +581,8 @@ attacks biohazardAttacks ("                                                     
                        "                                                            \n"
                        "                                                            \n"
                        "                                                            ");
+
+attacks biohazardAttacksSmall();
 
 attacks zipAttacks ("                                                            \n"
                     "                         Attack one                         \n"
@@ -569,6 +675,8 @@ attacks zipAttacks ("                                                           
                     "                                                            \n"
                     "                                                            ");
 
+attacks zipAttacksSmall();
+
 attacks plagyAttacks ("                                                            \n"
                       "                         Attack one                         \n"
                       "                         ==========                         \n"
@@ -660,6 +768,8 @@ attacks plagyAttacks ("                                                         
                       "                                                            \n"
                       "                                                            ");
 
+attacks plagyAttacksSmall();
+
 attacks amperAttacks ("                                                            \n"
                       "                         Attack one                         \n"
                       "                         ==========                         \n"
@@ -750,5 +860,12 @@ attacks amperAttacks ("                                                         
                       "                                                            \n"
                       "                                                            \n"
                       "                                                            ");
+
+
+attacks characterOneAttacksSmall("","","");
+attacks characterTwoAttacksSmall("","","");
+attacks characterThreeAttacksSmall("","","");
+
+attacks amperAttacksSmall();
 
 #endif //GAME_ATTACKS_H

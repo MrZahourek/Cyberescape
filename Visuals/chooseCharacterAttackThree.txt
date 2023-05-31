@@ -1,17 +1,18 @@
                                                             
-                       Ability three                        
-                       =============                        
+                       Attack three                         
+                       ============                         
                                                             
-      Shield heal                                           
-      ===========                                           
+         SQL injection                                      
+         =============                                      
                                                             
-        | Cost: 40 data                                     
+        | Cost: 40 data, 15 battery                         
                                                             
                                                             
                                                             
         | Effect:                                           
-           Heal yourself by the same strength as            
-           your enemy's shield.                             
+           Deal normal amount of damage (your atk stat)     
+           to your enemy. Than lower the data stat of       
+           your enemy by 20.                                
                                                             
                                                             
                                                             

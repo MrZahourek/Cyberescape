@@ -29,12 +29,12 @@ int main() {
 
     //loadFile("Visuals/shopTemplate.txt");
 
-    system("cls");
-    renderCharacterSheet();
+    //system("cls");
+    //renderCharacterSheet();
 
-    return 0;
+    //return 0;
 
-    while (1) {
+    while (true) {
         while (whatScreenWeSee == "Tutorial") {}
 
         while (whatScreenWeSee == "Choose Character") {
@@ -252,6 +252,14 @@ int main() {
                             characterOne.dat = inferno.dat;
                             characterOne.active = inferno.active;
                             characterOne.picked = inferno.picked;
+
+                            characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = infernoAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                            characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -271,6 +279,14 @@ int main() {
                                 characterTwo.dat = inferno.dat;
                                 characterTwo.active = inferno.active;
                                 characterTwo.picked = inferno.picked;
+
+                                characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = infernoAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -290,6 +306,14 @@ int main() {
                                     characterThree.dat = inferno.dat;
                                     characterThree.active = inferno.active;
                                     characterThree.picked = inferno.picked;
+
+                                    characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = infernoAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = infernoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
                                 }
                             }
                         }
@@ -335,6 +359,15 @@ int main() {
                             characterOne.dat = atlas.dat;
                             characterOne.active = atlas.active;
                             characterOne.picked = atlas.picked;
+
+                            characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = atlasAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                            characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -354,6 +387,14 @@ int main() {
                                 characterTwo.dat = atlas.dat;
                                 characterTwo.active = atlas.active;
                                 characterTwo.picked = atlas.picked;
+
+                                characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = atlasAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -373,6 +414,14 @@ int main() {
                                     characterThree.dat = atlas.dat;
                                     characterThree.active = atlas.active;
                                     characterThree.picked = atlas.picked;
+
+                                    characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = atlasAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = atlasAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
                                 }
                             }
                         }
@@ -418,6 +467,15 @@ int main() {
                             characterOne.dat = hanibal.dat;
                             characterOne.active = hanibal.active;
                             characterOne.picked = hanibal.picked;
+
+                            characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = hanibalAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                            characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -437,6 +495,15 @@ int main() {
                                 characterTwo.dat = hanibal.dat;
                                 characterTwo.active = hanibal.active;
                                 characterTwo.picked = hanibal.picked;
+
+                                characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = hanibalAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -456,6 +523,15 @@ int main() {
                                     characterThree.dat = hanibal.dat;
                                     characterThree.active = hanibal.active;
                                     characterThree.picked = hanibal.picked;
+
+                                    characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = hanibalAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = hanibalAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+
                                 }
                             }
                         }
@@ -501,6 +577,15 @@ int main() {
                             characterOne.dat = monoI.dat;
                             characterOne.active = monoI.active;
                             characterOne.picked = monoI.picked;
+
+                            /*characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                             characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = monoIAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                            characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
+
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -520,6 +605,14 @@ int main() {
                                 characterTwo.dat = monoI.dat;
                                 characterTwo.active = monoI.active;
                                 characterTwo.picked = monoI.picked;
+
+                                /* characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                 * characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                 * characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = monoIAttacksSmall.attackThreeDescriptionChooseYourCharacter
+                                 *
+                                 * characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                 * characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                 * characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -539,6 +632,14 @@ int main() {
                                     characterThree.dat = monoI.dat;
                                     characterThree.active = monoI.active;
                                     characterThree.picked = monoI.picked;
+
+                                /*  characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = monoIAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = monoIAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                                 }
                             }
                         }
@@ -584,6 +685,14 @@ int main() {
                             characterOne.dat = biohazard.dat;
                             characterOne.active = biohazard.active;
                             characterOne.picked = biohazard.picked;
+
+                        /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = biohazardAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                            characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                            characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -603,6 +712,14 @@ int main() {
                                 characterTwo.dat = biohazard.dat;
                                 characterTwo.active = biohazard.active;
                                 characterTwo.picked = biohazard.picked;
+
+                                /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = biohazardAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                    characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -622,6 +739,14 @@ int main() {
                                     characterThree.dat = biohazard.dat;
                                     characterThree.active = biohazard.active;
                                     characterThree.picked = biohazard.picked;
+
+                                    /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                        characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                        characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = biohazardAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+
+                                        characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                        characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                        characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = biohazardAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                                 }
                             }
                         }
@@ -667,6 +792,13 @@ int main() {
                             characterOne.dat = zip.dat;
                             characterOne.active = zip.active;
                             characterOne.picked = zip.picked;
+
+                            /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = zipAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = zipAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = zipAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = zipAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -686,6 +818,13 @@ int main() {
                                 characterTwo.dat = zip.dat;
                                 characterTwo.active = zip.active;
                                 characterTwo.picked = zip.picked;
+
+                                /*  characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = zipAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = zipAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = zipAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = zipAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -705,6 +844,13 @@ int main() {
                                     characterThree.dat = zip.dat;
                                     characterThree.active = zip.active;
                                     characterThree.picked = zip.picked;
+
+                                    /*  characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = zipAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = zipAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = zipAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = zipAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                                 }
                             }
                         }
@@ -750,6 +896,13 @@ int main() {
                             characterOne.dat = plagy.dat;
                             characterOne.active = plagy.active;
                             characterOne.picked = plagy.picked;
+
+                            /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
+     characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+     characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = plagyAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+     characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+     characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+     characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -769,6 +922,13 @@ int main() {
                                 characterTwo.dat = plagy.dat;
                                 characterTwo.active = plagy.active;
                                 characterTwo.picked = plagy.picked;
+
+                                /*  characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
+    characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+    characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = plagyAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -788,6 +948,13 @@ int main() {
                                     characterThree.dat = plagy.dat;
                                     characterThree.active = plagy.active;
                                     characterThree.picked = plagy.picked;
+
+                                    /*  characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
+    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = plagyAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = plagyAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                                 }
                             }
                         }
@@ -833,6 +1000,13 @@ int main() {
                             characterOne.dat = amper.dat;
                             characterOne.active = amper.active;
                             characterOne.picked = amper.picked;
+
+                            /*  characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
+    characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+    characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter = amperAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+    characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter = amperAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+    characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = amperAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+    characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = amperAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                         }
                         else {
                             if (characterTwo.name == "") {
@@ -852,6 +1026,13 @@ int main() {
                                 characterTwo.dat = amper.dat;
                                 characterTwo.active = amper.active;
                                 characterTwo.picked = amper.picked;
+
+                                /*  characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
+    characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+    characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter = amperAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter = amperAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = amperAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+    characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = amperAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                             }
                             else {
                                 if (characterThree.name == "") {
@@ -871,6 +1052,13 @@ int main() {
                                     characterThree.dat = amper.dat;
                                     characterThree.active = amper.active;
                                     characterThree.picked = amper.picked;
+
+                                    /*  characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
+    characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+    characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter = amperAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter = amperAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter = amperAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+    characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter = amperAbilitiesSmall.attackThreeDescriptionChooseYourCharacter; */
                                 }
                             }
                         }
@@ -1249,7 +1437,8 @@ int main() {
                 renderMap();
                 firstTime = false;
             }
-            if (_kbhit()) {
+            if (_kbhit()){
+startOfCycle:
                 // clear
                 system("cls");
                 // first render
@@ -1259,7 +1448,226 @@ int main() {
                 pressedKey = getch();
 
                 // key check
-                if (int(pressedKey) == 67 || int(pressedKey) == 99) {}
+                if (int(pressedKey) == 67 || int(pressedKey) == 99) {
+                    while (true) {
+                        system("cls");
+                        if (characterSheetPosition.currentPositionX == 1 && characterSheetPosition.currentPositionY == 1) {
+                            choosenCharacter = 1;
+                        }
+                        if (characterSheetPosition.currentPositionX == 2 && characterSheetPosition.currentPositionY == 1) {
+                            chooseCharacter = 2;
+                        }
+                        if (characterSheetPosition.currentPositionX == 3 && characterSheetPosition.currentPositionY == 1) {
+                            chooseCharacter = 3;
+                        }
+
+                        if (choosenCharacter == 1) {
+                            renderCharacterSheet(characterOne.name, characterOne.hp, characterOne.arm, characterOne.atk, characterOne.bat, characterOne.dat);
+                        }
+                        if (choosenCharacter == 2) {
+                            renderCharacterSheet(characterTwo.name, characterTwo.hp, characterTwo.arm, characterTwo.atk, characterTwo.bat, characterTwo.dat);
+                        }
+                        if (choosenCharacter == 3) {
+                            renderCharacterSheet(characterThree.name, characterThree.hp, characterThree.arm, characterThree.atk, characterThree.bat, characterThree.dat);
+                        }
+
+                        pressedKey = getch();
+
+                        if (int(pressedKey) == 65 || int(pressedKey) == 97) { // A or a
+                            characterSheetPosition.currentPositionX--;
+                            if (characterSheetPosition.currentPositionY == 1) {
+                                if (characterSheetPosition.currentPositionX <= 1) {
+                                    characterSheetPosition.currentPositionX = 1;
+                                    choosenCharacter = 1;
+                                }
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                    choosenCharacter = 2;
+                                }
+                                if (characterSheetPosition.currentPositionX >= 3) {
+                                    characterSheetPosition.currentPositionX = 3;
+                                    choosenCharacter = 3;
+                                }
+                            }
+                        } // A
+                        else if (int(pressedKey) == 68 || int(pressedKey) == 100) { // D or d
+                            characterSheetPosition.currentPositionX++;
+
+                            if (characterSheetPosition.currentPositionY == 1) {
+                                if (characterSheetPosition.currentPositionX <= 1) {
+                                    characterSheetPosition.currentPositionX = 1;
+                                    choosenCharacter = 1;
+                                }
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                    choosenCharacter = 2;
+                                }
+                                if (characterSheetPosition.currentPositionX >= 3) {
+                                    characterSheetPosition.currentPositionX = 3;
+                                    choosenCharacter = 3;
+                                }
+                            }
+
+                            if (characterSheetPosition.currentPositionY == 2) {
+                                if (characterSheetPosition.currentPositionX <= 1) {
+                                    characterSheetPosition.currentPositionX = 1;
+                                }
+                                if (characterSheetPosition.currentPositionX >= 2) {
+                                    characterSheetPosition.currentPositionX = 2;
+                                }
+                            }
+
+                            if (characterSheetPosition.currentPositionY == 3) {
+                                if (characterSheetPosition.currentPositionX <= 1) {
+                                    characterSheetPosition.currentPositionX = 1;
+                                }
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                }
+                                if (characterSheetPosition.currentPositionX >= 3) {
+                                    characterSheetPosition.currentPositionX = 3;
+                                }
+                            }
+
+                        } // D or d
+                        else if (int(pressedKey) == 87 || int(pressedKey) == 119) { // W or w
+                            characterSheetPosition.currentPositionY--;
+                        } // W
+                        else if (int(pressedKey) == 83 || int(pressedKey) == 115) { // S or s
+                            characterSheetPosition.currentPositionY++;
+                        } // S
+                        else if (int(pressedKey) == 69 || int(pressedKey) == 101) { // E or e
+
+                        } // E
+
+
+
+                        system("cls");
+                        Sleep(10);
+
+                        if (choosenCharacter == 1) {
+                            if (characterSheetPosition.currentPositionY == 2) {
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file << characterOneAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file << characterOneAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file
+                                            << characterOneAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                if (characterSheetPosition.currentPositionX == 1) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file << characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file << characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file << characterOneAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+                        }
+                        if (choosenCharacter == 2) {
+                            if (characterSheetPosition.currentPositionY == 2) {
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file << characterTwoAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file << characterTwoAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file
+                                            << characterTwoAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                if (characterSheetPosition.currentPositionX == 1) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file << characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file << characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file << characterTwoAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+                        }
+                        if (choosenCharacter == 3) {
+                            if (characterSheetPosition.currentPositionY == 2) {
+                                if (characterSheetPosition.currentPositionX == 2) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file
+                                            << characterThreeAbilitiesSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file
+                                            << characterThreeAbilitiesSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file
+                                            << characterThreeAbilitiesSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                if (characterSheetPosition.currentPositionX == 1) {
+                                    file.open("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityOne.txt");
+                                    file << characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityTwo.txt");
+                                    file << characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    clearFile("Visuals/characterSheetAttackOrAbilityThree.txt");
+                                    file << characterThreeAttacksSmall.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+                        }
+
+                        if (choosenCharacter == 1) {
+                            renderCharacterSheet(characterOne.name, characterOne.hp, characterOne.arm, characterOne.atk, characterOne.bat, characterOne.dat);
+                        }
+                        if (choosenCharacter == 2) {
+                            renderCharacterSheet(characterTwo.name, characterTwo.hp, characterTwo.arm, characterTwo.atk, characterTwo.bat, characterTwo.dat);
+                        }
+                        if (choosenCharacter == 3) {
+                            renderCharacterSheet(characterThree.name, characterThree.hp, characterThree.arm, characterThree.atk, characterThree.bat, characterThree.dat);
+                        }
+
+                    }
+                } // c or C
 
                 // second render
                 renderMap();

@@ -11,6 +11,7 @@ using namespace std;
 // string
 string whatScreenWeSee = "Choose Character";
 string chooseCharacterAbilityOrAttackString = " Attacks ";
+string characterSheetAbilityOrAttackString = "Attacks";
 string chosenOptionInShop = "items";
 // int
 int characterSlots = 0;
@@ -19,10 +20,7 @@ int shopNumber = 0;
 int lowestPointInChoosingHeroes = 1;
 int higestPointInChoosingHeroes = 8;
 
-int lowestPointInChoosingHeroesCharacters;
-int higestPointInCharacterSheetCharacters;
-int lowestPointInChoosingHeroesAttacks;
-int higestPointInCharacterSheetAttacks;
+int choosenCharacter;
 // char
 char pressedKey;
 // bool

@@ -1,17 +1,17 @@
                                                             
-                        Ability two                         
-                        ===========                         
+                        Attack two                          
+                        ==========                          
                                                             
-      Regrow                                                
-      ======                                                
+          Data Leak                                         
+          =========                                         
                                                             
-        | Cost: 40 data                                     
+        | Cost: 100% data                                   
                                                             
                                                             
                                                             
         | Effect:                                           
-           Create a shield with strength of your strongest  
-           fungus shield(after it was destroyed).           
+           For every 10 data spent when this activated      
+           deal one damage yo your enemy.                   
                                                             
                                                             
                                                             
