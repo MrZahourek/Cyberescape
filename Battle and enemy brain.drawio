@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-04T21:48:50.271Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="bpALqXKWJ3KzDBa_cR4d" version="21.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-04T21:58:04.683Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="crshYrOMCZ97gDcCn3tp" version="21.3.7" type="github">
   <diagram name="Stránka-1" id="LjdzmIXZPdjBEPaZL0FA">
     <mxGraphModel dx="2220" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -216,8 +216,8 @@
         <mxCell id="qTOq2X53uiqUG8-CeUMc-50" value="if (enemy.arm &amp;lt; damageDone)" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-417.5" y="750" width="215" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="qTOq2X53uiqUG8-CeUMc-52" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="-630" y="760" width="120" height="60" as="geometry" />
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-52" value="enemy.arm = enemy.arm - damageDone" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-740" y="760" width="230" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qTOq2X53uiqUG8-CeUMc-58" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qTOq2X53uiqUG8-CeUMc-53" target="qTOq2X53uiqUG8-CeUMc-57">
           <mxGeometry relative="1" as="geometry" />
@@ -225,8 +225,14 @@
         <mxCell id="qTOq2X53uiqUG8-CeUMc-53" value="damageDone = damageDone - enemy.arm;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-440" y="900" width="260" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-60" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="qTOq2X53uiqUG8-CeUMc-57" target="qTOq2X53uiqUG8-CeUMc-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="qTOq2X53uiqUG8-CeUMc-57" value="enemy.arm = 0;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-370" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-59" value="enemy.hp = enemy.hp - damageDone;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-430" y="1080" width="240" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
