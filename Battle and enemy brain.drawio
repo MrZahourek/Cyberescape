@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-04T21:25:35.768Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="ZUyARWKvU2XX1OGY8PoC" version="21.3.7" type="github">
+<mxfile host="app.diagrams.net" modified="2023-06-04T21:30:01.825Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36 OPR/98.0.0.0" etag="QovbobIKDB1u7g-_w6dy" version="21.3.7" type="github">
   <diagram name="Stránka-1" id="LjdzmIXZPdjBEPaZL0FA">
     <mxGraphModel dx="2220" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -79,13 +79,13 @@
             <mxPoint x="440" y="480" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qTOq2X53uiqUG8-CeUMc-21" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-21" value="Option one" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-200" y="390" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="qTOq2X53uiqUG8-CeUMc-22" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-22" value="Option two" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-200" y="520" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="qTOq2X53uiqUG8-CeUMc-23" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="qTOq2X53uiqUG8-CeUMc-23" value="Option three" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="-200" y="650" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qTOq2X53uiqUG8-CeUMc-24" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
