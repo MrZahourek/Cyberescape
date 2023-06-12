@@ -1,20 +1,19 @@
                                                             
-                       Attack three                         
-                       ============                         
+                        Attack three                        
+                        ============                        
                                                             
-         SQL injection                                      
-         =============                                      
+      Put on the drain worm                                 
+      =====================                                 
                                                             
         | Cost: 40 data, 15 battery                         
                                                             
                                                             
                                                             
         | Effect:                                           
-           Deal normal amount of damage (your atk stat)     
-           to your enemy. Than lower the data stat of       
-           your enemy by 20.                                
-                                                            
-                                                            
+           Put drain effect on your enemy it can            
+           be put away by clearing all effects              
+           or by putting on any other effect.               
+           Than deal higher damage.                         
                                                             
                                                             
                                                             

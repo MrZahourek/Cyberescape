@@ -160,4 +160,896 @@ int prepareShopTitle() {
 
 }
 
+void outOfResources() {
+    system("cls");
+    cout << "Oh no not enough resources";
+    Sleep(1000);
+    battleSceneSideAction = "Main";
+    battleScene.currentPositionX = 1;
+    battleScene.currentPositionY = 1;
+}
+
+void resetEffectsOfEnemy() {
+    enemyEffectBurningActive = false;
+    enemyEffectPoisonActive = false;
+    enemyEffectDrainingActive = false;
+
+
+    activeCountdownEnemy = 0;
+}
+
+void resetEffectsOfHero() {
+    heroEffectBurningActive = false;
+    heroEffectPoisonActive = false;
+    heroEffectDrainingActive = false;
+
+
+    activeCountdownEnemy = 0;
+}
+
+void HeroCheckAttack () {
+    // variables
+    int attackToCheck;
+
+    if (battleSceneSideAction == "Attacks") {
+        if (battleScene.currentPositionX == 2) {
+            attackToCheck = 1;
+        }
+        else if (battleScene.currentPositionX == 3) {
+            attackToCheck = 2;
+        }
+        else if (battleScene.currentPositionX == 4) {
+            attackToCheck = 3;
+        }
+    }
+
+    if (active.name == inferno.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.bat < 40) {
+                    outOfResources();
+                }
+                else {
+                    if (shieldActiveEnemy == true) {
+                        shieldHpEnemy = 0;
+                        shieldActiveEnemy = false;
+                    }
+                    else {
+                        if (enemy.arm <= 0) {
+                            enemy.hp = enemy.hp - 2;
+                        }
+                        else {
+                            enemy.arm = enemy.arm - 2;
+                        }
+                    }
+                    damageDone = active.atk;
+
+                    active.bat = active.bat - 40;
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 20 && active.dat >= 20) {
+                    damageDone = active.atk + 2;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectBurningActive = true;
+                    activeCountdownEnemy = 2;
+
+                    active.bat = active.bat - 20;
+                    active.dat = active.dat - 20;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 30 && active.dat >= 15) {
+                    damageDone = active.atk;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+
+                    active.bat = active.bat - 30;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == atlas.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.bat >= 40) {
+                    bool numIsReady = false;
+                    while (numIsReady != true) {
+                        if (enemy.dat % 4 == 0) {
+                            numIsReady = true;
+                        }
+                        else {
+                            enemy.dat++;
+                        }
+                    }
+
+                    int midStageOfMovement = enemy.dat / 4;
+
+                    enemy.dat = enemy.dat - midStageOfMovement;
+
+                    active.dat = active.dat + midStageOfMovement;
+
+                    damageDone = active.dat + midStageOfMovement;
+
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                int midStageOfMovement = active.dat % 10;
+                active.dat = active.dat - midStageOfMovement;
+                damageDone = active.dat / 10;
+                active.dat = 0;
+                break;
+            }
+
+            case 3:
+            {
+                if (active.dat >= 40 && active.bat >= 15) {
+                    damageDone = active.atk;
+                    enemy.dat = enemy.dat - 20;
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == hanibal.name) {
+        cout << endl << endl << "Test test";
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.bat >= 15) {
+                    enemy.hp = enemy.hp - active.atk;
+                    damageDone = 0;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 40 ) {
+                    enemy.atk--;
+                    damageDone = active.atk - 2;
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                cout << endl << endl << "Test test TesT";
+                if (active.bat < 40 && active.dat < 15) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk + 2;
+                    enemySkipsTheirTurn = true;
+                    active.bat = active.bat - 40;
+                    active.dat = active.dat - 15;
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == monoI.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    shieldActiveEnemy = false;
+                    shieldActiveHero = true;
+                    shieldHpHero = enemy.atk + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2: {
+                if (active.dat >= 40 && active.bat >= 40) {
+                    if (characterOne.atk > characterTwo.atk && characterOne.atk > characterThree.atk) {
+                        damageDone = characterOne.atk + 2;
+                    } else if (characterTwo.atk > characterOne.atk && characterTwo.atk > characterThree.atk) {
+                        damageDone = characterTwo.atk + 2;
+                    } else {
+                        damageDone = characterThree.atk + 2;
+                    }
+                    damageDone = damageDone + active.atk;
+                    heroSkipsTheirTurn = true;
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 15) {
+                    damageDone = active.atk;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == biohazard.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.bat >= 15 && active.dat >= 15) {
+                    damageDone = active.atk - 2;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    active.bat = active.bat - 15;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.dat < 40) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk + 2;
+                    resetEffectsOfEnemy();
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+                    active.dat = active.dat - 40;
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat < 40 ) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk;
+                    resetEffectsOfEnemy();
+                    enemyEffectBurningActive = true;
+                    activeCountdownEnemy = 2;
+                    active.bat = active.bat - 40;
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == zip.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.dat >= 15 && active.bat >= 15) {
+                    damageDone = active.atk - 2;
+                    enemy.atk--;
+                    active.dat = active.dat - 15;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 15) {
+                    damageDone = active.atk + 2;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 40) {
+                    damageDone = active.atk - 2;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == plagy.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    damageDone = active.atk;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 25) {
+                    damageDone = active.atk;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+
+                    active.bat = active.bat - 25;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.dat >= 40 && active.bat >= 15)
+                {
+                    resetEffectsOfEnemy();
+
+                    enemyEffectDrainingActive = true;
+
+                    damageDone = active.atk + 2;
+
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == amper.name) {
+        switch (attackToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    damageDone = 2;
+                    active.hp = active.hp + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.dat >= 40) {
+                    damageDone = active.atk + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 40) {
+                    damageDone = active.atk;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+}
+
+void HeroCheckAbility() {
+    // variables
+    int abilityToCheck;
+
+    if (battleSceneSideAction == "Attacks") {
+        if (battleScene.currentPositionX == 2) {
+            abilityToCheck = 1;
+        }
+        else if (battleScene.currentPositionX == 3) {
+            abilityToCheck = 2;
+        }
+        else if (battleScene.currentPositionX == 4) {
+            abilityToCheck = 3;
+        }
+    }
+
+    if (active.name == inferno.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.dat < 15) {
+                    outOfResources();
+                }
+                else {
+                    shieldActiveHero = true;
+                    shieldHpHero = 2 ;
+
+                    active.bat = active.bat - 15;
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 15) {
+                    resetEffectsOfHero();
+
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 15 && active.dat >= 15) {
+                    resetEffectsOfHero();
+
+
+
+                    active.bat = active.bat - 15;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == atlas.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.bat >= 40) {
+                    bool numIsReady = false;
+                    while (numIsReady != true) {
+                        if (enemy.dat % 4 == 0) {
+                            numIsReady = true;
+                        }
+                        else {
+                            enemy.dat++;
+                        }
+                    }
+
+                    int midStageOfMovement = enemy.dat / 4;
+
+                    enemy.dat = enemy.dat - midStageOfMovement;
+
+                    active.dat = active.dat + midStageOfMovement;
+
+                    damageDone = active.dat + midStageOfMovement;
+
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                int midStageOfMovement = active.dat % 10;
+                active.dat = active.dat - midStageOfMovement;
+                damageDone = active.dat / 10;
+                active.dat = 0;
+                break;
+            }
+
+            case 3:
+            {
+                if (active.dat >= 40 && active.bat >= 15) {
+                    damageDone = active.atk;
+                    enemy.dat = enemy.dat - 20;
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == hanibal.name) {
+        cout << endl << endl << "Test test";
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.bat >= 15) {
+                    enemy.hp = enemy.hp - active.atk;
+                    damageDone = 0;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 40 ) {
+                    enemy.atk--;
+                    damageDone = active.atk - 2;
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                cout << endl << endl << "Test test TesT";
+                if (active.bat < 40 && active.dat < 15) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk + 2;
+                    enemySkipsTheirTurn = true;
+                    active.bat = active.bat - 40;
+                    active.dat = active.dat - 15;
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == monoI.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    shieldActiveEnemy = false;
+                    shieldActiveHero = true;
+                    shieldHpHero = enemy.atk + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2: {
+                if (active.dat >= 40 && active.bat >= 40) {
+                    if (characterOne.atk > characterTwo.atk && characterOne.atk > characterThree.atk) {
+                        damageDone = characterOne.atk + 2;
+                    } else if (characterTwo.atk > characterOne.atk && characterTwo.atk > characterThree.atk) {
+                        damageDone = characterTwo.atk + 2;
+                    } else {
+                        damageDone = characterThree.atk + 2;
+                    }
+                    damageDone = damageDone + active.atk;
+                    heroSkipsTheirTurn = true;
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 15) {
+                    damageDone = active.atk;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == biohazard.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.bat >= 15 && active.dat >= 15) {
+                    damageDone = active.atk - 2;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    active.bat = active.bat - 15;
+                    active.dat = active.dat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.dat < 40) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk + 2;
+                    resetEffectsOfEnemy();
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+                    active.dat = active.dat - 40;
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat < 40 ) {
+                    outOfResources();
+                }
+                else {
+                    damageDone = active.atk;
+                    resetEffectsOfEnemy();
+                    enemyEffectBurningActive = true;
+                    activeCountdownEnemy = 2;
+                    active.bat = active.bat - 40;
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == zip.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.dat >= 15 && active.bat >= 15) {
+                    damageDone = active.atk - 2;
+                    enemy.atk--;
+                    active.dat = active.dat - 15;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 15) {
+                    damageDone = active.atk + 2;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 40) {
+                    damageDone = active.atk - 2;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == plagy.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    damageDone = active.atk;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.bat >= 25) {
+                    damageDone = active.atk;
+
+                    resetEffectsOfEnemy();
+
+                    enemyEffectPoisonActive = true;
+                    activeCountdownEnemy = 3;
+
+                    active.bat = active.bat - 25;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.dat >= 40 && active.bat >= 15)
+                {
+                    resetEffectsOfEnemy();
+
+                    enemyEffectDrainingActive = true;
+
+                    damageDone = active.atk + 2;
+
+                    active.dat = active.dat - 40;
+                    active.bat = active.bat - 15;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+    else if (active.name == amper.name) {
+        switch (abilityToCheck) {
+            case 1:
+            {
+                if (active.dat >= 40) {
+                    damageDone = 2;
+                    active.hp = active.hp + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 2:
+            {
+                if (active.dat >= 40) {
+                    damageDone = active.atk + 2;
+                    active.dat = active.dat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+
+            case 3:
+            {
+                if (active.bat >= 40) {
+                    damageDone = active.atk;
+                    enemy.hp = enemy.hp - damageDone;
+                    damageDone = 0;
+
+                    active.bat = active.bat - 40;
+                }
+                else {
+                    outOfResources();
+                }
+                break;
+            }
+        }
+    }
+}
+
+void enemyBrain (int originalHp = subject079.hp) {
+    // variables
+    int decideAttackOrAbility;
+
+    if (enemy.hp < originalHp) {
+        decideAttackOrAbility = rand() % 1;
+    }
+    else {
+        decideAttackOrAbility = 0;
+    }
+    // 0 = attack, 1 = ability
+
+    switch (decideAttackOrAbility) {
+        case 0: {
+
+        }
+
+        case 1: {
+
+        }
+
+    }
+
+
+}
+
+void startBattleMusic() {
+    battleEnded = false;
+    filePath = "Sounds/Escape the Subway.wav";
+}
+
 #endif //GAME_MYFCE_H

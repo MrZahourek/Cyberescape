@@ -11,6 +11,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <stdlib.h>
+#include <algorithm>
 
 #include "attacks.h"
 #include "abilities.h"
@@ -49,7 +50,7 @@ void renderChooseYourHeroes(string battleClass = inferno.fighterClass, string na
             cout << name;
         }
         else if (currentLine == 15) {
-            if (chooseCharacter.currentPositionX == higestPointInChoosingHeroes) {
+            if (chooseCharacter.currentPositionX == highestPointInChoosingHeroes) {
                 setcolor(0);
             }
             cout << chooseYourHeroesFileString;
@@ -3912,18 +3913,20 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionY == 2) {
                 setcolor(6);
                 if (characterSheetPosition.currentPositionX == 1) {
-                    cout << "► Attacks ◄";
+                    cout << " ► Attacks ◄";
+                    characterSheetAbilityOrAttackString = "Attacks";
                 }
                 else {
                     cout << "► Abilities ◄";
+                    characterSheetAbilityOrAttackString = "Abilities";
                 }
 
             }
             else {
-                if (characterSheetPosition.currentPositionX == 1) {
+                if (characterSheetAbilityOrAttackString == "Attacks") {
                     cout << "   Attacks   ";
                 }
-                else {
+                if (characterSheetAbilityOrAttackString == "Abilities") {
                     cout << "   Abilities ";
                 }
             }
@@ -3940,7 +3943,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 if (characterSheetPosition.currentPositionX == 2) {
                     loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",1,false);
                 }
-                if (characterSheetPosition.currentPositionX == 3) {
+                if (characterSheetPosition.currentPositionX >= 3) {
                     loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",1,false);
                 }
 
@@ -3955,7 +3958,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",2,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",2,false);
             }
 
@@ -3970,7 +3973,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",3,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",3,false);
             }
 
@@ -3985,7 +3988,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",4,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",4,false);
             }
 
@@ -4000,7 +4003,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",5,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",5,false);
             }
 
@@ -4029,7 +4032,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",6,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",6,false);
             }
 
@@ -4057,7 +4060,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",7,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",7,false);
             }
 
@@ -4072,7 +4075,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",8,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",8,false);
             }
 
@@ -4087,7 +4090,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",9,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",9,false);
             }
 
@@ -4102,7 +4105,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",10,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",10,false);
             }
 
@@ -4117,7 +4120,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             if (characterSheetPosition.currentPositionX == 2) {
                 loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",11,false);
             }
-            if (characterSheetPosition.currentPositionX == 3) {
+            if (characterSheetPosition.currentPositionX >= 3) {
                 loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",11,false);
             }
 
@@ -4135,6 +4138,11 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
             setcolor(15);
             fillerOfEmptinessStr(126,"  Equipped things  ", ' ', "║\n");
         }
+
+
+        /// there shall lie the equipment as i was too confused to do it, also it kinda needs other stuff to work so dont forget and its line 48 if you will
+
+
         else if (currentLine == 51) {
             cout << characterSheetRenderFileString;
             if (characterSheetPosition.currentPositionY == 5) {
@@ -4214,7 +4222,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 setcolor(6);
 
                 cout << "► " + playerInventory.item6;
-                fillerOfEmptinessStr(44,"► " + playerInventory.item6,' ',"║\n");
+                setcolor(15);
+                fillerOfEmptinessStr(46,"► " + playerInventory.item6,' ',"║\n");
             }
             else {
                 setcolor(15);
@@ -4338,7 +4347,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 setcolor(6);
 
                 cout << "► " + playerInventory.item16;
-                fillerOfEmptinessStr(25,"► " + playerInventory.item16,' ',"║\n");
+                setcolor(15);
+                fillerOfEmptinessStr(23,"► " + playerInventory.item16,' ',"║\n");
             }
             else {
                 setcolor(15);
@@ -4346,6 +4356,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 cout << playerInventory.item16;
                 fillerOfEmptinessStr(25, playerInventory.item16,' ',"║\n");
             }
+
+            setcolor(15);
 
         }
         else if (currentLine == 58) {
@@ -4462,7 +4474,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 setcolor(6);
 
                 cout << "► " + playerInventory.item26;
-                fillerOfEmptinessStr(25,"► " + playerInventory.item26,' ',"║\n");
+                setcolor(15);
+                fillerOfEmptinessStr(23,"► " + playerInventory.item26,' ',"║\n");
             }
             else {
                 setcolor(15);
@@ -4470,6 +4483,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 cout << playerInventory.item26;
                 fillerOfEmptinessStr(25,playerInventory.item26,' ',"║\n");
             }
+
+            setcolor(15);
         }
         else if (currentLine == 60) {
             cout << characterSheetRenderFileString;
@@ -4478,7 +4493,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 setcolor(6);
 
                 cout << "► " + playerInventory.item27;
-                fillerOfEmptinessStr(21," ► " + playerInventory.item27,' ',"");
+                fillerOfEmptinessStr(23," ► " + playerInventory.item27,' ',"");
             }
             else {
                 setcolor(15);
@@ -4586,6 +4601,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 setcolor(6);
 
                 cout << "► " + playerInventory.item36;
+                setcolor(15);
                 fillerOfEmptinessStr(25,"► " + playerInventory.item36,' ',"║\n");
             }
             else {
@@ -4594,6 +4610,8 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
                 cout << playerInventory.item36;
                 fillerOfEmptinessStr(25,playerInventory.item36,' ',"║\n");
             }
+
+            setcolor(15);
 
         }
 
@@ -4610,11 +4628,11 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
 
 
 
-void renderMainBattleScene (string enemyName = arian.name, string enemyEffect = arian.effect, int enemyHp = arian.hp, int enemyArm = arian.arm, int enemyAtk = arian.atk, int enemyBat = arian.bat, int enemyDat = arian.dat, string heroName = active.name, string heroEffect = active.effect, int heroHp = active.hp, int heroArm = active.arm, int heroAtk = active.atk, int heroBat = active.bat, int heroDat = active.dat) {
+void renderMainBattleScene (string enemyName = enemy.name, string enemyEffect = enemy.effect, int enemyHp = enemy.hp, int enemyArm = enemy.arm, int enemyAtk = enemy.atk, int enemyBat = enemy.bat, int enemyDat = enemy.dat, string heroName = active.name, string heroEffect = active.effect, int heroHp = active.hp, int heroArm = active.arm, int heroAtk = active.atk, int heroBat = active.bat, int heroDat = active.dat) {
     //prep
     prepareForOutput();
     //variables
-    int currentLine;
+    int currentLine = 0;
     string MainBattleSceneFileString;
     //File prep
     ifstream MainBattleSceneFileFile ("Visuals/battleSceneMain.txt");
@@ -4623,50 +4641,111 @@ void renderMainBattleScene (string enemyName = arian.name, string enemyEffect = 
     while (getline(MainBattleSceneFileFile, MainBattleSceneFileString)) {
         currentLine++;
 
-        if(currentLine == 1 ){
+        if(currentLine == 1){
             cout << MainBattleSceneFileString << endl;
         }
         else if(currentLine == 2){
-            cout << MainBattleSceneFileString << enemyName << endl;
+            cout << MainBattleSceneFileString << enemy.name;
+            fillerOfEmptinessStr(220,enemy.name,' ',"║\n");
         }
         else if(currentLine == 6) {
-            cout << MainBattleSceneFileString << enemyEffect << endl;
+            cout << MainBattleSceneFileString << enemy.effect;
+            fillerOfEmptinessStr(13,enemy.effect,' ',"║\n");
         }
         else if(currentLine == 11) {
-            cout << MainBattleSceneFileString << enemyHp << endl;
+            cout << MainBattleSceneFileString << enemy.hp;
+            fillerOfEmptinessInt(6,enemy.hp,' ',"║\n");
         }
         else if(currentLine == 13) {
-            cout << MainBattleSceneFileString << enemyArm << endl;
+            cout << MainBattleSceneFileString << enemy.arm;
+            fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
         }
         else if(currentLine == 15) {
-            cout << MainBattleSceneFileString << enemyAtk << endl;
+            cout << MainBattleSceneFileString << enemy.atk;
+            fillerOfEmptinessInt(6,enemy.atk,' ',"║\n");
         }
         else if(currentLine == 17) {
-            cout << MainBattleSceneFileString << enemyBat << endl;
+            cout << MainBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(5,enemy.bat,' ',"║\n");
         }
         else if(currentLine == 19) {
-            cout << MainBattleSceneFileString << enemyDat << endl;
+            cout << MainBattleSceneFileString << enemy.dat;
+            fillerOfEmptinessInt(8,enemy.dat,' ',"║\n");
         }
         else if(currentLine == 24) {
-            cout << MainBattleSceneFileString << heroName << endl;
+            cout << MainBattleSceneFileString << active.name;
+            fillerOfEmptinessStr(221,active.name,' ',"║\n");
         }
         else if(currentLine == 28) {
-            cout << MainBattleSceneFileString << heroEffect << endl;
+            cout << MainBattleSceneFileString << active.effect;
+            fillerOfEmptinessStr(13,active.effect,' ',"║\n");
+        }
+        else if (currentLine == 29) {
+            cout << "║        ";
+            if (battleScene.currentPositionX == 1){
+                setcolor(6);
+                cout << "► Attacks ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Attacks  ";
+            }
+            cout << MainBattleSceneFileString << endl;
+        }
+        else if (currentLine == 31) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 2){
+                setcolor(6);
+                cout << "► Use  Item ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Use  Item  ";
+            }
+            cout << MainBattleSceneFileString << endl;
         }
         else if(currentLine == 33) {
-            cout << MainBattleSceneFileString << heroHp << endl;
+            cout << "║        ";
+            if (battleScene.currentPositionX == 3){
+                setcolor(6);
+                cout << "► Ability ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Ability  ";
+            }
+
+            cout << MainBattleSceneFileString << active.hp;
+            fillerOfEmptinessInt(6,active.hp,' ',"║\n");
         }
         else if(currentLine == 35) {
-            cout << MainBattleSceneFileString << heroArm << endl;
+            cout << "║       ";
+            if (battleScene.currentPositionX == 4){
+                setcolor(6);
+                cout << "► Swap Hero ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Swap Hero  ";
+            }
+            if (shieldActiveHero = true) {
+                setcolor(6);
+            }
+            cout << MainBattleSceneFileString << active.arm + shieldHpHero;
+            setcolor(15);
+            fillerOfEmptinessInt(6,active.arm + shieldHpHero,' ',"║\n");
         }
         else if(currentLine == 37) {
-            cout << MainBattleSceneFileString << heroAtk << endl;
+            cout << MainBattleSceneFileString << active.atk;
+            fillerOfEmptinessInt(6,active.atk,' ',"║\n");
         }
         else if(currentLine == 39) {
-            cout << MainBattleSceneFileString << heroBat << endl;
+            cout << MainBattleSceneFileString << active.bat;
+            fillerOfEmptinessInt(5,active.bat,' ',"║\n");
         }
         else if(currentLine == 41) {
-            cout << MainBattleSceneFileString << heroDat << endl;
+            cout << MainBattleSceneFileString << active.dat;
+            fillerOfEmptinessInt(8,active.dat,' ',"║\n");
         }
 
         else {
@@ -4674,6 +4753,3770 @@ void renderMainBattleScene (string enemyName = arian.name, string enemyEffect = 
         }
     }
 
+}
+
+void renderEnemyDescription(string pathToFile = "Visuals/Cutscenes/X-001.txt") {
+    prepareForOutput();
+    // variables
+    string enemyDescriptionFileString;
+    //prep file
+    fstream enemyDescriptionFileFile (pathToFile);
+
+    //code
+    while(getline(enemyDescriptionFileFile, enemyDescriptionFileString)) {
+        cout << enemyDescriptionFileString << endl;
+    }
+}
+
+void renderItemsBattleScene () {
+    //prep
+    prepareForOutput();
+    // variables
+    string itemsBattleSceneFileString;
+    int currentLine = 0;
+    // prep file
+    fstream itemsBattleSceneFileFile ("Visuals/battleSceneMainItems.txt");
+
+    // code
+    while(getline(itemsBattleSceneFileFile, itemsBattleSceneFileString)) {
+        currentLine++;
+
+        if (currentLine == 1){
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if(currentLine == 2){
+            cout << itemsBattleSceneFileString << enemy.name;
+            fillerOfEmptinessStr(220,enemy.name,' ',"║\n");
+        }
+        else if(currentLine == 6) {
+            cout << itemsBattleSceneFileString << enemy.effect;
+            fillerOfEmptinessStr(13,enemy.effect,' ',"║\n");
+        }
+        else if(currentLine == 11) {
+            cout << itemsBattleSceneFileString << enemy.hp;
+            fillerOfEmptinessInt(6,enemy.hp,' ',"║\n");
+        }
+        else if(currentLine == 13) {
+            cout << itemsBattleSceneFileString << enemy.arm;
+            fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+        }
+        else if(currentLine == 15) {
+            cout << itemsBattleSceneFileString << enemy.atk;
+            fillerOfEmptinessInt(6,enemy.atk,' ',"║\n");
+        }
+        else if(currentLine == 17) {
+            cout << itemsBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
+        }
+        else if(currentLine == 19) {
+            cout << itemsBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(8, enemy.bat, ' ', "║\n");
+        }
+        else if (currentLine == 24) {
+            cout << itemsBattleSceneFileString << active.name;
+            fillerOfEmptinessStr(221, active.name, ' ',"║\n");
+        }
+        else if(currentLine == 26) {
+            cout << "║          Options         ║                                                     ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item1 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item1 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item1 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item19 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item19 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item19 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if(currentLine == 28) {
+            cout << "║                          ║                                                     ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 2) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item2 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item2 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item2 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 2) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item20 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item20 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item20 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << active.effect;
+            fillerOfEmptinessStr(13, active.effect, ' ', "║\n");
+
+        }
+        else if(currentLine == 29) {
+            cout << "║       ";
+
+                if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                    setcolor(6);
+                    cout << "► Step Back ◄";
+                    setcolor(15);
+                }
+                else {
+                    cout << "  Step Back  ";
+                }
+
+            cout << "      ║";
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 30) {
+            cout << "║                          ║                                                     ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 3) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item3 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item3 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item3 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 3) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item21 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item21 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item21 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 32) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 4) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item4 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item4 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item4 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 4) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item22 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item22 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item22 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 33) {
+            cout << itemsBattleSceneFileString << active.hp;
+            fillerOfEmptinessInt(6,active.hp,' ',"║\n");
+        }
+        else if (currentLine == 34) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 5) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item5 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item5 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item4 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 5) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item23 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item23 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item23 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 35) {
+            cout << itemsBattleSceneFileString << active.arm + shieldHpHero;
+            setcolor(15);
+            fillerOfEmptinessInt(6,active.arm + shieldHpHero,' ',"║\n");
+        }
+        else if (currentLine == 36) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 6) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item6 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item6 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item6 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 6) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item24 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item24 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item24 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 37) {
+            cout << itemsBattleSceneFileString << active.atk;
+            fillerOfEmptinessInt(6,active.atk,' ',"║\n");
+        }
+        else if (currentLine == 38) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 7) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item7 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item7 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item7 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 7) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item25 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item25 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item25 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 39) {
+            cout << itemsBattleSceneFileString << active.bat;
+            fillerOfEmptinessInt(5,active.bat,' ',"║\n");
+        }
+        else if (currentLine == 40) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 8) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item8 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item8 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item8 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 8) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item26 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item26 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item26 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 41) {
+            cout << itemsBattleSceneFileString << active.dat;
+            fillerOfEmptinessInt(8,active.dat,' ',"║\n");
+        }
+        else if (currentLine == 42) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 9) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item9 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item9 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item9 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 9) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item27 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item27 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item27 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 44) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 10) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item10 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item10 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item10 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 10) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item28 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item28 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item28 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 46) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 11) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item11 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item11 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item11 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 11) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item29 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item29 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item29 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 48) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 12) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item12 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item12 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item12 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 12) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item30 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item30 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item30 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 50) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 13) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item13 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item13 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item13 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 13) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item31 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item31 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item31 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 52) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 14) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item14 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item14 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item14 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 14) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item32 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item32 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item32 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 54) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 15) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item15 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item15 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item15 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 15) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item33 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item33 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item33 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 56) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 16) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item16 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item16 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item16 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 16) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item34 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item34 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item34 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 58) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 17) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item17 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item17 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item17 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 17) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item35 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item35 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item35 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+        else if (currentLine == 60) {
+            cout << "║                                                                                ║";
+            if (battleScene.currentPositionY == 2 && battleScene.currentPositionX == 18) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item18 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item18 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item18 + "  ",' ',"║");
+            if (battleScene.currentPositionY == 3 && battleScene.currentPositionX == 18) {
+                setcolor(6);
+                cout << " ► " + playerInventory.item36 + " ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "   " + playerInventory.item36 + "  ";
+            }
+            fillerOfEmptinessStr(33,"   " + playerInventory.item36 + "  ",' ',"║");
+            cout << itemsBattleSceneFileString << endl;
+        }
+
+
+
+        else {
+            cout << itemsBattleSceneFileString << endl;
+        }
+    }
+}
+
+void renderAttacksBattleScene () {
+    //prep
+    prepareForOutput();
+    // variables
+    string attacksBattleSceneFileString;
+    int currentLine = 0;
+    // prep file
+    fstream attacksBattleSceneFileFile ("Visuals/battleSceneMainAttacksAbilities.txt");
+
+    // code
+    while(getline(attacksBattleSceneFileFile,attacksBattleSceneFileString)) {
+        currentLine++;
+
+        if (currentLine == 1) {
+            cout << attacksBattleSceneFileString << endl;
+        }
+        else if (currentLine == 2) {
+            cout << attacksBattleSceneFileString << enemy.name;
+            fillerOfEmptinessStr(220, enemy.name, ' ', "║\n");
+        }
+        else if (currentLine == 6) {
+            cout << attacksBattleSceneFileString << enemy.effect;
+            fillerOfEmptinessStr(13,enemy.effect,' ', "║\n");
+        }
+        else if (currentLine == 11) {
+            cout << attacksBattleSceneFileString << enemy.hp;
+            fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
+        }
+        else if (currentLine == 13) {
+            cout << attacksBattleSceneFileString << enemy.arm;
+            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+        }
+        else if (currentLine == 15) {
+            cout << attacksBattleSceneFileString << enemy.atk;
+            fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
+        }
+        else if (currentLine == 17) {
+            cout << attacksBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
+        }
+        else if (currentLine == 19) {
+            cout << attacksBattleSceneFileString << enemy.dat;
+            fillerOfEmptinessInt(8, enemy.dat, ' ', "║\n");
+        }
+        else if (currentLine == 24) {
+            cout << attacksBattleSceneFileString << active.name;
+            fillerOfEmptinessStr(221, active.name, ' ', "║\n");
+        }
+        else if (currentLine == 26) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",1);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",1);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",1);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",1);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",1);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",1);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",1);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",1);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+            }
+            cout << "  ║      Effect     ║" << endl;
+        }
+        else if (currentLine == 27) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",2);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",2);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",2);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",2);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",2);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",2);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",2);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",2);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        }
+        else if (currentLine == 28) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",3);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",3);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",3);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",3);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",3);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",3);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",3);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",3);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+            }
+            cout << "  ║ > ";
+            cout << active.effect;
+            fillerOfEmptinessStr(13, active.effect, ' ', "║\n");
+        }
+        else if (currentLine == 29) {
+            cout << "║       ";
+            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << "► Step Back ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Step Back  ";
+            }
+            fillerOfEmptinessStr(7, "  Step Back  ", ' ', "");
+
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",4);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",4);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",4);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",4);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",4);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",4);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",4);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",4);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        }
+        else if (currentLine == 30) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",5);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",5);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",5);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",5);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",5);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",5);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",5);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",5);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+            }
+            cout << "  ║      Stats      ║" << endl;
+        }
+        else if (currentLine == 31) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",6);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",6);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",6);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",6);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",6);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",6);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        }
+        else if (currentLine == 32) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",7);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",7);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",7);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",7);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",7);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",7);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",7);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",7);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 33) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 2) {
+                setcolor(6);
+                cout << "► Options 1 ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Options 1  ";
+            }
+
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",8);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",8);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",8);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",8);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",8);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",8);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",8);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",8);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+            }
+            cout << "  ║ > Health ";
+            cout << active.hp;
+            fillerOfEmptinessInt(6,active.hp, ' ', "║\n");
+        }
+        else if (currentLine == 34) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",9);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",9);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",9);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",9);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",9);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",9);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",9);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",9);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 35) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 3) {
+                setcolor(6);
+                cout << "► Options 2 ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Options 2  ";
+            }
+
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",10);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",10);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",10);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",10);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",10);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",10);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",10);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",10);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+            }
+            cout << "  ║ > Armour ";
+            cout << active.arm + shieldHpHero;
+            setcolor(15);
+            fillerOfEmptinessInt(6,active.arm + shieldHpHero, ' ', "║\n");
+        }
+        else if (currentLine == 36) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",11);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",11);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",11);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",11);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",11);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",11);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",11);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",11);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 37) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 4) {
+                setcolor(6);
+                cout << "► Options 3 ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Options 3  ";
+            }
+
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",12);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",12);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",12);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",12);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",12);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",12);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",12);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",12);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+            }
+            cout << "  ║ > Attack ";
+            cout << active.atk;
+            fillerOfEmptinessInt(6,active.atk, ' ', "║\n");
+        }
+        else if (currentLine == 38) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",13);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",13);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",13);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",13);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",13);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",13);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",13);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",13);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 39) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",14);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",14);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",14);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",14);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",14);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",14);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",14);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",14);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+            }
+            cout << "  ║ > Battery ";
+            cout << active.bat;
+            fillerOfEmptinessInt(5,active.bat, ' ', "║\n");
+        }
+        else if (currentLine == 40) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",15);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",15);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",15);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",15);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 41) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",16);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",16);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",16);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",16);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",16);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",16);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",16);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",16);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+            }
+            cout << "  ║ > Data ";
+            cout << active.dat;
+            fillerOfEmptinessInt(8,active.dat, ' ', "║\n");
+        }
+        else if (currentLine == 42) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",17);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",17);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",17);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",17);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",17);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",17);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",17);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",17);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 43) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",18);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",18);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",18);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",18);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",18);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",18);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",18);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",18);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        }
+        else if (currentLine == 44) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",19);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",19);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",19);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",19);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",19);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",19);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",19);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",19);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 45) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",20);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",20);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",20);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",20);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",20);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",20);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",20);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",20);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 46) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",21);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",21);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",21);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",21);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",21);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",21);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",21);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",21);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 47) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",22);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",22);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",22);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",22);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",22);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",22);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",22);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",22);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 48) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",23);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",23);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",23);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",23);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",23);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",23);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",23);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",23);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 49) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",24);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",24);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",24);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",24);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",24);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",24);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",24);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",24);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 50) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",25);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",25);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",25);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",25);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",25);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",25);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",25);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",25);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 51) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",26);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",26);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",26);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",26);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",26);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",26);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",26);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",26);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 52) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",27);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",27);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",27);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",27);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",27);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",27);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",27);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",27);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 53) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",28);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",28);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",28);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",28);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",28);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",28);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",28);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",28);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 54) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",29);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",29);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+            }
+
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",29);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",29);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",29);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",29);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",29);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",29);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+        else if (currentLine == 55) {
+            cout << attacksBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",30);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",30);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt",30);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",30);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",30);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",30);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+                setcolor(15);
+            }
+            else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt",30);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt",30);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+
+
+
+        else {
+            cout << attacksBattleSceneFileString << endl;
+        }
+    }
+}
+
+void renderAbilitiesBattleScene () {
+    //prep
+    prepareForOutput();
+    // variables
+    string abilitiesBattleSceneFileString;
+    int currentLine = 0;
+    // prep file
+    fstream abilitiesBattleSceneFileFile ("Visuals/battleSceneMainAttacksAbilities.txt");
+
+    // code
+    while(getline(abilitiesBattleSceneFileFile,abilitiesBattleSceneFileString)) {
+        currentLine++;
+
+        if (currentLine == 1) {
+            cout << abilitiesBattleSceneFileString << endl;
+        } else if (currentLine == 2) {
+            cout << abilitiesBattleSceneFileString << enemy.name;
+            fillerOfEmptinessStr(220, enemy.name, ' ', "║\n");
+        } else if (currentLine == 6) {
+            cout << abilitiesBattleSceneFileString << enemy.effect;
+            fillerOfEmptinessStr(13, enemy.effect, ' ', "║\n");
+        } else if (currentLine == 11) {
+            cout << abilitiesBattleSceneFileString << enemy.hp;
+            fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
+        } else if (currentLine == 13) {
+            cout << abilitiesBattleSceneFileString << enemy.arm;
+            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+        } else if (currentLine == 15) {
+            cout << abilitiesBattleSceneFileString << enemy.atk;
+            fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
+        } else if (currentLine == 17) {
+            cout << abilitiesBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
+        } else if (currentLine == 19) {
+            cout << abilitiesBattleSceneFileString << enemy.dat;
+            fillerOfEmptinessInt(8, enemy.dat, ' ', "║\n");
+        } else if (currentLine == 24) {
+            cout << abilitiesBattleSceneFileString << active.name;
+            fillerOfEmptinessStr(221, active.name, ' ', "║\n");
+        } else if (currentLine == 26) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 1);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 1);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 1);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 1);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 1);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 1);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 1);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 1);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 1);
+            }
+            cout << "  ║      Effect     ║" << endl;
+        } else if (currentLine == 27) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 2);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 2);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 2);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 2);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 2);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 2);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 2);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 2);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 2);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        } else if (currentLine == 28) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 3);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 3);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 3);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 3);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 3);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 3);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 3);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 3);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 3);
+            }
+            cout << "  ║ > ";
+            cout << active.effect;
+            fillerOfEmptinessStr(13, active.effect, ' ', "║\n");
+        } else if (currentLine == 29) {
+            cout << "║       ";
+            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << "► Step Back ◄";
+                setcolor(15);
+            } else {
+                cout << "  Step Back  ";
+            }
+            fillerOfEmptinessStr(7, "  Step Back  ", ' ', "");
+
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 4);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 4);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 4);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 4);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 4);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 4);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 4);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 4);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 4);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        } else if (currentLine == 30) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 5);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 5);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 5);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 5);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 5);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 5);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 5);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 5);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 5);
+            }
+            cout << "  ║      Stats      ║" << endl;
+        } else if (currentLine == 31) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 6);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 6);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 6);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        } else if (currentLine == 32) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 7);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 7);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 7);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 7);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 7);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 7);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 7);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 7);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 7);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 33) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 2) {
+                setcolor(6);
+                cout << "► Options 1 ◄";
+                setcolor(15);
+            } else {
+                cout << "  Options 1  ";
+            }
+
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 8);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 8);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 8);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 8);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 8);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 8);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 8);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 8);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 8);
+            }
+            cout << "  ║ > Health ";
+            cout << active.hp;
+            fillerOfEmptinessInt(6, active.hp, ' ', "║\n");
+        } else if (currentLine == 34) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 9);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 9);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 9);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 9);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 9);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 9);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 9);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 9);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 9);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 35) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 3) {
+                setcolor(6);
+                cout << "► Options 2 ◄";
+                setcolor(15);
+            } else {
+                cout << "  Options 2  ";
+            }
+
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 10);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 10);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 10);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 10);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 10);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 10);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 10);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 10);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
+            }
+            cout << "  ║ > Armour ";
+            cout << active.arm + shieldHpHero;
+            setcolor(15);
+            fillerOfEmptinessInt(6, active.arm + shieldHpHero, ' ', "║\n");
+        } else if (currentLine == 36) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 11);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 11);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 11);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 11);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 11);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 11);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 11);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 11);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 11);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 37) {
+            cout << "║       ";
+            if (battleScene.currentPositionX == 4) {
+                setcolor(6);
+                cout << "► Options 3 ◄";
+                setcolor(15);
+            } else {
+                cout << "  Options 3  ";
+            }
+
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 12);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 12);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 12);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 12);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 12);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 12);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 12);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 12);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 12);
+            }
+            cout << "  ║ > Attack ";
+            cout << active.atk;
+            fillerOfEmptinessInt(6, active.atk, ' ', "║\n");
+        } else if (currentLine == 38) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 13);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 13);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 13);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 13);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 13);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 13);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 13);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 13);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 13);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 39) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 14);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 14);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 14);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 14);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 14);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 14);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 14);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 14);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 14);
+            }
+            cout << "  ║ > Battery ";
+            cout << active.bat;
+            fillerOfEmptinessInt(5, active.bat, ' ', "║\n");
+        } else if (currentLine == 40) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 15);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 15);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 15);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 15);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 15);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 41) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 16);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 16);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 16);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 16);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 16);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 16);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 16);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 16);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 16);
+            }
+            cout << "  ║ > Data ";
+            cout << active.dat;
+            fillerOfEmptinessInt(8, active.dat, ' ', "║\n");
+        } else if (currentLine == 42) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 17);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 17);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 17);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 17);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 17);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 17);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 17);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 17);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 17);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 43) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 18);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 18);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 18);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 18);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 18);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 18);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 18);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 18);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 18);
+            }
+            cout << "  ╠═════════════════╣" << endl;
+        } else if (currentLine == 44) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 19);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 19);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 19);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 19);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 19);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 19);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 19);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 19);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 19);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 45) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 20);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 20);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 20);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 20);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 20);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 20);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 20);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 20);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 20);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 46) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 21);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 21);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 21);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 21);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 21);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 21);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 21);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 21);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 21);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 47) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 22);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 22);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 22);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 22);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 22);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 22);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 22);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 22);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 22);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 48) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 23);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 23);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 23);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 23);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 23);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 23);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 23);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 23);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 23);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 49) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 24);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 24);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 24);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 24);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 24);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 24);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 24);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 24);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 24);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 50) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 25);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 25);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 25);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 25);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 25);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 25);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 25);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 25);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 25);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 51) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 26);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 26);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 26);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 26);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 26);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 26);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 26);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 26);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 26);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 52) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 27);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 27);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 27);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 27);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 27);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 27);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 27);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 27);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 27);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 53) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 28);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 28);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 28);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 28);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 28);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 28);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 28);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 28);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 28);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 54) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 29);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 29);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+            }
+
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 29);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 29);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 29);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 29);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 29);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 29);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 29);
+            }
+            cout << "  ║                 ║" << endl;
+        } else if (currentLine == 55) {
+            cout << abilitiesBattleSceneFileString;
+            if (battleScene.currentPositionX == 1) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 30);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 30);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+            }
+            if (battleScene.currentPositionX == 2) {
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 30);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 30);
+                setcolor(15);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 3) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 30);
+                setcolor(15);
+                cout << "   ║";
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 30);
+                cout << "  ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+                setcolor(15);
+            } else if (battleScene.currentPositionX == 4) {
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackOne.txt", 30);
+                setcolor(15);
+                cout << "   ║";
+                setcolor(8);
+                loadLine("Visuals/chooseCharacterAttackTwo.txt", 30);
+                setcolor(15);
+                cout << "  ║";
+                loadLine("Visuals/chooseCharacterAttackThree.txt", 30);
+            }
+            cout << "  ║                 ║" << endl;
+        }
+
+        else {
+            cout << abilitiesBattleSceneFileString << endl;
+        }
+    }
+}
+
+void renderSwapHeroBattleScene () {
+    //prep
+    prepareForOutput();
+    // variables
+    string swapHeroBattleSceneFileString;
+    int currentLine = 0;
+
+    string characterOneNameEdited = characterOne.name;
+    string characterTwoNameEdited = characterTwo.name;
+    string characterThreeNameEdited = characterThree.name;
+
+    characterOneNameEdited.erase(remove(characterOneNameEdited.begin(), characterOneNameEdited.end(), ' '), characterOneNameEdited.end()); //remove space from character names
+    characterTwoNameEdited.erase(remove(characterTwoNameEdited.begin(), characterTwoNameEdited.end(), ' '), characterTwoNameEdited.end());
+    characterThreeNameEdited.erase(remove(characterThreeNameEdited.begin(), characterThreeNameEdited.end(), ' '), characterThreeNameEdited.end());
+
+    // prep file
+    fstream swapHeroBattleSceneFileFile ("Visuals/battleSceneMainSwapHero.txt");
+
+    // code
+    while(getline(swapHeroBattleSceneFileFile, swapHeroBattleSceneFileString)) {
+        currentLine++;
+
+        if (currentLine == 1) {
+            cout << swapHeroBattleSceneFileString << endl;
+        }
+        else if (currentLine == 2) {
+            cout << swapHeroBattleSceneFileString << enemy.name;
+            fillerOfEmptinessStr(220, enemy.name,' ', "║\n");
+        }
+        else if (currentLine == 6) {
+            cout << swapHeroBattleSceneFileString << enemy.effect;
+            fillerOfEmptinessStr(13, enemy.effect,' ', "║\n");
+        }
+        else if(currentLine == 11) {
+            cout << swapHeroBattleSceneFileString << enemy.hp;
+            fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
+        }
+        else if (currentLine == 13) {
+            cout << swapHeroBattleSceneFileString << enemy.arm;
+            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+        }
+        else if (currentLine == 15) {
+            cout << swapHeroBattleSceneFileString << enemy.atk;
+            fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
+        }
+        else if (currentLine == 17) {
+            cout << swapHeroBattleSceneFileString << enemy.bat;
+            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
+        }
+        else if (currentLine == 19) {
+            cout << swapHeroBattleSceneFileString << enemy.dat;
+            fillerOfEmptinessInt(8, enemy.dat, ' ', "║\n");
+        }
+        else if (currentLine == 24) {
+            cout << swapHeroBattleSceneFileString << active.name;
+            fillerOfEmptinessStr(221, active.name, ' ', "║\n");
+        }
+        else if (currentLine == 28) {
+            cout << swapHeroBattleSceneFileString << active.effect;
+            fillerOfEmptinessStr(13, active.effect,' ', "║\n");
+        }
+        else if (currentLine == 29) {
+            cout << "║       ";
+
+            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << "► Step Back ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Step Back  ";
+            }
+            cout << swapHeroBattleSceneFileString << endl;
+        }
+        else if (currentLine == 33) {
+            cout << swapHeroBattleSceneFileString << active.hp;
+            fillerOfEmptinessInt(6, active.hp, ' ', "║\n");
+        }
+        else if (currentLine == 35) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterTwo.hp;
+                    fillerOfEmptinessInt(15,characterTwo.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterThree.hp;
+                    fillerOfEmptinessInt(15,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterOne.hp;
+                    fillerOfEmptinessInt(15,characterOne.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterThree.hp;
+                    fillerOfEmptinessInt(15,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterOne.hp;
+                    fillerOfEmptinessInt(15,characterOne.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterTwo.hp;
+                    fillerOfEmptinessInt(15,characterTwo.hp, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString;
+            cout << active.hp;
+            fillerOfEmptinessInt(6,active.hp,' ', "║\n");
+        }
+        else if (currentLine == 35) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterTwo.hp;
+                    fillerOfEmptinessInt(15,characterTwo.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterThree.hp;
+                    fillerOfEmptinessInt(15,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterOne.hp;
+                    fillerOfEmptinessInt(15,characterOne.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterThree.hp;
+                    fillerOfEmptinessInt(15,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Health ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Health ";
+                    cout << characterOne.hp;
+                    fillerOfEmptinessInt(15,characterOne.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Health ";
+                    cout << characterTwo.hp;
+                    fillerOfEmptinessInt(15,characterTwo.hp, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString;
+            cout << active.arm;
+            fillerOfEmptinessInt(6,active.arm,' ', "║\n");
+        }
+        else if (currentLine == 37) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Armour ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Armour ";
+                    cout << characterTwo.arm;
+                    fillerOfEmptinessInt(15,characterTwo.arm, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Armour ";
+                    cout << characterThree.arm;
+                    fillerOfEmptinessInt(15,characterThree.arm, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Armour ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Armour ";
+                    cout << characterOne.arm;
+                    fillerOfEmptinessInt(15,characterOne.arm, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Armour ";
+                    cout << characterThree.arm;
+                    fillerOfEmptinessInt(15,characterThree.arm, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Armour ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Armour ";
+                    cout << characterOne.arm;
+                    fillerOfEmptinessInt(15,characterOne.arm, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Armour ";
+                    cout << characterTwo.arm;
+                    fillerOfEmptinessInt(15,characterTwo.arm, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString;
+            cout << active.atk;
+            fillerOfEmptinessInt(6,active.atk,' ', "║\n");
+        }
+        else if (currentLine == 38) {
+            cout << "║                          ║                               ║ ";
+
+            if (characterOne.name == active.name) {
+                if (battleScene.currentPositionY == 2) {
+                    setcolor(6);
+                    cout << "► " + characterTwoNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterTwoNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterTwoNameEdited, ' ', "");
+
+                cout << " ║                                                                                     ║ ";
+
+                if (battleScene.currentPositionY == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterThreeNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterThreeNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterThreeNameEdited, ' ', "");
+            }
+            else if (characterTwo.name == active.name) {
+                if (battleScene.currentPositionY == 2) {
+                    setcolor(6);
+                    cout << "► " + characterOneNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterOneNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
+
+                cout << " ║                                                                                     ║ ";
+
+                if (battleScene.currentPositionY == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterThreeNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterThreeNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterThreeNameEdited, ' ', "");
+            }
+            else if (characterThree.name == active.name) {
+                if (battleScene.currentPositionY == 2) {
+                    setcolor(6);
+                    cout << "► " + characterOneNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterOneNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
+
+                cout << " ║                                                                                     ║ ";
+
+                if (battleScene.currentPositionY == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterTwoNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterTwoNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterTwoNameEdited, ' ', "");
+            }
+
+
+
+            cout << swapHeroBattleSceneFileString << endl;
+        }
+        else if (currentLine == 39) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Attack ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Attack ";
+                    cout << characterTwo.atk;
+                    fillerOfEmptinessInt(15,characterTwo.atk, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Attack ";
+                    cout << characterThree.atk;
+                    fillerOfEmptinessInt(15,characterThree.atk, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Attack ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Attack ";
+                    cout << characterOne.atk;
+                    fillerOfEmptinessInt(15,characterOne.atk, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Attack ";
+                    cout << characterThree.atk;
+                    fillerOfEmptinessInt(15,characterThree.atk, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Attack ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Attack ";
+                    cout << characterOne.atk;
+                    fillerOfEmptinessInt(15,characterOne.atk, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Attack ";
+                    cout << characterTwo.atk;
+                    fillerOfEmptinessInt(15,characterTwo.atk, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString;
+            cout << active.bat;
+            fillerOfEmptinessInt(5,active.bat,' ', "║\n");
+        }
+        else if (currentLine == 41) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Battery ";
+                    cout << 0;
+                    fillerOfEmptinessInt(15,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Battery ";
+                    cout << characterTwo.bat;
+                    fillerOfEmptinessInt(15,characterTwo.bat, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Battery ";
+                    cout << characterThree.bat;
+                    fillerOfEmptinessInt(15,characterThree.bat, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Battery ";
+                    cout << 0;
+                    fillerOfEmptinessInt(14,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Battery ";
+                    cout << characterOne.bat;
+                    fillerOfEmptinessInt(14,characterOne.bat, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Battery ";
+                    cout << characterThree.bat;
+                    fillerOfEmptinessInt(14,characterThree.bat, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Battery ";
+                    cout << 0;
+                    fillerOfEmptinessInt(14,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Battery ";
+                    cout << characterOne.bat;
+                    fillerOfEmptinessInt(14,characterOne.bat, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Battery ";
+                    cout << characterTwo.bat;
+                    fillerOfEmptinessInt(14,characterTwo.bat, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString;
+            cout << active.dat;
+            fillerOfEmptinessInt(8,active.dat,' ', "║\n");
+        }
+        else if (currentLine == 43) {
+            if (active.name == characterOne.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Data ";
+                    cout << 0;
+                    fillerOfEmptinessInt(17,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Data ";
+                    cout << characterTwo.dat;
+                    fillerOfEmptinessInt(17,characterTwo.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Data ";
+                    cout << characterThree.dat;
+                    fillerOfEmptinessInt(17,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterTwo.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Data ";
+                    cout << 0;
+                    fillerOfEmptinessInt(17,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Data ";
+                    cout << characterOne.dat;
+                    fillerOfEmptinessInt(17,characterOne.hp, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Data ";
+                    cout << characterThree.dat;
+                    fillerOfEmptinessInt(17,characterThree.hp, ' ', "║");
+                }
+            }
+            else if (active.name == characterThree.name) {
+                if (battleScene.currentPositionY == 1) {
+                    cout << "║ > Data ";
+                    cout << 0;
+                    fillerOfEmptinessInt(17,0, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 2) {
+                    cout << "║ > Data ";
+                    cout << characterOne.dat;
+                    fillerOfEmptinessInt(17,characterOne.dat, ' ', "║");
+                }
+                else if (battleScene.currentPositionY == 3) {
+                    cout << "║ > Data ";
+                    cout << characterTwo.dat;
+                    fillerOfEmptinessInt(17,characterTwo.dat, ' ', "║");
+                }
+            }
+            cout << swapHeroBattleSceneFileString << endl;
+        }
+
+
+        else {
+            cout << swapHeroBattleSceneFileString << endl;
+        }
+    }
 }
 
 #endif //GAME_RENDERS_H

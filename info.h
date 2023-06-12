@@ -8,8 +8,6 @@ public:
     int currentLevel;
     string levelType;
 
-    string enemy;
-
     int currentPositionX;
     int currentPositionY;
 
@@ -18,9 +16,6 @@ public:
         levelType = LevelType;
     }
 
-    levelInfo(string Enemy) {
-        enemy = Enemy;
-    }
 
     levelInfo(int CurrentPositionX) {
         currentPositionX = CurrentPositionX;
@@ -34,11 +29,10 @@ public:
 
 levelInfo LevelInfo(1,"");
 
-levelInfo tutorial ("Arian");
-
 // positions
 levelInfo chooseCharacter(1,1);
 levelInfo shopPosition(0, 1);
 levelInfo characterSheetPosition(1,1);
+levelInfo battleScene(1, 1);
 
 #endif //GAME_INFO_H

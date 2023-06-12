@@ -1,17 +1,17 @@
                                                             
-                        Attack two                          
-                        ==========                          
+                         Attack two                         
+                         ==========                         
                                                             
-          Data Leak                                         
-          =========                                         
+      Germs in wound                                        
+      ==============                                        
                                                             
-        | Cost: 100% data                                   
+        | Cost: 25 battery                                  
                                                             
                                                             
                                                             
         | Effect:                                           
-           For every 10 data spent when this activated      
-           deal one damage yo your enemy.                   
+           Deal normal damage to your enemy and             
+           give them poison effect.                         
                                                             
                                                             
                                                             
