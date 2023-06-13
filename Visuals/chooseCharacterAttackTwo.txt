@@ -1,17 +1,17 @@
                                                             
-                         Attack two                         
-                         ==========                         
+                        Ability two                         
+                        ===========                         
                                                             
-      Germs in wound                                        
-      ==============                                        
+      Regrow                                                
+      ======                                                
                                                             
-        | Cost: 25 battery                                  
+        | Cost: 40 data                                     
                                                             
                                                             
                                                             
         | Effect:                                           
-           Deal normal damage to your enemy and             
-           give them poison effect.                         
+           Create a shield with strength of your strongest  
+           fungus shield(after it was destroyed).           
                                                             
                                                             
                                                             

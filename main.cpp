@@ -49,6 +49,7 @@ int main() {
 
 
 
+
     //return 0;
 
     while (true) {
@@ -247,8 +248,11 @@ int main() {
                         active.atk = inferno.atk;
                         active.bat = inferno.bat;
                         active.dat = inferno.dat;
-                        active.active = inferno.active;
-                        active.picked = inferno.picked;
+                        active.maxHp = inferno.hp;
+                        active.maxArm = inferno.arm;
+                        active.maxAtk = inferno.atk;
+                        active.maxBat = inferno.bat;
+                        active.maxDat = inferno.dat;
 
                         if (characterOne.name == "") {
                             characterOne.name = inferno.name;
@@ -265,8 +269,12 @@ int main() {
                             characterOne.atk = inferno.atk;
                             characterOne.bat = inferno.bat;
                             characterOne.dat = inferno.dat;
-                            characterOne.active = inferno.active;
-                            characterOne.picked = inferno.picked;
+                            characterOne.maxHp = inferno.hp;
+                            characterOne.maxArm = inferno.arm;
+                            characterOne.maxAtk = inferno.atk;
+                            characterOne.maxBat = inferno.bat;
+                            characterOne.maxDat = inferno.dat;
+
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -300,8 +308,11 @@ int main() {
                                 characterTwo.atk = inferno.atk;
                                 characterTwo.bat = inferno.bat;
                                 characterTwo.dat = inferno.dat;
-                                characterTwo.active = inferno.active;
-                                characterTwo.picked = inferno.picked;
+                                characterTwo.maxHp = inferno.hp;
+                                characterTwo.maxArm = inferno.arm;
+                                characterTwo.maxAtk = inferno.atk;
+                                characterTwo.maxBat = inferno.bat;
+                                characterTwo.maxDat = inferno.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -335,8 +346,11 @@ int main() {
                                     characterThree.atk = inferno.atk;
                                     characterThree.bat = inferno.bat;
                                     characterThree.dat = inferno.dat;
-                                    characterThree.active = inferno.active;
-                                    characterThree.picked = inferno.picked;
+                                    characterThree.maxHp = inferno.hp;
+                                    characterThree.maxArm = inferno.arm;
+                                    characterThree.maxAtk = inferno.atk;
+                                    characterThree.maxBat = inferno.bat;
+                                    characterThree.maxDat = inferno.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = infernoAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = infernoAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -378,8 +392,11 @@ int main() {
                         active.atk = atlas.atk;
                         active.bat = atlas.bat;
                         active.dat = atlas.dat;
-                        active.active = atlas.active;
-                        active.picked = atlas.picked;
+                        active.maxHp = atlas.hp;
+                        active.maxArm = atlas.arm;
+                        active.maxAtk = atlas.atk;
+                        active.maxBat = atlas.bat;
+                        active.maxDat = atlas.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = atlas.name;
@@ -396,8 +413,11 @@ int main() {
                             characterOne.atk = atlas.atk;
                             characterOne.bat = atlas.bat;
                             characterOne.dat = atlas.dat;
-                            characterOne.active = atlas.active;
-                            characterOne.picked = atlas.picked;
+                            characterOne.maxHp = atlas.hp;
+                            characterOne.maxArm = atlas.arm;
+                            characterOne.maxAtk = atlas.atk;
+                            characterOne.maxBat = atlas.bat;
+                            characterOne.maxDat = atlas.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -432,8 +452,11 @@ int main() {
                                 characterTwo.atk = atlas.atk;
                                 characterTwo.bat = atlas.bat;
                                 characterTwo.dat = atlas.dat;
-                                characterTwo.active = atlas.active;
-                                characterTwo.picked = atlas.picked;
+                                characterTwo.maxHp = atlas.hp;
+                                characterTwo.maxArm = atlas.arm;
+                                characterTwo.maxAtk = atlas.atk;
+                                characterTwo.maxBat = atlas.bat;
+                                characterTwo.maxDat = atlas.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -467,8 +490,11 @@ int main() {
                                     characterThree.atk = atlas.atk;
                                     characterThree.bat = atlas.bat;
                                     characterThree.dat = atlas.dat;
-                                    characterThree.active = atlas.active;
-                                    characterThree.picked = atlas.picked;
+                                    characterThree.maxHp = atlas.hp;
+                                    characterThree.maxArm = atlas.arm;
+                                    characterThree.maxAtk = atlas.atk;
+                                    characterThree.maxBat = atlas.bat;
+                                    characterThree.maxDat = atlas.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = atlasAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = atlasAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -510,8 +536,11 @@ int main() {
                         active.atk = hanibal.atk;
                         active.bat = hanibal.bat;
                         active.dat = hanibal.dat;
-                        active.active = hanibal.active;
-                        active.picked = hanibal.picked;
+                        active.maxHp = hanibal.hp;
+                        active.maxArm = hanibal.arm;
+                        active.maxAtk = hanibal.atk;
+                        active.maxBat = hanibal.bat;
+                        active.maxDat = hanibal.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = hanibal.name;
@@ -528,8 +557,11 @@ int main() {
                             characterOne.atk = hanibal.atk;
                             characterOne.bat = hanibal.bat;
                             characterOne.dat = hanibal.dat;
-                            characterOne.active = hanibal.active;
-                            characterOne.picked = hanibal.picked;
+                            characterOne.maxHp = hanibal.hp;
+                            characterOne.maxArm = hanibal.arm;
+                            characterOne.maxAtk = hanibal.atk;
+                            characterOne.maxBat = hanibal.bat;
+                            characterOne.maxDat = hanibal.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -564,8 +596,11 @@ int main() {
                                 characterTwo.atk = hanibal.atk;
                                 characterTwo.bat = hanibal.bat;
                                 characterTwo.dat = hanibal.dat;
-                                characterTwo.active = hanibal.active;
-                                characterTwo.picked = hanibal.picked;
+                                characterTwo.maxHp = hanibal.hp;
+                                characterTwo.maxArm = hanibal.arm;
+                                characterTwo.maxAtk = hanibal.atk;
+                                characterTwo.maxBat = hanibal.bat;
+                                characterTwo.maxDat = hanibal.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -600,8 +635,11 @@ int main() {
                                     characterThree.atk = hanibal.atk;
                                     characterThree.bat = hanibal.bat;
                                     characterThree.dat = hanibal.dat;
-                                    characterThree.active = hanibal.active;
-                                    characterThree.picked = hanibal.picked;
+                                    characterThree.maxHp = hanibal.hp;
+                                    characterThree.maxArm = hanibal.arm;
+                                    characterThree.maxAtk = hanibal.atk;
+                                    characterThree.maxBat = hanibal.bat;
+                                    characterThree.maxDat = hanibal.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = hanibalAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = hanibalAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -644,8 +682,11 @@ int main() {
                         active.atk = monoI.atk;
                         active.bat = monoI.bat;
                         active.dat = monoI.dat;
-                        active.active = monoI.active;
-                        active.picked = monoI.picked;
+                        active.maxHp = monoI.hp;
+                        active.maxArm = monoI.arm;
+                        active.maxAtk = monoI.atk;
+                        active.maxBat = monoI.bat;
+                        active.maxDat = monoI.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = monoI.name;
@@ -662,8 +703,11 @@ int main() {
                             characterOne.atk = monoI.atk;
                             characterOne.bat = monoI.bat;
                             characterOne.dat = monoI.dat;
-                            characterOne.active = monoI.active;
-                            characterOne.picked = monoI.picked;
+                            characterOne.maxHp = monoI.hp;
+                            characterOne.maxArm = monoI.arm;
+                            characterOne.maxAtk = monoI.atk;
+                            characterOne.maxBat = monoI.bat;
+                            characterOne.maxDat = monoI.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -698,8 +742,11 @@ int main() {
                                 characterTwo.atk = monoI.atk;
                                 characterTwo.bat = monoI.bat;
                                 characterTwo.dat = monoI.dat;
-                                characterTwo.active = monoI.active;
-                                characterTwo.picked = monoI.picked;
+                                characterTwo.maxHp = monoI.hp;
+                                characterTwo.maxArm = monoI.arm;
+                                characterTwo.maxAtk = monoI.atk;
+                                characterTwo.maxBat = monoI.bat;
+                                characterTwo.maxDat = monoI.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -733,8 +780,11 @@ int main() {
                                     characterThree.atk = monoI.atk;
                                     characterThree.bat = monoI.bat;
                                     characterThree.dat = monoI.dat;
-                                    characterThree.active = monoI.active;
-                                    characterThree.picked = monoI.picked;
+                                    characterThree.maxHp = monoI.hp;
+                                    characterThree.maxArm = monoI.arm;
+                                    characterThree.maxAtk = monoI.atk;
+                                    characterThree.maxBat = monoI.bat;
+                                    characterThree.maxDat = monoI.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = monoIAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = monoIAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -777,8 +827,11 @@ int main() {
                         active.atk = biohazard.atk;
                         active.bat = biohazard.bat;
                         active.dat = biohazard.dat;
-                        active.active = biohazard.active;
-                        active.picked = biohazard.picked;
+                        active.maxHp = biohazard.hp;
+                        active.maxArm = biohazard.arm;
+                        active.maxAtk = biohazard.atk;
+                        active.maxBat = biohazard.bat;
+                        active.maxDat = biohazard.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = biohazard.name;
@@ -795,8 +848,11 @@ int main() {
                             characterOne.atk = biohazard.atk;
                             characterOne.bat = biohazard.bat;
                             characterOne.dat = biohazard.dat;
-                            characterOne.active = biohazard.active;
-                            characterOne.picked = biohazard.picked;
+                            characterOne.maxHp = biohazard.hp;
+                            characterOne.maxArm = biohazard.arm;
+                            characterOne.maxAtk = biohazard.atk;
+                            characterOne.maxBat = biohazard.bat;
+                            characterOne.maxDat = biohazard.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -830,8 +886,11 @@ int main() {
                                 characterTwo.atk = biohazard.atk;
                                 characterTwo.bat = biohazard.bat;
                                 characterTwo.dat = biohazard.dat;
-                                characterTwo.active = biohazard.active;
-                                characterTwo.picked = biohazard.picked;
+                                characterTwo.maxHp = biohazard.hp;
+                                characterTwo.maxArm = biohazard.arm;
+                                characterTwo.maxAtk = biohazard.atk;
+                                characterTwo.maxBat = biohazard.bat;
+                                characterTwo.maxDat = biohazard.dat;
 
                                 characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -865,8 +924,11 @@ int main() {
                                     characterThree.atk = biohazard.atk;
                                     characterThree.bat = biohazard.bat;
                                     characterThree.dat = biohazard.dat;
-                                    characterThree.active = biohazard.active;
-                                    characterThree.picked = biohazard.picked;
+                                    characterThree.maxHp = biohazard.hp;
+                                    characterThree.maxArm = biohazard.arm;
+                                    characterThree.maxAtk = biohazard.atk;
+                                    characterThree.maxBat = biohazard.bat;
+                                    characterThree.maxDat = biohazard.dat;
 
                                     characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = biohazardAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = biohazardAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -908,8 +970,11 @@ int main() {
                         active.atk = zip.atk;
                         active.bat = zip.bat;
                         active.dat = zip.dat;
-                        active.active = zip.active;
-                        active.picked = zip.picked;
+                        active.maxHp = zip.hp;
+                        active.maxArm = zip.arm;
+                        active.maxAtk = zip.atk;
+                        active.maxBat = zip.bat;
+                        active.maxDat = zip.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = zip.name;
@@ -921,13 +986,16 @@ int main() {
                             characterOne.abilityOne = zip.abilityOne;
                             characterOne.abilityTwo = zip.abilityTwo;
                             characterOne.abilityThree = zip.abilityThree;
+                            characterOne.maxHp = zip.hp;
+                            characterOne.maxArm = zip.arm;
+                            characterOne.maxAtk = zip.atk;
+                            characterOne.maxBat = zip.bat;
+                            characterOne.maxDat = zip.dat;
                             characterOne.hp = zip.hp;
                             characterOne.arm = zip.arm;
                             characterOne.atk = zip.atk;
                             characterOne.bat = zip.bat;
                             characterOne.dat = zip.dat;
-                            characterOne.active = zip.active;
-                            characterOne.picked = zip.picked;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -961,8 +1029,11 @@ int main() {
                                 characterTwo.atk = zip.atk;
                                 characterTwo.bat = zip.bat;
                                 characterTwo.dat = zip.dat;
-                                characterTwo.active = zip.active;
-                                characterTwo.picked = zip.picked;
+                                characterTwo.maxHp = zip.hp;
+                                characterTwo.maxArm = zip.arm;
+                                characterTwo.maxAtk = zip.atk;
+                                characterTwo.maxBat = zip.bat;
+                                characterTwo.maxDat = zip.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -996,8 +1067,11 @@ int main() {
                                     characterThree.atk = zip.atk;
                                     characterThree.bat = zip.bat;
                                     characterThree.dat = zip.dat;
-                                    characterThree.active = zip.active;
-                                    characterThree.picked = zip.picked;
+                                    characterThree.maxHp = zip.hp;
+                                    characterThree.maxArm = zip.arm;
+                                    characterThree.maxAtk = zip.atk;
+                                    characterThree.maxBat = zip.bat;
+                                    characterThree.maxDat = zip.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = zipAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = zipAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1039,8 +1113,11 @@ int main() {
                         active.atk = plagy.atk;
                         active.bat = plagy.bat;
                         active.dat = plagy.dat;
-                        active.active = plagy.active;
-                        active.picked = plagy.picked;
+                        active.maxHp = plagy.hp;
+                        active.maxArm = plagy.arm;
+                        active.maxAtk = plagy.atk;
+                        active.maxBat = plagy.bat;
+                        active.maxDat = plagy.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = plagy.name;
@@ -1057,8 +1134,11 @@ int main() {
                             characterOne.atk = plagy.atk;
                             characterOne.bat = plagy.bat;
                             characterOne.dat = plagy.dat;
-                            characterOne.active = plagy.active;
-                            characterOne.picked = plagy.picked;
+                            characterOne.maxHp = plagy.hp;
+                            characterOne.maxArm = plagy.arm;
+                            characterOne.maxAtk = plagy.atk;
+                            characterOne.maxBat = plagy.bat;
+                            characterOne.maxDat = plagy.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1092,8 +1172,11 @@ int main() {
                                 characterTwo.atk = plagy.atk;
                                 characterTwo.bat = plagy.bat;
                                 characterTwo.dat = plagy.dat;
-                                characterTwo.active = plagy.active;
-                                characterTwo.picked = plagy.picked;
+                                characterTwo.maxHp = plagy.hp;
+                                characterTwo.maxArm = plagy.arm;
+                                characterTwo.maxAtk = plagy.atk;
+                                characterTwo.maxBat = plagy.bat;
+                                characterTwo.maxDat = plagy.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1127,8 +1210,11 @@ int main() {
                                     characterThree.atk = plagy.atk;
                                     characterThree.bat = plagy.bat;
                                     characterThree.dat = plagy.dat;
-                                    characterThree.active = plagy.active;
-                                    characterThree.picked = plagy.picked;
+                                    characterThree.maxHp = plagy.hp;
+                                    characterThree.maxArm = plagy.arm;
+                                    characterThree.maxAtk = plagy.atk;
+                                    characterThree.maxBat = plagy.bat;
+                                    characterThree.maxDat = plagy.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = plagyAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = plagyAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1170,8 +1256,11 @@ int main() {
                         active.atk = amper.atk;
                         active.bat = amper.bat;
                         active.dat = amper.dat;
-                        active.active = amper.active;
-                        active.picked = amper.picked;
+                        active.maxHp = amper.hp;
+                        active.maxArm = amper.arm;
+                        active.maxAtk = amper.atk;
+                        active.maxBat = amper.bat;
+                        active.maxDat = amper.dat;
 
                         if (characterOne.name == "" ) {
                             characterOne.name = amper.name;
@@ -1188,8 +1277,11 @@ int main() {
                             characterOne.atk = amper.atk;
                             characterOne.bat = amper.bat;
                             characterOne.dat = amper.dat;
-                            characterOne.active = amper.active;
-                            characterOne.picked = amper.picked;
+                            characterOne.maxHp = amper.hp;
+                            characterOne.maxArm = amper.arm;
+                            characterOne.maxAtk = amper.atk;
+                            characterOne.maxBat = amper.bat;
+                            characterOne.maxDat = amper.dat;
 
                             characterOneAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
                             characterOneAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1223,8 +1315,11 @@ int main() {
                                 characterTwo.atk = amper.atk;
                                 characterTwo.bat = amper.bat;
                                 characterTwo.dat = amper.dat;
-                                characterTwo.active = amper.active;
-                                characterTwo.picked = amper.picked;
+                                characterTwo.maxHp = amper.hp;
+                                characterTwo.maxArm = amper.arm;
+                                characterTwo.maxAtk = amper.atk;
+                                characterTwo.maxBat = amper.bat;
+                                characterTwo.maxDat = amper.dat;
 
                                 characterTwoAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                 characterTwoAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1258,8 +1353,11 @@ int main() {
                                     characterThree.atk = amper.atk;
                                     characterThree.bat = amper.bat;
                                     characterThree.dat = amper.dat;
-                                    characterThree.active = amper.active;
-                                    characterThree.picked = amper.picked;
+                                    characterThree.maxHp = amper.hp;
+                                    characterThree.maxArm = amper.arm;
+                                    characterThree.maxAtk = amper.atk;
+                                    characterThree.maxBat = amper.bat;
+                                    characterThree.maxDat = amper.dat;
 
                                     characterThreeAttacksSmall.attackOneDescriptionChooseYourCharacter = amperAttacksSmall.attackOneDescriptionChooseYourCharacter;
                                     characterThreeAttacksSmall.attackTwoDescriptionChooseYourCharacter = amperAttacksSmall.attackTwoDescriptionChooseYourCharacter;
@@ -1964,13 +2062,46 @@ int main() {
                     shieldHpEnemy = 0;
                 }
 
+                if (shieldActiveHero == true) {
+                    activeCountdownHero = 0;
+                    heroEffectDrainingActive = false;
+                    effectDrainingCountdownHero = 0;
+                    resetEffectsOfHero();
+                    countdownShieldActiveHero++;
+                }
+                if (shieldActiveEnemy == true) {
+                    activeCountdownEnemy = 0;
+                    enemyEffectDrainingActive = false;
+                    effectDrainingCountdownEnemy = 0;
+                    resetEffectsOfEnemy();
+                }
+
+                if (bioShieldHpHero == 0) {
+                    bioShieldActiveHero = false;
+                }
+
+                if (bioShieldActiveHero == false) {
+                    bioShieldHpHero = 0;
+                }
+
+                if (bioShieldHpEnemy == 0) {
+                    bioShieldActiveEnemy = false;
+                }
+
+                if (bioShieldActiveEnemy == false) {
+                    bioShieldHpEnemy = 0;
+                }
+
+                // add to countdown
                 if (activeCountdownHero > 0) {
                     activeCountdownHero--;
-                } // add to countdown
+                }
 
-                if (activeCountdownHero > 0) {  // activate effects
+                // activate effects
+                if (activeCountdownHero > 0) {
                     if (heroImmuneBurning > 0) {
-                        active.effect = "Immune (Burning)";
+                        active.effect = "Imn.(Burn.)";
+                        heroImmuneBurning--;
                     }
                     else {
                         if (heroEffectBurningActive == true) {
@@ -1981,7 +2112,8 @@ int main() {
 
 
                     if (heroImmunePoison > 0) {
-                        active.effect = "Immune (Poison)";
+                        active.effect = "Imn.(Poison)";
+                        heroImmunePoison--;
                     }
                     else {
                         if (heroEffectPoisonActive == true) {
@@ -1990,21 +2122,94 @@ int main() {
                         }
                     }
 
+                    if (heroImmuneCrippled > 0) {
+                        active.effect = "Imn.(Cripl.)";
+                        heroImmuneCrippled--;
+                    }
+                    else {
+                        if (heroEffectCrippledActive == true) {
+                            active.atk = active.atk - effectCrippledStrengthHero;
+                            effectCrippledStrengthHero = 0;
+                            active.effect = "Crippled";
+                        }
+                    }
+
+                    if (heroImmuneBleeding > 0) {
+                        active.effect = "Imn.(Bleed.)";
+                        heroImmuneBleeding--;
+                    }
+                    else {
+                        if (heroEffectBleedingActive == true) {
+                            active.hp = active.hp - 1;
+                            active.effect = "Bleeding";
+                        }
+                    }
                 }
                 if (heroImmuneDraining > 0) {
-                    active.effect = "Immune (Drain)";
+                    active.effect = "Imn.(Drain)";
+                    heroImmuneDraining--;
                 }
                 else {
                     if (heroEffectDrainingActive == true) {
                         effectDrainingCountdownHero++;
                         active.effect = "Draining";
                     }
-                }
-                if (active.effect == "Poison" || active.effect == "Immune (Poison)" || active.effect == "Burning" || active.effect == "Immune (Burning)" || active.effect == "Draining" || active.effect == "Immune (Drain)") {}
+                } // if there is no effect than the effect will be clear - cant be written as else in countdown because of Draining effect that is not effected by the countdown
+                if (active.effect == "Poison" || active.effect == "Imn.(Poison)" || active.effect == "Burning" || active.effect == "Imn.(Burn.)" || active.effect == "Draining" || active.effect == "Imn.(Drain.)" || active.effect == "Crippled" || active.effect == "Imn.(Cripl.)" || active.effect == "Imn.(Bleed.)" || active.effect == "Bleeding") {}
                 else {
                     active.effect = "Clear";
                 }
 
+                // add armour to armour if there is shield
+               // hero
+                if (shieldActiveHero == true) {
+                    countdownShieldActiveHero++;
+                    if (countdownShieldActiveHero == 1) {
+                        active.arm = active.arm + shieldHpHero;
+                    }
+                }
+                else {
+                    countdownShieldActiveHero = 0;
+                }
+
+                if (bioShieldActiveHero == true) {
+                    countdownBioShieldActiveHero++;
+                    if (countdownBioShieldActiveHero == 1) {
+                        active.arm = active.arm + bioShieldHpHero;
+                    }
+                    if (countdownBioShieldActiveHero > 1) {
+                        active.arm++;
+                        countdownBioShieldActiveHero++;
+                    }
+                }
+                else {
+                    countdownBioShieldActiveHero = 0;
+                }
+
+                // enemy
+                if (shieldActiveEnemy == true) {
+                    countdownShieldActiveEnemy++;
+                    if (countdownShieldActiveEnemy == 1) {
+                        enemy.arm = enemy.arm + shieldHpEnemy;
+                    }
+                }
+                else {
+                    countdownShieldActiveEnemy = 0;
+                }
+
+                if (bioShieldActiveEnemy == true) {
+                    countdownBioShieldActiveEnemy++;
+                    if (countdownBioShieldActiveEnemy == 1) {
+                        enemy.arm = enemy.arm + bioShieldHpEnemy;
+                    }
+                    if (countdownBioShieldActiveEnemy > 1) {
+                        enemy.arm++;
+                        countdownBioShieldActiveEnemy++;
+                    }
+                }
+                else {
+                    countdownBioShieldActiveEnemy = 0;
+                }
 
                 // did hero fail
                 system("cls");
@@ -2012,21 +2217,61 @@ int main() {
 
                 }
 
-                if (active.arm > 0) {
-                    if (damageDone > active.arm) {
-                        damageDone - active.arm;
-                        active.hp = active.hp - damageDone;
-                        active.arm = 0;
-                        cout << "armour blocked a part     ";
+                if (active.arm + shieldHpHero + bioShieldHpHero > 0) {
+                    if (shieldActiveHero == true) {
+                        if (damageDone > shieldHpHero) {
+
+                            fillMessage("Enemy broke your shield");
+
+                            damageDone = damageDone - shieldHpHero;
+
+                            if (damageDone > active.arm) {
+                                damageDone = damageDone - active.arm;
+                                active.hp = active.hp - damageDone;
+                                active.arm = 0;
+                            }
+                            else {
+                                active.arm = active.arm - damageDone;
+                            }
+                        }
                     }
                     else {
-                        active.arm = active.arm - damageDone;
-                        cout << "armour blocked all     ";
+                        shieldHpHero = shieldHpHero - damageDone;
+                    }
+                    if (bioShieldActiveHero == true) {
+                        if (damageDone > bioShieldHpHero) {
+
+                            fillMessage("Enemy broke your bio shield");
+                            bioShieldSizesHero.push_back(originalBioShieldHero + countdownBioShieldActiveEnemy);
+
+                            damageDone = damageDone - bioShieldHpHero;
+
+                            if (damageDone > active.arm) {
+                                damageDone = damageDone - active.arm;
+                                active.hp = active.hp - damageDone;
+                                active.arm = 0;
+                            }
+                            else {
+                                active.arm = active.arm - damageDone;
+                            }
+                        }
+                        else {
+                            bioShieldHpHero = bioShieldHpHero - damageDone;
+                        }
+                    }
+                    else {
+                        if (damageDone > active.arm) {
+                            damageDone = damageDone - active.arm;
+                            active.hp = active.hp - damageDone;
+                            active.arm = 0;
+                        }
+                        else {
+                            active.arm = active.arm - damageDone;
+                        }
                     }
                 }
                 else  {
                     active.hp = active.hp - damageDone;
-                    cout << "armour blocked none     ";
                 }
 
                 damageDone = 0;
@@ -2106,6 +2351,10 @@ int main() {
                             else if (battleSceneSideAction == "Ability") {
                                 if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
                                     battleSceneSideAction = "Main";
+                                }
+                                else {
+                                    HeroCheckAbility();
+                                    battleWhoHasTheirTurn = "Enemy";
                                 }
                             }
                             else if (battleSceneSideAction == "Swap") {
@@ -2463,7 +2712,8 @@ int main() {
 
                 if (activeCountdownEnemy > 0) {
                     if (enemyImmuneBurning > 0) {
-                        enemy.effect = "Immune (Burning)";
+                        enemyImmuneBurning--;
+                        enemy.effect = "Imn.(Burn.)";
                     }
                     else {
                         if (enemyEffectBurningActive == true) {
@@ -2471,8 +2721,10 @@ int main() {
                             enemy.effect = "Burning";
                         }
                     }
+
                     if (enemyImmunePoison > 0) {
-                        enemy.effect = "Immune (Poison)";
+                        enemyImmunePoison--;
+                        enemy.effect = "Imn.(Poison)";
                     }
                     else {
                         if (enemyEffectPoisonActive == true) {
@@ -2480,8 +2732,10 @@ int main() {
                             enemy.effect = "Poison";
                         }
                     }
+
                     if (enemyImmuneDraining > 0) {
-                        enemy.effect = "Immune (Drain)";
+                        enemyImmuneDraining--;
+                        enemy.effect = "Imn.(Drain.)";
                     }
                     else {
                         if (enemyEffectDrainingActive == true) {
@@ -2489,9 +2743,32 @@ int main() {
                             enemy.effect = "Draining";
                         }
                     }
+
+                    if (enemyImmuneCrippled > 0) {
+                        enemy.effect = "Imn.(Cripl.)";
+                        enemyImmuneCrippled--;
+                    }
+                    else {
+                        if (enemyEffectCrippledActive == true) {
+                            enemy.atk = enemy.atk - effectCrippledStrengthEnemy;
+                            effectCrippledStrengthEnemy = 0;
+                            enemy.effect = "Crippled";
+                        }
+                    }
+
+                    if (enemyImmuneBleeding > 0) {
+                        enemy.effect = "Imn.(Bleed.)";
+                        enemyImmuneBleeding--;
+                    }
+                    else {
+                        if (enemyEffectBleedingActive == true) {
+                            enemy.hp = enemy.hp - 1;
+                            enemy.effect = "Bleeding";
+                        }
+                    }
                 }
 
-                if (enemy.effect == "Poison" || enemy.effect == "Immune (Poison)" || enemy.effect == "Burning" || enemy.effect == "Immune (Burning)" || enemy.effect == "Draining" || enemy.effect == "Immune (Drain)") {}
+                if (enemy.effect == "Poison" || enemy.effect == "Imn.(Poison)" || enemy.effect == "Burning" || enemy.effect == "Imn.(Burn.)" || enemy.effect == "Draining" || enemy.effect == "Imn.(Drain.)" || enemy.effect == "Crippled" || enemy.effect == "Imn.(Cripl.)" || enemy.effect == "Imn.(Bleed.)" || enemy.effect == "Bleeding" ) {}
                 else {
                     enemy.effect = "Clear";
                 }

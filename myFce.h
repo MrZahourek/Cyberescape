@@ -169,10 +169,40 @@ void outOfResources() {
     battleScene.currentPositionY = 1;
 }
 
+void fillMessage (string message) {
+    if (messageOne == "") {
+        messageOne = message;
+    }
+    else {
+        if (messageTwo == "") {
+            messageTwo = message;
+        }
+        else {
+            if (messageThree == "") {
+                messageThree = message;
+            }
+            else {
+                if (messageFour == "") {
+                    messageFour = message;
+                }
+                else {
+                    if (messageFive == "") {
+                        messageFive = message;
+                    }
+                }
+            }
+        }
+    }
+}
+
 void resetEffectsOfEnemy() {
     enemyEffectBurningActive = false;
     enemyEffectPoisonActive = false;
     enemyEffectDrainingActive = false;
+    enemyEffectCrippledActive = false;
+
+    effectCrippledStrengthEnemy = 0;
+    effectDrainingCountdownEnemy = 0;
 
 
     activeCountdownEnemy = 0;
@@ -182,6 +212,10 @@ void resetEffectsOfHero() {
     heroEffectBurningActive = false;
     heroEffectPoisonActive = false;
     heroEffectDrainingActive = false;
+    heroEffectCrippledActive = false;
+
+    effectCrippledStrengthHero = 0;
+    effectDrainingCountdownHero = 0;
 
 
     activeCountdownEnemy = 0;
@@ -332,7 +366,7 @@ void HeroCheckAttack () {
                 if (active.bat >= 15) {
                     enemy.hp = enemy.hp - active.atk;
                     damageDone = 0;
-                    active.dat = active.dat - 15;
+                    active.bat = active.bat - 15;
                 }
                 else {
                     outOfResources();
@@ -501,6 +535,7 @@ void HeroCheckAttack () {
                     damageDone = active.atk - 2;
                     enemy.hp = enemy.hp - damageDone;
                     damageDone = 0;
+                    active.bat = active.bat - 40;
                 }
                 else {
                     outOfResources();
@@ -618,7 +653,7 @@ void HeroCheckAbility() {
     // variables
     int abilityToCheck;
 
-    if (battleSceneSideAction == "Attacks") {
+    if (battleSceneSideAction == "Ability") {
         if (battleScene.currentPositionX == 2) {
             abilityToCheck = 1;
         }
@@ -664,6 +699,7 @@ void HeroCheckAbility() {
                 if (active.bat >= 15 && active.dat >= 15) {
                     resetEffectsOfHero();
 
+                    heroImmuneBurning = 3;
 
 
                     active.bat = active.bat - 15;
@@ -675,53 +711,28 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // done
     else if (active.name == atlas.name) {
         switch (abilityToCheck) {
             case 1:
             {
-                if (active.bat >= 40) {
-                    bool numIsReady = false;
-                    while (numIsReady != true) {
-                        if (enemy.dat % 4 == 0) {
-                            numIsReady = true;
-                        }
-                        else {
-                            enemy.dat++;
-                        }
-                    }
-
-                    int midStageOfMovement = enemy.dat / 4;
-
-                    enemy.dat = enemy.dat - midStageOfMovement;
-
-                    active.dat = active.dat + midStageOfMovement;
-
-                    damageDone = active.dat + midStageOfMovement;
-
-                    active.bat = active.bat - 40;
-                }
-                else {
-                    outOfResources();
-                }
+                active.dat = active.dat + 20;
                 break;
             }
 
             case 2:
             {
-                int midStageOfMovement = active.dat % 10;
-                active.dat = active.dat - midStageOfMovement;
-                damageDone = active.dat / 10;
-                active.dat = 0;
+                if (active.dat >= 15) {
+                    // delayed swap - has to be implemented under the hero turn (not after enemy) and has to wait one turn + plus needs a TUI for the swap
+                }
                 break;
             }
 
             case 3:
             {
-                if (active.dat >= 40 && active.bat >= 15) {
-                    damageDone = active.atk;
-                    enemy.dat = enemy.dat - 20;
-                    active.dat = active.dat - 40;
+                if (active.dat >= 15 && active.bat >= 15) {
+                    active.hp  = active.hp + 3;
+                    active.dat = active.dat - 15;
                     active.bat = active.bat - 15;
                 }
                 else {
@@ -730,16 +741,20 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // delayed swap not done here
     else if (active.name == hanibal.name) {
-        cout << endl << endl << "Test test";
         switch (abilityToCheck) {
             case 1:
             {
                 if (active.bat >= 15) {
-                    enemy.hp = enemy.hp - active.atk;
-                    damageDone = 0;
-                    active.dat = active.dat - 15;
+                    resetEffectsOfEnemy();
+
+                    effectCrippledStrengthEnemy = 2;
+                    enemyEffectCrippledActive = true;
+                    activeCountdownEnemy = 2;
+
+
+                    active.bat = active.bat - 15;
                 }
                 else {
                     outOfResources();
@@ -750,8 +765,11 @@ void HeroCheckAbility() {
             case 2:
             {
                 if (active.bat >= 40 ) {
-                    enemy.atk--;
-                    damageDone = active.atk - 2;
+                    resetEffectsOfEnemy();
+
+                    enemyEffectBleedingActive = true;
+                    activeCountdownEnemy = 3;
+
                     active.bat = active.bat - 40;
                 }
                 else {
@@ -762,29 +780,41 @@ void HeroCheckAbility() {
 
             case 3:
             {
-                cout << endl << endl << "Test test TesT";
-                if (active.bat < 40 && active.dat < 15) {
+                if (active.dat < 15) {
                     outOfResources();
                 }
                 else {
-                    damageDone = active.atk + 2;
                     enemySkipsTheirTurn = true;
-                    active.bat = active.bat - 40;
                     active.dat = active.dat - 15;
                 }
                 break;
             }
         }
-    }
+    } // done
     else if (active.name == monoI.name) {
         switch (abilityToCheck) {
             case 1:
             {
-                if (active.dat >= 40) {
-                    shieldActiveEnemy = false;
-                    shieldActiveHero = true;
-                    shieldHpHero = enemy.atk + 2;
-                    active.dat = active.dat - 40;
+                if (active.bat >= 15) {
+                    active.arm = active.arm + 4;
+
+                    if (active.name == characterOne.name) {
+                        if (active.arm > characterOne.maxArm) {
+                            active.arm = characterOne.maxArm;
+                        }
+                    }
+                    else if (active.name == characterTwo.name) {
+                        if (active.arm > characterTwo.maxArm) {
+                            active.arm = characterTwo.maxArm;
+                        }
+                    }
+                    else if (active.name == characterThree.name) {
+                        if (active.arm > characterThree.maxArm) {
+                            active.arm = characterThree.maxArm;
+                        }
+                    }
+
+                    active.bat = active.bat - 15;
                 }
                 else {
                     outOfResources();
@@ -793,18 +823,28 @@ void HeroCheckAbility() {
             }
 
             case 2: {
-                if (active.dat >= 40 && active.bat >= 40) {
-                    if (characterOne.atk > characterTwo.atk && characterOne.atk > characterThree.atk) {
-                        damageDone = characterOne.atk + 2;
-                    } else if (characterTwo.atk > characterOne.atk && characterTwo.atk > characterThree.atk) {
-                        damageDone = characterTwo.atk + 2;
-                    } else {
-                        damageDone = characterThree.atk + 2;
+                if (active.bat >= 15) {
+                    damageDone = 3;
+
+                    if (active.arm > 0) {
+                        if (damageDone > active.arm) {
+                            damageDone - active.arm;
+                            active.hp = active.hp - damageDone;
+                            active.arm = 0;
+                        }
+                        else {
+                            active.arm = active.arm - damageDone;
+                        }
                     }
-                    damageDone = damageDone + active.atk;
-                    heroSkipsTheirTurn = true;
-                    active.dat = active.dat - 40;
-                    active.bat = active.bat - 40;
+                    else  {
+                        active.hp = active.hp - damageDone;
+                    }
+
+                    // armour restore TUI
+
+                    damageDone = 0;
+
+                    active.bat = active.bat - 15;
                 }
                 else {
                     outOfResources();
@@ -814,9 +854,24 @@ void HeroCheckAbility() {
 
             case 3:
             {
-                if (active.bat >= 15) {
-                    damageDone = active.atk;
-                    active.bat = active.bat - 15;
+                if (active.bat >= 40 && active.dat >= 40) {
+                    shieldActiveHero = true;
+
+                    shieldHpHero = active.arm / 2;
+
+                    bool numIsReady = false;
+
+                    while (numIsReady != true) {
+                        if (shieldHpHero % 2 == 0) {
+                            numIsReady = true;
+                        }
+                        else {
+                            shieldHpHero++;
+                        }
+                    }
+
+                    active.bat = active.bat - 40;
+                    active.dat = active.dat - 40;
                 }
                 else {
                     outOfResources();
@@ -824,18 +879,17 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // Restoring armour to other Hero not done here, needs TUI and logic
     else if (active.name == biohazard.name) {
         switch (abilityToCheck) {
             case 1:
             {
-                if (active.bat >= 15 && active.dat >= 15) {
-                    damageDone = active.atk - 2;
-                    enemy.hp = enemy.hp - damageDone;
-                    damageDone = 0;
+                if (active.bat >= 40) {
+                    bioShieldActiveHero = true;
+                    bioShieldHpHero = 5;
+                    originalBioShieldHero = 5;
 
-                    active.bat = active.bat - 15;
-                    active.dat = active.dat - 15;
+                    active.bat = active.bat - 40;
                 }
                 else {
                     outOfResources();
@@ -849,10 +903,16 @@ void HeroCheckAbility() {
                     outOfResources();
                 }
                 else {
-                    damageDone = active.atk + 2;
-                    resetEffectsOfEnemy();
-                    enemyEffectPoisonActive = true;
-                    activeCountdownEnemy = 3;
+                    int bigNum = bioShieldSizesHero[0];
+                    for (int i = 0; i <= bioShieldSizesHero.size(); i++) {
+                        if (bioShieldSizesHero[i] > bigNum) {
+                            bigNum = bioShieldSizesHero[i];
+                        }
+                    }
+
+                    shieldActiveHero = true;
+                    shieldHpHero = bigNum;
+
                     active.dat = active.dat - 40;
                 }
                 break;
@@ -864,25 +924,39 @@ void HeroCheckAbility() {
                     outOfResources();
                 }
                 else {
-                    damageDone = active.atk;
-                    resetEffectsOfEnemy();
-                    enemyEffectBurningActive = true;
-                    activeCountdownEnemy = 2;
+                    active.hp = active.hp + shieldHpEnemy + bioShieldHpEnemy;
+
+                    if (active.name == characterOne.name) {
+                        if (active.hp > characterOne.maxArm) {
+                            active.hp = characterOne.maxArm;
+                        }
+                    }
+                    else if (active.name == characterTwo.name) {
+                        if (active.hp > characterTwo.maxArm) {
+                            active.hp = characterTwo.maxArm;
+                        }
+                    }
+                    else if (active.name == characterThree.name) {
+                        if (active.hp > characterThree.maxArm) {
+                            active.hp = characterThree.maxArm;
+                        }
+                    }
+
                     active.bat = active.bat - 40;
                 }
                 break;
             }
         }
-    }
+    } // done
     else if (active.name == zip.name) {
         switch (abilityToCheck) {
             case 1:
             {
-                if (active.dat >= 15 && active.bat >= 15) {
-                    damageDone = active.atk - 2;
-                    enemy.atk--;
-                    active.dat = active.dat - 15;
-                    active.bat = active.bat - 15;
+                if (active.dat >= 40) {
+                    shieldActiveEnemy = false;
+                    resetEffectsOfHero();
+
+                    active.dat = active.dat - 40;
                 }
                 else {
                     outOfResources();
@@ -892,9 +966,10 @@ void HeroCheckAbility() {
 
             case 2:
             {
-                if (active.bat >= 15) {
-                    damageDone = active.atk + 2;
-                    active.bat = active.bat - 15;
+                if (active.bat >= 40 && active.dat >= 15) {
+
+                    active.bat = active.bat - 40;
+                    active.bat = active.dat - 15;
                 }
                 else {
                     outOfResources();
@@ -905,9 +980,9 @@ void HeroCheckAbility() {
             case 3:
             {
                 if (active.bat >= 40) {
-                    damageDone = active.atk - 2;
-                    enemy.hp = enemy.hp - damageDone;
-                    damageDone = 0;
+
+
+                    active.bat = active.bat - 40;
                 }
                 else {
                     outOfResources();
@@ -915,26 +990,32 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // Healing any hero needs TUI and delayed swap not done here
     else if (active.name == plagy.name) {
         switch (abilityToCheck) {
             case 1:
             {
-                if (active.dat >= 40) {
-                    damageDone = active.atk;
-                    enemy.hp = enemy.hp - damageDone;
-                    damageDone = 0;
+                while(1) {
+                    if (_kbhit()) {
+                        system("cls");
 
-                    resetEffectsOfEnemy();
+                        renderTUIForTwo();
 
-                    enemyEffectPoisonActive = true;
-                    activeCountdownEnemy = 3;
+                        char pressedKey = getch();
 
-                    active.dat = active.dat - 40;
+                        if (int(pressedKey) == 100) {
+                            battleScene.currentPositionX++;
+                        }
+                        if (int(pressedKey) == 97) {
+                            battleScene.currentPositionX--;
+                        }
+
+                        system("cls");
+
+                        renderTUIForTwo();
+                    }
                 }
-                else {
-                    outOfResources();
-                }
+
                 break;
             }
 
@@ -958,13 +1039,44 @@ void HeroCheckAbility() {
 
             case 3:
             {
-                if (active.dat >= 40 && active.bat >= 15)
+                if (active.dat >= 15 && active.bat >= 15)
                 {
-                    resetEffectsOfEnemy();
+                    characterOne.hp = characterOne.hp + 2;
+                    characterTwo.hp = characterTwo.hp + 2;
+                    characterThree.hp = characterThree.hp + 2;
 
-                    enemyEffectDrainingActive = true;
+                    if (active.name == characterOne.name) {
+                        active.hp = active.hp + 2;
+                        characterTwo.hp = characterTwo.hp + 2;
+                        characterThree.hp = characterThree.hp + 2;
+                    }
+                    else if (active.name == characterTwo.name) {
+                        active.hp = active.hp + 2;
+                        characterOne.hp = characterOne.hp + 2;
+                        characterThree.hp = characterThree.hp + 2;
+                    }
+                    else if (active.name == characterThree.name) {
+                        active.hp = active.hp + 2;
+                        characterOne.hp = characterOne.hp + 2;
+                        characterTwo.hp = characterTwo.hp + 2;
+                    }
 
-                    damageDone = active.atk + 2;
+                    if (characterOne.hp > characterOne.maxArm) {
+                        characterOne.hp = characterOne.maxArm;
+                    }
+
+                    if (characterTwo.hp > characterTwo.maxArm) {
+                        characterTwo.hp = characterTwo.maxArm;
+                    }
+
+                    if (characterThree.hp > characterThree.maxArm) {
+                        characterThree.hp = characterThree.maxArm;
+                    }
+
+                    if (active.hp > active.maxHp) {
+                        active.hp = active.maxHp;
+                    }
+
 
                     active.dat = active.dat - 40;
                     active.bat = active.bat - 15;
@@ -975,7 +1087,7 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // Two healing TUI's needed
     else if (active.name == amper.name) {
         switch (abilityToCheck) {
             case 1:
@@ -1018,7 +1130,7 @@ void HeroCheckAbility() {
                 break;
             }
         }
-    }
+    } // Three healing TUI's needed
 }
 
 void enemyBrain (int originalHp = subject079.hp) {

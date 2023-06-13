@@ -23,6 +23,12 @@ public:
     string abilityTwo;
     string abilityThree;
 
+    int maxHp;
+    int maxArm;
+    int maxAtk;
+    int maxBat;
+    int maxDat;
+
     bool active;
     bool picked;
 
@@ -63,6 +69,30 @@ public:
         abilityTwo = SecondAbility;
         abilityThree = ThirdAbility;
     }
+
+    characters(string Name,string Effect,string Class,string FirstAttack,string SecondAttack,string ThirdAttack,string FirstAbility, string SecondAbility,string ThirdAbility,int Hp,int Arm,int Atk,int Bat, int Dat, int MaxHp, int MaxArm, int MaxAtk, int MaxBat, int MaxDat) {
+        name = Name;
+        effect = Effect;
+        fighterClass = Class;
+        attackOne = FirstAttack;
+        attackTwo = SecondAttack;
+        attackThree = ThirdAttack;
+        abilityOne = FirstAbility;
+        abilityTwo = SecondAbility;
+        abilityThree = ThirdAbility;
+
+        hp = Hp;
+        arm = Arm;
+        atk = Atk;
+        bat = Bat;
+        dat = Dat;
+
+        int maxHp = MaxHp;
+        int maxArm = MaxArm;
+        int maxAtk = MaxAtk;
+        int maxBat = MaxBat;
+        int maxDat = MaxDat;
+    }
 };
 //Characters
 characters       inferno("      Inferno      ", "Clear", "                       Fighter", "Shield melt", "Flamethrower", "Smoke grenade", "Firewall","Fire kills germs","Fight fire with fire", 35, 0, 7, 100, 75, false, false);
@@ -93,11 +123,11 @@ characters ScythebladeAugment  ("Scytheblade Augment", 0, 0, 0, 0, 0, "", "", ""
 characters MutagenicBrute  ("Mutagenic Brute", 0, 0, 0, 0, 0, "", "", "", "", "", "");
 characters NeuralOverlord  ("Neural Overlord", 0, 0, 0, 0, 0, "", "", "", "", "", "");
 // Special
-characters active(inferno.name, inferno.effect, inferno.fighterClass, inferno.attackOne, inferno.abilityTwo, inferno.attackThree, inferno.abilityOne, inferno.abilityTwo, inferno.abilityThree, inferno.hp, inferno.arm, inferno.atk, inferno.bat, inferno.dat, inferno.active, inferno.picked);
-characters characterOne("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
-characters characterTwo("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
-characters characterThree("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
-characters enemy("", "Clear", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, false, false);
+characters active("char One", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterOne("char One", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterTwo("char Two", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterThree("char Three", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters enemy("", "Clear", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 
 class playerInventory{

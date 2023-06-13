@@ -4728,11 +4728,7 @@ void renderMainBattleScene (string enemyName = enemy.name, string enemyEffect = 
             else {
                 cout << "  Swap Hero  ";
             }
-            if (shieldActiveHero = true) {
-                setcolor(6);
-            }
             cout << MainBattleSceneFileString << active.arm + shieldHpHero;
-            setcolor(15);
             fillerOfEmptinessInt(6,active.arm + shieldHpHero,' ',"║\n");
         }
         else if(currentLine == 37) {
@@ -5782,7 +5778,6 @@ void renderAttacksBattleScene () {
             }
             cout << "  ║ > Armour ";
             cout << active.arm + shieldHpHero;
-            setcolor(15);
             fillerOfEmptinessInt(6,active.arm + shieldHpHero, ' ', "║\n");
         }
         else if (currentLine == 36) {
@@ -8518,5 +8513,156 @@ void renderSwapHeroBattleScene () {
         }
     }
 }
+
+void renderTUIForTwo() {
+    // prep
+    prepareForOutput();
+    // variables
+    int currentLine = 0;
+
+    string characterOneNameEdited = characterOne.name;
+    string characterTwoNameEdited = characterTwo.name;
+    string characterThreeNameEdited = characterThree.name;
+
+    characterOneNameEdited.erase(remove(characterOneNameEdited.begin(), characterOneNameEdited.end(), ' '), characterOneNameEdited.end()); //remove space from character names
+    characterTwoNameEdited.erase(remove(characterTwoNameEdited.begin(), characterTwoNameEdited.end(), ' '), characterTwoNameEdited.end());
+    characterThreeNameEdited.erase(remove(characterThreeNameEdited.begin(), characterThreeNameEdited.end(), ' '), characterThreeNameEdited.end());
+
+    string TUIForTwoFileString;
+
+    // file prep
+    fstream TUIForTwoFileFile ("Visuals/customTUIforTwo.txt");
+
+    // code
+    while(getline(TUIForTwoFileFile, TUIForTwoFileString)) {
+        currentLine++;
+
+        if (currentLine == 1) {
+            cout << TUIForTwoFileString << endl;
+        }
+        else if (currentLine == 2) {
+            cout << TUIForTwoFileString << enemy.name;
+            fillerOfEmptinessStr(221, enemy.name, ' ', "║\n");
+        }
+        else if (currentLine == 6) {
+            cout << TUIForTwoFileString << enemy.effect;
+            fillerOfEmptinessStr(13, enemy.effect, ' ', "║\n");
+        }
+        else if (currentLine == 11) {
+            cout << TUIForTwoFileString << enemy.hp;
+            fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
+        }
+        else if (currentLine == 13) {
+            cout << TUIForTwoFileString << enemy.arm;
+            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+        }
+        else if (currentLine == 15) {
+            cout << TUIForTwoFileString << enemy.atk;
+            fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
+        }
+        else if (currentLine == 17) {
+            cout << TUIForTwoFileString << enemy.bat;
+            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
+        }
+        else if (currentLine == 19) {
+            cout << TUIForTwoFileString << enemy.dat;
+            fillerOfEmptinessInt(8, enemy.dat, ' ', "║\n");
+        }
+        else if (currentLine == 24) {
+            cout << TUIForTwoFileString << active.name;
+            fillerOfEmptinessStr(222, active.name, ' ', "║\n");
+        }
+        else if (currentLine == 33) {
+            cout << TUIForTwoFileString;
+
+            battleScene.currentPositionX = 1;
+
+            if (characterOne.name == active.name) {
+                if (battleScene.currentPositionX == 2) {
+                    setcolor(6);
+                    cout << "► " + characterTwoNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterTwoNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterTwoNameEdited, ' ', "");
+
+                cout << " ║                                                                                                                                            ║ ";
+
+                if (battleScene.currentPositionX == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterThreeNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterThreeNameEdited;
+                }
+                fillerOfEmptinessStr(19, "► " + characterThreeNameEdited, ' ', "");
+            }
+            else if (characterTwo.name == active.name) {
+                if (battleScene.currentPositionX == 2) {
+                    setcolor(6);
+                    cout << "► " + characterOneNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterOneNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
+
+                cout << " ║                                                                                                                                            ║ ";
+
+                if (battleScene.currentPositionX == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterThreeNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterThreeNameEdited;
+                }
+                fillerOfEmptinessStr(19, "► " + characterThreeNameEdited, ' ', "");
+            }
+            else if (characterThree.name == active.name) {
+                if (battleScene.currentPositionX == 2) {
+                    setcolor(6);
+                    cout << "► " + characterOneNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterOneNameEdited;
+                }
+                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
+
+                cout << " ║                                                                                                                                            ║ ";
+
+                if (battleScene.currentPositionX == 3) {
+                    setcolor(6);
+
+                    cout << "► " + characterTwoNameEdited;
+                    setcolor(15);
+                }
+                else {
+                    cout << "  " + characterTwoNameEdited;
+                }
+                fillerOfEmptinessStr(19, "► " + characterTwoNameEdited, ' ', "");
+            }
+
+            cout << "║                          ║" << endl;
+
+
+        }
+
+
+
+        else {
+            cout << TUIForTwoFileString << endl;
+        }
+    }
+}
+
+void renderTUIForThree () {}
 
 #endif //GAME_RENDERS_H

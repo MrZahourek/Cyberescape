@@ -1,19 +1,19 @@
                                                             
-                        Attack three                        
-                        ============                        
+                       Ability three                        
+                       =============                        
                                                             
-      Put on the drain worm                                 
-      =====================                                 
+      Shield heal                                           
+      ===========                                           
                                                             
-        | Cost: 40 data, 15 battery                         
+        | Cost: 40 data                                     
                                                             
                                                             
                                                             
         | Effect:                                           
-           Put drain effect on your enemy it can            
-           be put away by clearing all effects              
-           or by putting on any other effect.               
-           Than deal higher damage.                         
+           Heal yourself by the same strength as            
+           your enemy's shield.                             
+                                                            
+                                                            
                                                             
                                                             
                                                             

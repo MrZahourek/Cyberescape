@@ -1,18 +1,18 @@
                                                             
-                         Attack one                         
-                         ==========                         
+                        Ability one                         
+                        ===========                         
                                                             
-      Release the cyberplague                               
-      =======================                               
+      Fungus shield                                         
+      =============                                         
                                                             
-        | Cost: 40 data                                     
+        | Cost: 40 battery                                  
                                                             
                                                             
                                                             
         | Effect:                                           
-           Deal normal damage to your enemy while           
-           ignoring their shield and give them              
-           poison effect.                                   
+           Create a shield with strength of 5 and           
+           for every turn its not destroyed                 
+           it will add +1 to itself.                        
                                                             
                                                             
                                                             
