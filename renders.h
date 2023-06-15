@@ -3937,15 +3937,15 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
         else if (currentLine == 33) {
             cout << characterSheetRenderFileString;
 
-                if (characterSheetPosition.currentPositionX == 1) {
-                    loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",1,false);
-                }
-                if (characterSheetPosition.currentPositionX == 2) {
-                    loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",1,false);
-                }
-                if (characterSheetPosition.currentPositionX >= 3) {
-                    loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",1,false);
-                }
+            if (characterSheetPosition.currentPositionX == 1) {
+                loadLine("Visuals/characterSheetAttackOrAbilityOne.txt",1,false);
+            }
+            if (characterSheetPosition.currentPositionX == 2) {
+                loadLine("Visuals/characterSheetAttackOrAbilityTwo.txt",1,false);
+            }
+            if (characterSheetPosition.currentPositionX >= 3) {
+                loadLine("Visuals/characterSheetAttackOrAbilityThree.txt",1,false);
+            }
 
             cout << "        ║" << endl;
         }
@@ -4140,7 +4140,7 @@ void renderCharacterSheet(string name = characterOne.name, int hp = characterOne
         }
 
 
-        /// there shall lie the equipment as i was too confused to do it, also it kinda needs other stuff to work so dont forget and its line 48 if you will
+            /// there shall lie the equipment as i was too confused to do it, also it kinda needs other stuff to work so dont forget and its line 48 if you will
 
 
         else if (currentLine == 51) {
@@ -4657,8 +4657,33 @@ void renderMainBattleScene (string enemyName = enemy.name, string enemyEffect = 
             fillerOfEmptinessInt(6,enemy.hp,' ',"║\n");
         }
         else if(currentLine == 13) {
-            cout << MainBattleSceneFileString << enemy.arm;
-            fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            cout << MainBattleSceneFileString;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                setcolor(10);
+            }
+
+            cout << enemy.arm;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                cout << " + " << shieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + shieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                cout << " + " << bioShieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + bioShieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == false && shieldActiveEnemy == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            }
+            setcolor(15);
+
         }
         else if(currentLine == 15) {
             cout << MainBattleSceneFileString << enemy.atk;
@@ -4728,8 +4753,36 @@ void renderMainBattleScene (string enemyName = enemy.name, string enemyEffect = 
             else {
                 cout << "  Swap Hero  ";
             }
-            cout << MainBattleSceneFileString << active.arm + shieldHpHero;
-            fillerOfEmptinessInt(6,active.arm + shieldHpHero,' ',"║\n");
+
+            cout << MainBattleSceneFileString;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                setcolor(10);
+            }
+
+            cout << active.arm;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                cout << " + " << shieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + shieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                cout << " + " << bioShieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + bioShieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == false && shieldActiveHero == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,active.arm,' ',"║\n");
+            }
+            setcolor(15);
+
         }
         else if(currentLine == 37) {
             cout << MainBattleSceneFileString << active.atk;
@@ -4793,8 +4846,32 @@ void renderItemsBattleScene () {
             fillerOfEmptinessInt(6,enemy.hp,' ',"║\n");
         }
         else if(currentLine == 13) {
-            cout << itemsBattleSceneFileString << enemy.arm;
-            fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+
+            cout << itemsBattleSceneFileString;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                setcolor(10);
+            }
+
+            cout << enemy.arm;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                cout << " + " << shieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + shieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                cout << " + " << bioShieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + bioShieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == false && shieldActiveEnemy == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            }
         }
         else if(currentLine == 15) {
             cout << itemsBattleSceneFileString << enemy.atk;
@@ -4861,14 +4938,14 @@ void renderItemsBattleScene () {
         else if(currentLine == 29) {
             cout << "║       ";
 
-                if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
-                    setcolor(6);
-                    cout << "► Step Back ◄";
-                    setcolor(15);
-                }
-                else {
-                    cout << "  Step Back  ";
-                }
+            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                setcolor(6);
+                cout << "► Step Back ◄";
+                setcolor(15);
+            }
+            else {
+                cout << "  Step Back  ";
+            }
 
             cout << "      ║";
             cout << itemsBattleSceneFileString << endl;
@@ -4944,9 +5021,33 @@ void renderItemsBattleScene () {
             cout << itemsBattleSceneFileString << endl;
         }
         else if (currentLine == 35) {
-            cout << itemsBattleSceneFileString << active.arm + shieldHpHero;
-            setcolor(15);
-            fillerOfEmptinessInt(6,active.arm + shieldHpHero,' ',"║\n");
+            cout << itemsBattleSceneFileString;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                setcolor(10);
+            }
+
+            cout << active.arm;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                cout << " + " << shieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + shieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                cout << " + " << bioShieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + bioShieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == false && shieldActiveHero == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,active.arm,' ',"║\n");
+            }
         }
         else if (currentLine == 36) {
             cout << "║                                                                                ║";
@@ -5284,8 +5385,32 @@ void renderAttacksBattleScene () {
             fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
         }
         else if (currentLine == 13) {
-            cout << attacksBattleSceneFileString << enemy.arm;
-            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+
+            cout << attacksBattleSceneFileString;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                setcolor(10);
+            }
+
+            cout << enemy.arm;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                cout << " + " << shieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + shieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                cout << " + " << bioShieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + bioShieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == false && shieldActiveEnemy == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            }
         }
         else if (currentLine == 15) {
             cout << attacksBattleSceneFileString << enemy.atk;
@@ -5777,8 +5902,32 @@ void renderAttacksBattleScene () {
                 loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
             }
             cout << "  ║ > Armour ";
-            cout << active.arm + shieldHpHero;
-            fillerOfEmptinessInt(6,active.arm + shieldHpHero, ' ', "║\n");
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                setcolor(10);
+            }
+
+            cout << active.arm;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                cout << " + " << shieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + shieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                cout << " + " << bioShieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + bioShieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == false && shieldActiveHero == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,active.arm,' ',"║\n");
+            }
         }
         else if (currentLine == 36) {
             cout << attacksBattleSceneFileString;
@@ -6711,8 +6860,31 @@ void renderAbilitiesBattleScene () {
             cout << abilitiesBattleSceneFileString << enemy.hp;
             fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
         } else if (currentLine == 13) {
-            cout << abilitiesBattleSceneFileString << enemy.arm;
-            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+            cout << abilitiesBattleSceneFileString;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                setcolor(10);
+            }
+
+            cout << enemy.arm;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                cout << " + " << shieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + shieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                cout << " + " << bioShieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + bioShieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == false && shieldActiveEnemy == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            }
         } else if (currentLine == 15) {
             cout << abilitiesBattleSceneFileString << enemy.atk;
             fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
@@ -7167,9 +7339,32 @@ void renderAbilitiesBattleScene () {
                 loadLine("Visuals/chooseCharacterAttackThree.txt", 10);
             }
             cout << "  ║ > Armour ";
-            cout << active.arm + shieldHpHero;
-            setcolor(15);
-            fillerOfEmptinessInt(6, active.arm + shieldHpHero, ' ', "║\n");
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                setcolor(10);
+            }
+
+            cout << active.arm;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                cout << " + " << shieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + shieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                cout << " + " << bioShieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + bioShieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == false && shieldActiveHero == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,active.arm,' ',"║\n");
+            }
         } else if (currentLine == 36) {
             cout << abilitiesBattleSceneFileString;
             if (battleScene.currentPositionX == 1) {
@@ -8052,8 +8247,31 @@ void renderSwapHeroBattleScene () {
             fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
         }
         else if (currentLine == 13) {
-            cout << swapHeroBattleSceneFileString << enemy.arm;
-            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
+            cout << swapHeroBattleSceneFileString;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                setcolor(128);
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                setcolor(10);
+            }
+
+            cout << enemy.arm;
+
+            if (shieldActiveEnemy == true || shieldHpEnemy > 0) {
+                cout << " + " << shieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + shieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == true || bioShieldHpEnemy > 0) {
+                cout << " + " << bioShieldHpEnemy;
+                fillerOfEmptinessInt(2,enemy.arm + bioShieldHpEnemy,' ',"");
+                cout << "║\n";
+            }
+            if (bioShieldActiveEnemy == false && shieldActiveEnemy == false) {
+                setcolor(15);
+                fillerOfEmptinessInt(6,enemy.arm,' ',"║\n");
+            }
         }
         else if (currentLine == 15) {
             cout << swapHeroBattleSceneFileString << enemy.atk;
@@ -8200,9 +8418,33 @@ void renderSwapHeroBattleScene () {
                     fillerOfEmptinessInt(15,characterTwo.hp, ' ', "║");
                 }
             }
-            cout << swapHeroBattleSceneFileString;
-            cout << active.arm;
-            fillerOfEmptinessInt(6,active.arm,' ', "║\n");
+                cout << swapHeroBattleSceneFileString;
+
+                if (shieldActiveHero == true || shieldHpHero > 0) {
+                    setcolor(128);
+                }
+                if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                    setcolor(10);
+                }
+
+                cout << active.arm;
+
+            if (shieldActiveHero == true || shieldHpHero > 0) {
+                cout << " + " << shieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + shieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+            if (bioShieldActiveHero == true || bioShieldHpHero > 0) {
+                cout << " + " << bioShieldHpHero;
+                fillerOfEmptinessInt(2,active.arm + bioShieldHpHero,' ',"");
+                setcolor(15);
+                cout << "║\n";
+            }
+                if (bioShieldActiveHero == false && shieldActiveHero == false) {
+                    setcolor(15);
+                    fillerOfEmptinessInt(6,active.arm,' ',"║\n");
+                }
         }
         else if (currentLine == 37) {
             if (active.name == characterOne.name) {
@@ -8514,155 +8756,57 @@ void renderSwapHeroBattleScene () {
     }
 }
 
-void renderTUIForTwo() {
-    // prep
+void renderVoiceline () {
+    //prep
     prepareForOutput();
-    // variables
+    //variables
+    string voicelineFileString;
     int currentLine = 0;
-
-    string characterOneNameEdited = characterOne.name;
-    string characterTwoNameEdited = characterTwo.name;
-    string characterThreeNameEdited = characterThree.name;
-
-    characterOneNameEdited.erase(remove(characterOneNameEdited.begin(), characterOneNameEdited.end(), ' '), characterOneNameEdited.end()); //remove space from character names
-    characterTwoNameEdited.erase(remove(characterTwoNameEdited.begin(), characterTwoNameEdited.end(), ' '), characterTwoNameEdited.end());
-    characterThreeNameEdited.erase(remove(characterThreeNameEdited.begin(), characterThreeNameEdited.end(), ' '), characterThreeNameEdited.end());
-
-    string TUIForTwoFileString;
-
     // file prep
-    fstream TUIForTwoFileFile ("Visuals/customTUIforTwo.txt");
+    fstream voicelineFileFile ("Visuals/battleSceneVoiceline.txt");
 
     // code
-    while(getline(TUIForTwoFileFile, TUIForTwoFileString)) {
+
+    while(getline(voicelineFileFile, voicelineFileString)) {
         currentLine++;
 
-        if (currentLine == 1) {
-            cout << TUIForTwoFileString << endl;
-        }
-        else if (currentLine == 2) {
-            cout << TUIForTwoFileString << enemy.name;
-            fillerOfEmptinessStr(221, enemy.name, ' ', "║\n");
-        }
-        else if (currentLine == 6) {
-            cout << TUIForTwoFileString << enemy.effect;
-            fillerOfEmptinessStr(13, enemy.effect, ' ', "║\n");
-        }
-        else if (currentLine == 11) {
-            cout << TUIForTwoFileString << enemy.hp;
-            fillerOfEmptinessInt(6, enemy.hp, ' ', "║\n");
+        if (currentLine == 2) {
+            cout << voicelineFileString << enemy.name;
+            fillerOfEmptinessStr(221, enemy.name, ' ' , "║\n");
         }
         else if (currentLine == 13) {
-            cout << TUIForTwoFileString << enemy.arm;
-            fillerOfEmptinessInt(6, enemy.arm, ' ', "║\n");
-        }
-        else if (currentLine == 15) {
-            cout << TUIForTwoFileString << enemy.atk;
-            fillerOfEmptinessInt(6, enemy.atk, ' ', "║\n");
-        }
-        else if (currentLine == 17) {
-            cout << TUIForTwoFileString << enemy.bat;
-            fillerOfEmptinessInt(5, enemy.bat, ' ', "║\n");
-        }
-        else if (currentLine == 19) {
-            cout << TUIForTwoFileString << enemy.dat;
-            fillerOfEmptinessInt(8, enemy.dat, ' ', "║\n");
+            cout << voicelineFileString << voiceline;
+            fillerOfEmptinessStr(183, voiceline, ' ', "║\n");
         }
         else if (currentLine == 24) {
-            cout << TUIForTwoFileString << active.name;
+            cout << voicelineFileString << active.name;
             fillerOfEmptinessStr(222, active.name, ' ', "║\n");
         }
-        else if (currentLine == 33) {
-            cout << TUIForTwoFileString;
-
-            battleScene.currentPositionX = 1;
-
-            if (characterOne.name == active.name) {
-                if (battleScene.currentPositionX == 2) {
-                    setcolor(6);
-                    cout << "► " + characterTwoNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterTwoNameEdited;
-                }
-                fillerOfEmptinessStr(18, "► " + characterTwoNameEdited, ' ', "");
-
-                cout << " ║                                                                                                                                            ║ ";
-
-                if (battleScene.currentPositionX == 3) {
-                    setcolor(6);
-
-                    cout << "► " + characterThreeNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterThreeNameEdited;
-                }
-                fillerOfEmptinessStr(19, "► " + characterThreeNameEdited, ' ', "");
-            }
-            else if (characterTwo.name == active.name) {
-                if (battleScene.currentPositionX == 2) {
-                    setcolor(6);
-                    cout << "► " + characterOneNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterOneNameEdited;
-                }
-                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
-
-                cout << " ║                                                                                                                                            ║ ";
-
-                if (battleScene.currentPositionX == 3) {
-                    setcolor(6);
-
-                    cout << "► " + characterThreeNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterThreeNameEdited;
-                }
-                fillerOfEmptinessStr(19, "► " + characterThreeNameEdited, ' ', "");
-            }
-            else if (characterThree.name == active.name) {
-                if (battleScene.currentPositionX == 2) {
-                    setcolor(6);
-                    cout << "► " + characterOneNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterOneNameEdited;
-                }
-                fillerOfEmptinessStr(18, "► " + characterOneNameEdited, ' ', "");
-
-                cout << " ║                                                                                                                                            ║ ";
-
-                if (battleScene.currentPositionX == 3) {
-                    setcolor(6);
-
-                    cout << "► " + characterTwoNameEdited;
-                    setcolor(15);
-                }
-                else {
-                    cout << "  " + characterTwoNameEdited;
-                }
-                fillerOfEmptinessStr(19, "► " + characterTwoNameEdited, ' ', "");
-            }
-
-            cout << "║                          ║" << endl;
-
-
+        else if (currentLine == 39) {
+            cout << voicelineFileString << messageOne;
+            fillerOfEmptinessStr(183, messageOne, ' ', "║\n");
         }
-
-
-
+        else if (currentLine == 40) {
+            cout << voicelineFileString << messageTwo;
+            fillerOfEmptinessStr(183, messageTwo, ' ', "║\n");
+        }
+        else if (currentLine == 41) {
+            cout << voicelineFileString << messageThree;
+            fillerOfEmptinessStr(183, messageThree, ' ', "║\n");
+        }
+        else if (currentLine == 42) {
+            cout << voicelineFileString << messageFour;
+            fillerOfEmptinessStr(183, messageFour, ' ', "║\n");
+        }
+        else if (currentLine == 43) {
+            cout << voicelineFileString << messageFive;
+            fillerOfEmptinessStr(183, messageFive, ' ', "║\n");
+        }
         else {
-            cout << TUIForTwoFileString << endl;
+            cout << voicelineFileString << endl;
         }
     }
-}
 
-void renderTUIForThree () {}
+}
 
 #endif //GAME_RENDERS_H

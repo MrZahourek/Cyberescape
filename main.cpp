@@ -23,6 +23,8 @@ using namespace std;
 int main() {
     prepareForOutput(); // setup cmd for characters like ║
 
+    bool activePoison = false;
+
     string characterOneNameEdited = characterOne.name;
     string characterTwoNameEdited = characterTwo.name;
     string characterThreeNameEdited = characterThree.name;
@@ -47,7 +49,11 @@ int main() {
 
     //music(filePath.c_str(), stopFlag);
 
+    //renderTUIForThree();
 
+    //renderTUIForTwo();
+
+    //renderVoiceline();
 
 
     //return 0;
@@ -238,7 +244,7 @@ int main() {
                         active.effect = inferno.effect;
                         active.fighterClass = inferno.fighterClass;
                         active.attackOne = inferno.attackOne;
-                        active.abilityTwo = inferno.abilityTwo;
+                        active.attackTwo = inferno.abilityTwo;
                         active.attackThree = inferno.attackThree;
                         active.abilityOne = inferno.abilityOne;
                         active.abilityTwo = inferno.abilityTwo;
@@ -382,7 +388,7 @@ int main() {
                         active.effect = atlas.effect;
                         active.fighterClass = atlas.fighterClass;
                         active.attackOne = atlas.attackOne;
-                        active.abilityTwo = atlas.abilityTwo;
+                        active.attackTwo = atlas.abilityTwo;
                         active.attackThree = atlas.attackThree;
                         active.abilityOne = atlas.abilityOne;
                         active.abilityTwo = atlas.abilityTwo;
@@ -526,7 +532,7 @@ int main() {
                         active.effect = hanibal.effect;
                         active.fighterClass = hanibal.fighterClass;
                         active.attackOne = hanibal.attackOne;
-                        active.abilityTwo = hanibal.abilityTwo;
+                        active.attackTwo = hanibal.abilityTwo;
                         active.attackThree = hanibal.attackThree;
                         active.abilityOne = hanibal.abilityOne;
                         active.abilityTwo = hanibal.abilityTwo;
@@ -672,7 +678,7 @@ int main() {
                         active.effect = monoI.effect;
                         active.fighterClass = monoI.fighterClass;
                         active.attackOne = monoI.attackOne;
-                        active.abilityTwo = monoI.abilityTwo;
+                        active.attackTwo = monoI.abilityTwo;
                         active.attackThree = monoI.attackThree;
                         active.abilityOne = monoI.abilityOne;
                         active.abilityTwo = monoI.abilityTwo;
@@ -817,7 +823,7 @@ int main() {
                         active.effect = biohazard.effect;
                         active.fighterClass = biohazard.fighterClass;
                         active.attackOne = biohazard.attackOne;
-                        active.abilityTwo = biohazard.abilityTwo;
+                        active.attackTwo = biohazard.abilityTwo;
                         active.attackThree = biohazard.attackThree;
                         active.abilityOne = biohazard.abilityOne;
                         active.abilityTwo = biohazard.abilityTwo;
@@ -960,7 +966,7 @@ int main() {
                         active.effect = zip.effect;
                         active.fighterClass = zip.fighterClass;
                         active.attackOne = zip.attackOne;
-                        active.abilityTwo = zip.abilityTwo;
+                        active.attackTwo = zip.abilityTwo;
                         active.attackThree = zip.attackThree;
                         active.abilityOne = zip.abilityOne;
                         active.abilityTwo = zip.abilityTwo;
@@ -1103,7 +1109,7 @@ int main() {
                         active.effect = plagy.effect;
                         active.fighterClass = plagy.fighterClass;
                         active.attackOne = plagy.attackOne;
-                        active.abilityTwo = plagy.abilityTwo;
+                        active.attackTwo = plagy.abilityTwo;
                         active.attackThree = plagy.attackThree;
                         active.abilityOne = plagy.abilityOne;
                         active.abilityTwo = plagy.abilityTwo;
@@ -1246,7 +1252,7 @@ int main() {
                         active.effect = amper.effect;
                         active.fighterClass = amper.fighterClass;
                         active.attackOne = amper.attackOne;
-                        active.abilityTwo = amper.abilityTwo;
+                        active.attackTwo = amper.abilityTwo;
                         active.attackThree = amper.attackThree;
                         active.abilityOne = amper.abilityOne;
                         active.abilityTwo = amper.abilityTwo;
@@ -1723,17 +1729,19 @@ int main() {
             }
         } // done
 
-        while (whatScreenWeSee == "Tutorial") {}
-
         while (whatScreenWeSee == "Battle Scene") {
-            battleEnded = false;
-                filePath = "Sounds/Escape the Subway.wav";
-                thread musicThread(playMusic, filePath.c_str());
-                system("cls");
-    resetWhile:
+            battleEnded = false; // start battle
+
+            // play music (can add more tracks)
+            filePath = "Sounds/Escape the Subway.wav";
+            thread musicThread(playMusic, filePath.c_str());
+            system("cls");
+
+            // actually do something
+            resetWhile:
             while (battleEnded != true) {
                 if (firstTime == true) {
-                    //Generate enemy
+                    //Generate enemy and all the good stuff
                     switch (currentLevel) {
                         case 2: {
                             enemy.name = subject079.name;
@@ -2009,6 +2017,64 @@ int main() {
 
                     }
 
+                    if (characterOne.hp > 0) {
+                        active.name = characterOne.name;
+                        active.hp = characterOne.hp;
+                        active.arm = characterOne.arm;
+                        active.atk = characterOne.atk;
+                        active.bat = characterOne.bat;
+                        active.dat = characterOne.dat;
+                        active.maxHp = characterOne.hp;
+                        active.maxArm = characterOne.arm;
+                        active.maxAtk = characterOne.atk;
+                        active.maxBat = characterOne.bat;
+                        active.maxDat = characterOne.dat;
+                        active.attackOne = characterOne.attackOne;
+                        active.attackTwo = characterOne.attackTwo;
+                        active.attackThree = characterOne.attackThree;
+                        active.abilityOne = characterOne.abilityOne;
+                        active.abilityTwo = characterOne.abilityTwo;
+                        active.abilityThree = characterOne.abilityThree;
+                    }
+                    if (characterTwo.hp > 0 && characterOne.hp <= 0) {
+                        active.name = characterTwo.name;
+                        active.hp = characterTwo.hp;
+                        active.arm = characterTwo.arm;
+                        active.atk = characterTwo.atk;
+                        active.bat = characterTwo.bat;
+                        active.dat = characterTwo.dat;
+                        active.maxHp = characterTwo.hp;
+                        active.maxArm = characterTwo.arm;
+                        active.maxAtk = characterTwo.atk;
+                        active.maxBat = characterTwo.bat;
+                        active.maxDat = characterTwo.dat;
+                        active.attackOne = characterTwo.attackOne;
+                        active.attackTwo = characterTwo.attackTwo;
+                        active.attackThree = characterTwo.attackThree;
+                        active.abilityOne = characterTwo.abilityOne;
+                        active.abilityTwo = characterTwo.abilityTwo;
+                        active.abilityThree = characterTwo.abilityThree;
+                    }
+                    if (characterThree.hp > 0 && characterOne.hp <= 0 && characterTwo.hp <= 0) {
+                        active.name = characterThree.name;
+                        active.hp = characterThree.hp;
+                        active.arm = characterThree.arm;
+                        active.atk = characterThree.atk;
+                        active.bat = characterThree.bat;
+                        active.dat = characterThree.dat;
+                        active.maxHp = characterThree.hp;
+                        active.maxArm = characterThree.arm;
+                        active.maxAtk = characterThree.atk;
+                        active.maxBat = characterThree.bat;
+                        active.maxDat = characterThree.dat;
+                        active.attackOne = characterThree.attackOne;
+                        active.attackTwo = characterThree.attackTwo;
+                        active.attackThree = characterThree.attackThree;
+                        active.abilityOne = characterThree.abilityOne;
+                        active.abilityTwo = characterThree.abilityTwo;
+                        active.abilityThree = characterThree.abilityThree;
+                    }
+
                     // Generate the description
                     renderEnemyDescription("Visuals/Cutscenes/" + enemy.name + ".txt");
                     getch();
@@ -2029,6 +2095,9 @@ int main() {
                 else if (active.dat <= 0) {
                     active.dat = 0;
                 }
+                else if (active.atk <= 0) {
+                    active.atk = 0;
+                }
 
                 //round up numbers enemy
                 if (enemy.hp <= 0) {
@@ -2043,241 +2112,12 @@ int main() {
                 else if (enemy.bat <= 0) {
                     enemy.bat = 0;
                 }
-
-
-                // effects and shields
-                if (shieldHpHero == 0) {
-                    shieldActiveHero = false;
+                else if (enemy.atk <= 0) {
+                    enemy.atk = 0;
                 }
 
-                if (shieldActiveHero == false) {
-                    shieldHpHero = 0;
-                }
 
-                if (shieldHpEnemy == 0) {
-                    shieldActiveEnemy = false;
-                }
-
-                if (shieldActiveEnemy == false) {
-                    shieldHpEnemy = 0;
-                }
-
-                if (shieldActiveHero == true) {
-                    activeCountdownHero = 0;
-                    heroEffectDrainingActive = false;
-                    effectDrainingCountdownHero = 0;
-                    resetEffectsOfHero();
-                    countdownShieldActiveHero++;
-                }
-                if (shieldActiveEnemy == true) {
-                    activeCountdownEnemy = 0;
-                    enemyEffectDrainingActive = false;
-                    effectDrainingCountdownEnemy = 0;
-                    resetEffectsOfEnemy();
-                }
-
-                if (bioShieldHpHero == 0) {
-                    bioShieldActiveHero = false;
-                }
-
-                if (bioShieldActiveHero == false) {
-                    bioShieldHpHero = 0;
-                }
-
-                if (bioShieldHpEnemy == 0) {
-                    bioShieldActiveEnemy = false;
-                }
-
-                if (bioShieldActiveEnemy == false) {
-                    bioShieldHpEnemy = 0;
-                }
-
-                // add to countdown
-                if (activeCountdownHero > 0) {
-                    activeCountdownHero--;
-                }
-
-                // activate effects
-                if (activeCountdownHero > 0) {
-                    if (heroImmuneBurning > 0) {
-                        active.effect = "Imn.(Burn.)";
-                        heroImmuneBurning--;
-                    }
-                    else {
-                        if (heroEffectBurningActive == true) {
-                            damageDone = damageDone + 2;
-                            active.effect = "Burning";
-                        }
-                    }
-
-
-                    if (heroImmunePoison > 0) {
-                        active.effect = "Imn.(Poison)";
-                        heroImmunePoison--;
-                    }
-                    else {
-                        if (heroEffectPoisonActive == true) {
-                            damageDone++;
-                            active.effect = "Poison";
-                        }
-                    }
-
-                    if (heroImmuneCrippled > 0) {
-                        active.effect = "Imn.(Cripl.)";
-                        heroImmuneCrippled--;
-                    }
-                    else {
-                        if (heroEffectCrippledActive == true) {
-                            active.atk = active.atk - effectCrippledStrengthHero;
-                            effectCrippledStrengthHero = 0;
-                            active.effect = "Crippled";
-                        }
-                    }
-
-                    if (heroImmuneBleeding > 0) {
-                        active.effect = "Imn.(Bleed.)";
-                        heroImmuneBleeding--;
-                    }
-                    else {
-                        if (heroEffectBleedingActive == true) {
-                            active.hp = active.hp - 1;
-                            active.effect = "Bleeding";
-                        }
-                    }
-                }
-                if (heroImmuneDraining > 0) {
-                    active.effect = "Imn.(Drain)";
-                    heroImmuneDraining--;
-                }
-                else {
-                    if (heroEffectDrainingActive == true) {
-                        effectDrainingCountdownHero++;
-                        active.effect = "Draining";
-                    }
-                } // if there is no effect than the effect will be clear - cant be written as else in countdown because of Draining effect that is not effected by the countdown
-                if (active.effect == "Poison" || active.effect == "Imn.(Poison)" || active.effect == "Burning" || active.effect == "Imn.(Burn.)" || active.effect == "Draining" || active.effect == "Imn.(Drain.)" || active.effect == "Crippled" || active.effect == "Imn.(Cripl.)" || active.effect == "Imn.(Bleed.)" || active.effect == "Bleeding") {}
-                else {
-                    active.effect = "Clear";
-                }
-
-                // add armour to armour if there is shield
-               // hero
-                if (shieldActiveHero == true) {
-                    countdownShieldActiveHero++;
-                    if (countdownShieldActiveHero == 1) {
-                        active.arm = active.arm + shieldHpHero;
-                    }
-                }
-                else {
-                    countdownShieldActiveHero = 0;
-                }
-
-                if (bioShieldActiveHero == true) {
-                    countdownBioShieldActiveHero++;
-                    if (countdownBioShieldActiveHero == 1) {
-                        active.arm = active.arm + bioShieldHpHero;
-                    }
-                    if (countdownBioShieldActiveHero > 1) {
-                        active.arm++;
-                        countdownBioShieldActiveHero++;
-                    }
-                }
-                else {
-                    countdownBioShieldActiveHero = 0;
-                }
-
-                // enemy
-                if (shieldActiveEnemy == true) {
-                    countdownShieldActiveEnemy++;
-                    if (countdownShieldActiveEnemy == 1) {
-                        enemy.arm = enemy.arm + shieldHpEnemy;
-                    }
-                }
-                else {
-                    countdownShieldActiveEnemy = 0;
-                }
-
-                if (bioShieldActiveEnemy == true) {
-                    countdownBioShieldActiveEnemy++;
-                    if (countdownBioShieldActiveEnemy == 1) {
-                        enemy.arm = enemy.arm + bioShieldHpEnemy;
-                    }
-                    if (countdownBioShieldActiveEnemy > 1) {
-                        enemy.arm++;
-                        countdownBioShieldActiveEnemy++;
-                    }
-                }
-                else {
-                    countdownBioShieldActiveEnemy = 0;
-                }
-
-                // did hero fail
-                system("cls");
-                if (active.hp - damageDone <= 0 || active.hp <= 0) {
-
-                }
-
-                if (active.arm + shieldHpHero + bioShieldHpHero > 0) {
-                    if (shieldActiveHero == true) {
-                        if (damageDone > shieldHpHero) {
-
-                            fillMessage("Enemy broke your shield");
-
-                            damageDone = damageDone - shieldHpHero;
-
-                            if (damageDone > active.arm) {
-                                damageDone = damageDone - active.arm;
-                                active.hp = active.hp - damageDone;
-                                active.arm = 0;
-                            }
-                            else {
-                                active.arm = active.arm - damageDone;
-                            }
-                        }
-                    }
-                    else {
-                        shieldHpHero = shieldHpHero - damageDone;
-                    }
-                    if (bioShieldActiveHero == true) {
-                        if (damageDone > bioShieldHpHero) {
-
-                            fillMessage("Enemy broke your bio shield");
-                            bioShieldSizesHero.push_back(originalBioShieldHero + countdownBioShieldActiveEnemy);
-
-                            damageDone = damageDone - bioShieldHpHero;
-
-                            if (damageDone > active.arm) {
-                                damageDone = damageDone - active.arm;
-                                active.hp = active.hp - damageDone;
-                                active.arm = 0;
-                            }
-                            else {
-                                active.arm = active.arm - damageDone;
-                            }
-                        }
-                        else {
-                            bioShieldHpHero = bioShieldHpHero - damageDone;
-                        }
-                    }
-                    else {
-                        if (damageDone > active.arm) {
-                            damageDone = damageDone - active.arm;
-                            active.hp = active.hp - damageDone;
-                            active.arm = 0;
-                        }
-                        else {
-                            active.arm = active.arm - damageDone;
-                        }
-                    }
-                }
-                else  {
-                    active.hp = active.hp - damageDone;
-                }
-
-                damageDone = 0;
-
-
-                if (heroSkipsTheirTurn == false) {
+                if (heroTurnsSkip == 0) {
                     while (battleWhoHasTheirTurn == "Hero") {
                         // clear
                         system("cls");
@@ -2295,8 +2135,6 @@ int main() {
                         else if (battleSceneSideAction == "Swap") {
                             renderSwapHeroBattleScene();
                         }
-
-                        cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    Name One: " << characterOne.name;
 
                         // Key get
                         pressedKey = getch();
@@ -2701,16 +2539,248 @@ int main() {
                             renderSwapHeroBattleScene();
                         }
 
-                        cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    Name One: " << characterOne.name;
+                        cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    swap active " << swapDelayActive << "    swap  delay " << swapDelay;
+                    }
+                }
+                else {
+                    heroTurnsSkip--;
+                    system("cls");
+                    battleWhoHasTheirTurn = "Enemy";
+                }
+
+                // delayed swap
+                if (swapDelayActive == true) {
+                    swapDelay--;
+                    swapDelayActive = true;
+                    if (swapDelay == 0) {
+                        swapDelayActive = false;
+                        if (active.name == characterOne.name) {
+                            characterThree.attackOne = active.attackOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.attackThree = active.attackThree;
+                            characterThree.abilityOne = active.abilityOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.abilityThree = active.abilityThree;
+                            characterThree.hp = active.hp;
+                            characterThree.arm = active.arm;
+                            characterThree.atk = active.atk;
+                            characterThree.bat = active.bat;
+                            characterThree.dat = active.dat;
+
+                            if (chosenCharacterSwap == 1) {
+                                active.name =         characterOne.name;
+                                active.effect =       characterOne.effect;
+                                active.fighterClass = characterOne.fighterClass;
+                                active.attackOne =    characterOne.attackOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.attackThree =  characterOne.attackThree;
+                                active.abilityOne =   characterOne.abilityOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.abilityThree = characterOne.abilityThree;
+                                active.hp =           characterOne.hp;
+                                active.arm =          characterOne.arm;
+                                active.atk =          characterOne.atk;
+                                active.bat =          characterOne.bat;
+                                active.dat =          characterOne.dat;
+                                active.active =       characterOne.active;
+                                active.picked =       characterOne.picked;
+                            }
+                            if (chosenCharacterSwap == 2) {
+                                active.name =         characterTwo.name;
+                                active.effect =       characterTwo.effect;
+                                active.fighterClass = characterTwo.fighterClass;
+                                active.attackOne =    characterTwo.attackOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.attackThree =  characterTwo.attackThree;
+                                active.abilityOne =   characterTwo.abilityOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                                active.hp =           characterTwo.hp;
+                                active.arm =          characterTwo.arm;
+                                active.atk =          characterTwo.atk;
+                                active.bat =          characterTwo.bat;
+                                active.dat =          characterTwo.dat;
+                                active.active =       characterTwo.active;
+                                active.picked =       characterTwo.picked;
+                            }
+                            if (chosenCharacterSwap == 3) {
+                                active.name =         characterThree.name;
+                                active.effect =       characterThree.effect;
+                                active.fighterClass = characterThree.fighterClass;
+                                active.attackOne =    characterThree.attackOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.attackThree =  characterThree.attackThree;
+                                active.abilityOne =   characterThree.abilityOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                                active.hp =           characterThree.hp;
+                                active.arm =          characterThree.arm;
+                                active.atk =          characterThree.atk;
+                                active.bat =          characterThree.bat;
+                                active.dat =          characterThree.dat;
+                                active.active =       characterThree.active;
+                                active.picked =       characterThree.picked;
+                            }
+                        }
+                        else if (active.name == characterTwo.name) {
+                            characterThree.attackOne = active.attackOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.attackThree = active.attackThree;
+                            characterThree.abilityOne = active.abilityOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.abilityThree = active.abilityThree;
+                            characterThree.hp = active.hp;
+                            characterThree.arm = active.arm;
+                            characterThree.atk = active.atk;
+                            characterThree.bat = active.bat;
+                            characterThree.dat = active.dat;
+
+                            if (chosenCharacterSwap == 1) {
+                                active.name =         characterOne.name;
+                                active.effect =       characterOne.effect;
+                                active.fighterClass = characterOne.fighterClass;
+                                active.attackOne =    characterOne.attackOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.attackThree =  characterOne.attackThree;
+                                active.abilityOne =   characterOne.abilityOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.abilityThree = characterOne.abilityThree;
+                                active.hp =           characterOne.hp;
+                                active.arm =          characterOne.arm;
+                                active.atk =          characterOne.atk;
+                                active.bat =          characterOne.bat;
+                                active.dat =          characterOne.dat;
+                                active.active =       characterOne.active;
+                                active.picked =       characterOne.picked;
+                            }
+                            if (chosenCharacterSwap == 2) {
+                                active.name =         characterTwo.name;
+                                active.effect =       characterTwo.effect;
+                                active.fighterClass = characterTwo.fighterClass;
+                                active.attackOne =    characterTwo.attackOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.attackThree =  characterTwo.attackThree;
+                                active.abilityOne =   characterTwo.abilityOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                                active.hp =           characterTwo.hp;
+                                active.arm =          characterTwo.arm;
+                                active.atk =          characterTwo.atk;
+                                active.bat =          characterTwo.bat;
+                                active.dat =          characterTwo.dat;
+                                active.active =       characterTwo.active;
+                                active.picked =       characterTwo.picked;
+                            }
+                            if (chosenCharacterSwap == 3) {
+                                active.name =         characterThree.name;
+                                active.effect =       characterThree.effect;
+                                active.fighterClass = characterThree.fighterClass;
+                                active.attackOne =    characterThree.attackOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.attackThree =  characterThree.attackThree;
+                                active.abilityOne =   characterThree.abilityOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                                active.hp =           characterThree.hp;
+                                active.arm =          characterThree.arm;
+                                active.atk =          characterThree.atk;
+                                active.bat =          characterThree.bat;
+                                active.dat =          characterThree.dat;
+                                active.active =       characterThree.active;
+                                active.picked =       characterThree.picked;
+                            }
+                        }
+                        else if (active.name == characterThree.name) {
+                            characterThree.attackOne = active.attackOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.attackThree = active.attackThree;
+                            characterThree.abilityOne = active.abilityOne;
+                            characterThree.abilityTwo = active.abilityTwo;
+                            characterThree.abilityThree = active.abilityThree;
+                            characterThree.hp = active.hp;
+                            characterThree.arm = active.arm;
+                            characterThree.atk = active.atk;
+                            characterThree.bat = active.bat;
+                            characterThree.dat = active.dat;
+
+                            if (chosenCharacterSwap == 1) {
+                                active.name =         characterOne.name;
+                                active.effect =       characterOne.effect;
+                                active.fighterClass = characterOne.fighterClass;
+                                active.attackOne =    characterOne.attackOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.attackThree =  characterOne.attackThree;
+                                active.abilityOne =   characterOne.abilityOne;
+                                active.abilityTwo =   characterOne.abilityTwo;
+                                active.abilityThree = characterOne.abilityThree;
+                                active.hp =           characterOne.hp;
+                                active.arm =          characterOne.arm;
+                                active.atk =          characterOne.atk;
+                                active.bat =          characterOne.bat;
+                                active.dat =          characterOne.dat;
+                                active.active =       characterOne.active;
+                                active.picked =       characterOne.picked;
+                            }
+                            if (chosenCharacterSwap == 2) {
+                                active.name =         characterTwo.name;
+                                active.effect =       characterTwo.effect;
+                                active.fighterClass = characterTwo.fighterClass;
+                                active.attackOne =    characterTwo.attackOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.attackThree =  characterTwo.attackThree;
+                                active.abilityOne =   characterTwo.abilityOne;
+                                active.abilityTwo =   characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                                active.hp =           characterTwo.hp;
+                                active.arm =          characterTwo.arm;
+                                active.atk =          characterTwo.atk;
+                                active.bat =          characterTwo.bat;
+                                active.dat =          characterTwo.dat;
+                                active.active =       characterTwo.active;
+                                active.picked =       characterTwo.picked;
+                            }
+                            if (chosenCharacterSwap == 3) {
+                                active.name =         characterThree.name;
+                                active.effect =       characterThree.effect;
+                                active.fighterClass = characterThree.fighterClass;
+                                active.attackOne =    characterThree.attackOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.attackThree =  characterThree.attackThree;
+                                active.abilityOne =   characterThree.abilityOne;
+                                active.abilityTwo =   characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                                active.hp =           characterThree.hp;
+                                active.arm =          characterThree.arm;
+                                active.atk =          characterThree.atk;
+                                active.bat =          characterThree.bat;
+                                active.dat =          characterThree.dat;
+                                active.active =       characterThree.active;
+                                active.picked =       characterThree.picked;
+                            }
+                        }
                     }
                 }
 
-                // effect
-                if (activeCountdownEnemy > 0) {
-                    activeCountdownEnemy++;
+                // check shield
+                if (shieldActiveEnemy == false || shieldHpEnemy <= 0) {
+                    shieldActiveEnemy = false;
+                    shieldHpEnemy = false;
+                } // ensure that shield is reset
+
+                // check bio shield
+                if (bioShieldActiveEnemy ==  false || bioShieldHpEnemy <= 0) {
+                    bioShieldHpEnemy = 0;
+                    bioShieldActiveEnemy = false;
+                } // ensure that bio shield is reset
+                // if bio shield is active than regenerate one arm of the shield
+                if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                    bioShieldHpEnemy++;
                 }
 
+                // activate effects
                 if (activeCountdownEnemy > 0) {
+                    activeCountdownEnemy--;
+
                     if (enemyImmuneBurning > 0) {
                         enemyImmuneBurning--;
                         enemy.effect = "Imn.(Burn.)";
@@ -2730,17 +2800,6 @@ int main() {
                         if (enemyEffectPoisonActive == true) {
                             damageDone++;
                             enemy.effect = "Poison";
-                        }
-                    }
-
-                    if (enemyImmuneDraining > 0) {
-                        enemyImmuneDraining--;
-                        enemy.effect = "Imn.(Drain.)";
-                    }
-                    else {
-                        if (enemyEffectDrainingActive == true) {
-                            effectDrainingCountdownEnemy++;
-                            enemy.effect = "Draining";
                         }
                     }
 
@@ -2766,106 +2825,3162 @@ int main() {
                             enemy.effect = "Bleeding";
                         }
                     }
-                }
+                } // hope it all works
 
-                if (enemy.effect == "Poison" || enemy.effect == "Imn.(Poison)" || enemy.effect == "Burning" || enemy.effect == "Imn.(Burn.)" || enemy.effect == "Draining" || enemy.effect == "Imn.(Drain.)" || enemy.effect == "Crippled" || enemy.effect == "Imn.(Cripl.)" || enemy.effect == "Imn.(Bleed.)" || enemy.effect == "Bleeding" ) {}
+                if (enemyImmuneDraining > 0) {
+                    enemyImmuneDraining--;
+                    enemy.effect = "Imn.(Drain.)";
+                }
                 else {
-                    enemy.effect = "Clear";
+                    if (enemyEffectDrainingActive == true) {
+                        effectDrainingCountdownEnemy++;
+                        enemy.effect = "Draining";
+                    }
                 }
 
+                // deal damage to enemy
+                if (damageDone > 0) {
+                dealingDamageToEnemyStart: // goto to reset until nothing is activated
 
-                // is it the end?
-                // did enemy fail
-                if (enemy.hp - damageDone <= 0 || 0 >= enemy.hp) {
-                    battleEnded = true;
-                    whatScreenWeSee = "Map";
-                    system("cls");
-                    playerInventory.money = playerInventory.money + 100 + ((rand() % 50) * 10);
-                    loadFile("Visuals/battleSceneWin.txt");
-                    goto resetWhile;
-                }
-                if (enemy.arm > 0) {
-                    if (damageDone > enemy.arm) {
-                        damageDone - enemy.arm;
+                    if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                        if (damageDone >= bioShieldHpEnemy) {
+                            damageDone = damageDone - bioShieldHpEnemy; // lowers damage done by the strength of bio shield
+
+                            bioShieldSizesEnemy.push_back(bioShieldHpEnemy); // add the number to vector list if we want to regenerate it again
+
+                            bioShieldHpEnemy = 0; // reset bio shield
+                            bioShieldActiveEnemy = false;
+                        }
+                        else {
+                            bioShieldHpEnemy = bioShieldHpEnemy - damageDone; // lowers shield strength by the damage done and resets damage
+                            damageDone = 0;
+                        }
+                    }
+                    if (shieldActiveEnemy == true && shieldHpEnemy > 0) {
+                        if (damageDone >= shieldHpEnemy) {
+                            damageDone = damageDone - shieldHpEnemy;
+
+                            shieldHpEnemy = 0;
+                            shieldActiveEnemy = false;
+                        }
+                        else {
+                            shieldHpEnemy = shieldHpEnemy - damageDone;
+                            damageDone = 0;
+                        }
+                    }
+                    if (enemy.arm <= 0) {
                         enemy.hp = enemy.hp - damageDone;
-                        enemy.arm = 0;
+                        damageDone = 0;
                     }
                     else {
-                        enemy.arm = enemy.arm - damageDone;
-                    }
-                }
-                else  {
-                    enemy.hp = enemy.hp - damageDone;
-                }
-
-                damageDone = 0;
-
-                // voiceline
-                if (battleSceneSideAction == "Attacks") {
-                    if (active.name == characterOne.name) {}
-                    if (active.name == characterTwo.name) {}
-                    if (active.name == characterThree.name) {
-                        cout << characterThreeNameEdited + " used ";
-                        if (battleScene.currentPositionX == 1) {
-                            cout << characterThree.attackOne << endl;
+                        if (enemy.arm >= damageDone) {
+                            enemy.arm = enemy.arm - damageDone;
+                            damageDone = 0;
                         }
-                        if (battleScene.currentPositionX == 2) {}
-                        if (battleScene.currentPositionX == 3) {}
+                        else {
+                            damageDone = damageDone - enemy.arm;
+                            enemy.arm = 0;
+                            goto dealingDamageToEnemyStart;
+                        }
                     }
-                }
+                } // hope it works
 
-                if (enemySkipsTheirTurn == true) {
-                    enemySkipsTheirTurn = false;
-                }
+                // end battle if enemy.hp is 0 or is lower than 0, render win screen and give out money
 
-                battleSceneSideAction = "Main";
+                if (enemy.hp - damageDone <= 0 || enemy.hp <= 0) {
+                    battleEnded = true; // end battle
 
-                if (heroSkipsTheirTurn == true) {
-                    heroSkipsTheirTurn = false;
-                }
+                    system("cls"); // prep to load win screen
 
+                    playerInventory.money = playerInventory.money + 100 + ((rand() % 50) * 10); // give money to hero
 
-                // effects
-                if (enemySkipsTheirTurn == false) {
-                    while (battleWhoHasTheirTurn == "Enemy") {
-                        // enemy turn
-                        // clear
-                        system("cls");
-                        cout << "Enemy LoL";
-                        Sleep(500);
+                    loadFile("Visuals/battleSceneWin.txt"); //load win screen
+                    goto resetWhile; // reset at beginning so music stops and redirects us to map
+                } // done
 
-                        // stats calculations
+                // check if enemy skips their turn if yes skip it
+                if (enemyTurnsSkip == 0) {
+                    while(battleWhoHasTheirTurn == "Enemy") {
 
-                        // first render
-
-                        // decide action
-                        damageDone = 10;
-
-
-                        // clear
-
-                        // second render
+                        enemyBrain();
 
                         battleWhoHasTheirTurn = "Hero";
+                        battleSceneSideAction = "Main";
                         battleScene.currentPositionX = 1;
                         battleScene.currentPositionY = 1;
                     }
                 }
                 else {
-                    damageDone = 0;
+                    battleSceneSideAction = "Main";
+                    battleScene.currentPositionX = 1;
+                    battleScene.currentPositionY = 1;
+                    enemyTurnsSkip--;
+                    battleWhoHasTheirTurn = "Hero";
                 }
+
+                // check shield
+
+                // check bio shield
+
+                // activate effects
+                if (activeCountdownHero > 0) {
+                    activeCountdownHero--;
+
+                    if (heroImmuneBurning > 0) {
+                        heroImmuneBurning--;
+                        active.effect = "Imn.(Burn.)";
+                    }
+                    else {
+                        if (heroEffectBurningActive == true) {
+                            damageDone = damageDone + 2;
+                            active.effect = "Burning";
+                        }
+                    }
+
+                    if (heroImmunePoison > 0) {
+                        heroImmunePoison--;
+                        active.effect = "Imn.(Poison)";
+                    }
+                    else {
+                        if (heroEffectPoisonActive == true) {
+                            damageDone++;
+                            activePoison = true;
+                            active.effect = "Poison";
+                        }
+                    }
+
+                    if (heroImmuneCrippled > 0) {
+                        active.effect = "Imn.(Cripl.)";
+                        heroImmuneCrippled--;
+                    }
+                    else {
+                        if (heroEffectCrippledActive == true) {
+                            active.atk = active.atk - effectCrippledStrengthHero;
+                            effectCrippledStrengthHero = 0;
+                            active.effect = "Crippled";
+                        }
+                    }
+
+                    if (heroImmuneBleeding > 0) {
+                        active.effect = "Imn.(Bleed.)";
+                        heroImmuneBleeding--;
+                    }
+                    else {
+                        if (heroEffectBleedingActive == true) {
+                            active.hp = active.hp - 1;
+                            active.effect = "Bleeding";
+                        }
+                    }
+                } // hope it all works
+
+                if (heroImmuneDraining > 0) {
+                    heroImmuneDraining--;
+                    active.effect = "Imn.(Drain.)";
+                }
+                else {
+                    if (heroEffectDrainingActive == true) {
+                        effectDrainingCountdownHero++;
+                        active.effect = "Draining";
+                    }
+                }
+
+               if (activeCountdownHero == 0) {
+                    if (heroEffectBleedingActive == false) {
+                        if (heroImmuneBleeding == false) {
+                            if (heroEffectDrainingActive == false) {
+                                if (heroImmuneDraining == false) {
+                                    resetEffectsOfHero();
+                                    active.effect = "Clear";
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // deal damage to hero
+                if (damageDone > 0) {
+                    dealingDamageToHeroStart: // goto to reset until nothing is activated
+
+                    if (bioShieldActiveHero == true && bioShieldHpHero > 0) {
+                        if (damageDone >= bioShieldHpHero) {
+                            damageDone = damageDone - bioShieldHpHero; // lowers damage done by the strength of bio shield
+
+                            bioShieldSizesHero.push_back(bioShieldHpHero); // add the number to vector list if we want to regenerate it again
+
+                            bioShieldHpHero = 0; // reset bio shield
+                            bioShieldActiveHero = false;
+                        }
+                        else {
+                            bioShieldHpHero = bioShieldHpHero - damageDone; // lowers shield strength by the damage done and resets damage
+                            damageDone = 0;
+                        }
+                    }
+                    if (shieldActiveHero == true && shieldHpHero > 0) {
+                        if (damageDone >= shieldHpHero) {
+                            damageDone = damageDone - shieldHpHero;
+
+                            shieldHpHero = 0;
+                            shieldActiveHero = false;
+                        }
+                        else {
+                            shieldHpHero = shieldHpHero - damageDone;
+                            damageDone = 0;
+                        }
+                    }
+                    if (active.arm <= 0) {
+                        active.hp = active.hp - damageDone;
+                        damageDone = 0;
+                    }
+                    else {
+                        if (active.arm >= damageDone) {
+                            active.arm = active.arm - damageDone;
+                            damageDone = 0;
+                        }
+                        else {
+                            damageDone = damageDone - active.arm;
+                            active.arm = 0;
+                            goto dealingDamageToHeroStart;
+                        }
+                    }
+                } // hope it works
+
+                // swap hero if one dies
+
+                // if all heroes die load end screen and end game
+
+                // voiceline Enemy
+                system("cls");
+                renderVoiceline();
+                Sleep(10000);
+                system("cls");
+
+                messageOne = "";
+                messageTwo = "";
+                messageThree = "";
+                messageFour = "";
+                messageFive = "";
+
+                if (refillCountdown >= 1) {
+                    refillCountdown--;
+                }
+                else {
+                    refillCountdown = 3;
+
+                    enemy.bat += 40;
+                    enemy.dat += 40;
+
+                    active.bat += 80;
+                    active.dat += 80;
+                }
+
+                if (active.hp <= 0) {
+                    if (active.name == characterOne.name) {
+                        characterOne.hp = 0;
+
+                        characterOne.arm = active.arm;
+                        characterOne.atk = active.atk;
+                        characterOne.bat = active.bat;
+                        characterOne.dat = active.dat;
+
+                        if (characterTwo.hp > 0) {
+                            active.name = characterTwo.name;
+                            active.hp = characterTwo.hp;
+                            active.arm = characterTwo.arm;
+                            active.atk = characterTwo.atk;
+                            active.bat = characterTwo.bat;
+                            active.dat = characterTwo.dat;
+                            active.maxHp = characterTwo.hp;
+                            active.maxArm = characterTwo.arm;
+                            active.maxAtk = characterTwo.atk;
+                            active.maxBat = characterTwo.bat;
+                            active.maxDat = characterTwo.dat;
+                            active.attackOne = characterTwo.attackOne;
+                            active.attackTwo = characterTwo.attackTwo;
+                            active.attackThree = characterTwo.attackThree;
+                            active.abilityOne = characterTwo.abilityOne;
+                            active.abilityTwo = characterTwo.abilityTwo;
+                            active.abilityThree = characterTwo.abilityThree;
+                        }
+                        else if (characterThree.hp > 0) {
+                            active.name = characterThree.name;
+                            active.hp = characterThree.hp;
+                            active.arm = characterThree.arm;
+                            active.atk = characterThree.atk;
+                            active.bat = characterThree.bat;
+                            active.dat = characterThree.dat;
+                            active.maxHp = characterThree.hp;
+                            active.maxArm = characterThree.arm;
+                            active.maxAtk = characterThree.atk;
+                            active.maxBat = characterThree.bat;
+                            active.maxDat = characterThree.dat;
+                            active.attackOne = characterThree.attackOne;
+                            active.attackTwo = characterThree.attackTwo;
+                            active.attackThree = characterThree.attackThree;
+                            active.abilityOne = characterThree.abilityOne;
+                            active.abilityTwo = characterThree.abilityTwo;
+                            active.abilityThree = characterThree.abilityThree;
+                        }
+                    }
+                    else if (active.name == characterOne.name) {
+                        characterOne.hp = 0;
+
+                        characterOne.arm = active.arm;
+                        characterOne.atk = active.atk;
+                        characterOne.bat = active.bat;
+                        characterOne.dat = active.dat;
+
+                        if (characterTwo.hp > 0) {
+                            active.name = characterTwo.name;
+                            active.hp = characterTwo.hp;
+                            active.arm = characterTwo.arm;
+                            active.atk = characterTwo.atk;
+                            active.bat = characterTwo.bat;
+                            active.dat = characterTwo.dat;
+                            active.maxHp = characterTwo.hp;
+                            active.maxArm = characterTwo.arm;
+                            active.maxAtk = characterTwo.atk;
+                            active.maxBat = characterTwo.bat;
+                            active.maxDat = characterTwo.dat;
+                            active.attackOne = characterTwo.attackOne;
+                            active.attackTwo = characterTwo.attackTwo;
+                            active.attackThree = characterTwo.attackThree;
+                            active.abilityOne = characterTwo.abilityOne;
+                            active.abilityTwo = characterTwo.abilityTwo;
+                            active.abilityThree = characterTwo.abilityThree;
+                        }
+                        else if (characterThree.hp > 0) {
+                            active.name = characterThree.name;
+                            active.hp = characterThree.hp;
+                            active.arm = characterThree.arm;
+                            active.atk = characterThree.atk;
+                            active.bat = characterThree.bat;
+                            active.dat = characterThree.dat;
+                            active.maxHp = characterThree.hp;
+                            active.maxArm = characterThree.arm;
+                            active.maxAtk = characterThree.atk;
+                            active.maxBat = characterThree.bat;
+                            active.maxDat = characterThree.dat;
+                            active.attackOne = characterThree.attackOne;
+                            active.attackTwo = characterThree.attackTwo;
+                            active.attackThree = characterThree.attackThree;
+                            active.abilityOne = characterThree.abilityOne;
+                            active.abilityTwo = characterThree.abilityTwo;
+                            active.abilityThree = characterThree.abilityThree;
+                        }
+                    }
+                    else if (active.name == characterOne.name) {
+                        characterOne.hp = 0;
+
+                        characterOne.arm = active.arm;
+                        characterOne.atk = active.atk;
+                        characterOne.bat = active.bat;
+                        characterOne.dat = active.dat;
+
+                        if (characterTwo.hp > 0) {
+                            active.name = characterTwo.name;
+                            active.hp = characterTwo.hp;
+                            active.arm = characterTwo.arm;
+                            active.atk = characterTwo.atk;
+                            active.bat = characterTwo.bat;
+                            active.dat = characterTwo.dat;
+                            active.maxHp = characterTwo.hp;
+                            active.maxArm = characterTwo.arm;
+                            active.maxAtk = characterTwo.atk;
+                            active.maxBat = characterTwo.bat;
+                            active.maxDat = characterTwo.dat;
+                            active.attackOne = characterTwo.attackOne;
+                            active.attackTwo = characterTwo.attackTwo;
+                            active.attackThree = characterTwo.attackThree;
+                            active.abilityOne = characterTwo.abilityOne;
+                            active.abilityTwo = characterTwo.abilityTwo;
+                            active.abilityThree = characterTwo.abilityThree;
+                        }
+                        else if (characterThree.hp > 0) {
+                            active.name = characterThree.name;
+                            active.hp = characterThree.hp;
+                            active.arm = characterThree.arm;
+                            active.atk = characterThree.atk;
+                            active.bat = characterThree.bat;
+                            active.dat = characterThree.dat;
+                            active.maxHp = characterThree.hp;
+                            active.maxArm = characterThree.arm;
+                            active.maxAtk = characterThree.atk;
+                            active.maxBat = characterThree.bat;
+                            active.maxDat = characterThree.dat;
+                            active.attackOne = characterThree.attackOne;
+                            active.attackTwo = characterThree.attackTwo;
+                            active.attackThree = characterThree.attackThree;
+                            active.abilityOne = characterThree.abilityOne;
+                            active.abilityTwo = characterThree.abilityTwo;
+                            active.abilityThree = characterThree.abilityThree;
+                        }
+                    }
+                    else {
+                        system("cls");
+                        loadFile("Visuals/battleSceneLoose.txt");
+                        return 0;
+                    }
+                }
+
+
+
             }
             musicThread.detach();
+
             resetEffectsOfEnemy();
+            resetEffectsOfHero();
+
+            bioShieldSizesEnemy.clear();
+            bioShieldSizesHero.clear();
+
+            shieldHpEnemy = 0;
+            shieldActiveEnemy = false;
+
+            shieldHpHero = 0;
+            shieldActiveHero = false;
+
             whatScreenWeSee = "Map";
-            }
+        }
 
         while (whatScreenWeSee == "Boss") {
-            whatScreenWeSee = "Map";
-            currentLevel++;
+            {
+                battleEnded = false; // start battle
+
+                // play music (can add more tracks)
+                switch (currentLevel) {
+                    case 7:
+                    {
+                        enemy.name = TheMask.name;
+                        enemy.hp = TheMask.hp;
+                        enemy.arm = TheMask.arm;
+                        enemy.atk = TheMask.atk;
+                        enemy.dat = TheMask.dat;
+                        enemy.bat = TheMask.bat;
+                        enemy.attackOne = TheMask.attackOne;
+                        enemy.attackTwo = TheMask.attackTwo;
+                        enemy.attackThree = TheMask.attackThree;
+                        enemy.abilityOne = TheMask.abilityOne;
+                        enemy.abilityTwo = TheMask.abilityTwo;
+                        enemy.abilityThree = TheMask.abilityThree;
+
+                        filePath = "Sounds/The Mask.wav";
+                        break;
+                    }
+
+                    case 16:
+                    {
+                        enemy.name = TheMask.name;
+                        enemy.hp = TheMask.hp;
+                        enemy.arm = TheMask.arm;
+                        enemy.atk = TheMask.atk;
+                        enemy.dat = TheMask.dat;
+                        enemy.bat = TheMask.bat;
+                        enemy.attackOne = TheMask.attackOne;
+                        enemy.attackTwo = TheMask.attackTwo;
+                        enemy.attackThree = TheMask.attackThree;
+                        enemy.abilityOne = TheMask.abilityOne;
+                        enemy.abilityTwo = TheMask.abilityTwo;
+                        enemy.abilityThree = TheMask.abilityThree;
+
+                        filePath = "Sounds/ERr0R.wav";
+                        break;
+                    }
+                }
+                thread musicThread(playMusic, filePath.c_str());
+                system("cls");
+
+                // actually do something
+                resetWhileOne:
+                while (battleEnded != true) {
+                    if (firstTime == true) {
+                        //Generate enemy and all the good stuff
+
+                        // Generate the description
+                        renderEnemyDescription("Visuals/Cutscenes/" + enemy.name + ".txt");
+                        getch();
+
+                        firstTime = false;
+                    }
+
+                    //round up numbers hero
+                    if (active.hp <= 0) {
+                        active.hp = 0;
+                    }
+                    else if (active.arm <= 0) {
+                        active.arm = 0;
+                    }
+                    else if (active.bat <= 0) {
+                        active.bat = 0;
+                    }
+                    else if (active.dat <= 0) {
+                        active.dat = 0;
+                    }
+                    else if (active.atk <= 0) {
+                        active.atk = 0;
+                    }
+
+                    //round up numbers enemy
+                    if (enemy.hp <= 0) {
+                        enemy.hp = 0;
+                    }
+                    else if (enemy.arm <= 0) {
+                        enemy.arm = 0;
+                    }
+                    else if (enemy.dat <= 0) {
+                        enemy.dat = 0;
+                    }
+                    else if (enemy.bat <= 0) {
+                        enemy.bat = 0;
+                    }
+                    else if (enemy.atk <= 0) {
+                        enemy.atk = 0;
+                    }
+
+
+                    if (heroTurnsSkip == 0) {
+                        while (battleWhoHasTheirTurn == "Hero") {
+                            // clear
+                            system("cls");
+                            // First Render of hero
+                            if (battleSceneSideAction == "Main") {
+                                renderMainBattleScene();
+                            } else if (battleSceneSideAction == "Attacks") {
+                                renderAttacksBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                renderItemsBattleScene();
+                            } else if (battleSceneSideAction == "Ability") {
+                                renderAbilitiesBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                renderSwapHeroBattleScene();
+                            }
+
+                            // Key get
+                            pressedKey = getch();
+
+                            // Key check
+                            if (int(pressedKey) == 87 || int(pressedKey) == 119) { // W or w
+                                battleScene.currentPositionX--;
+                            } // W or w
+                            else if (int(pressedKey) == 83 || int(pressedKey) == 115) { // S or s
+                                battleScene.currentPositionX++;
+                            } // S or s
+                            else if (int(pressedKey) == 65 || int(pressedKey) == 97) { // A or a
+                                battleScene.currentPositionY--;
+                            } // A or a
+                            else if (int(pressedKey) == 68 || int(pressedKey) == 100) { // D or d
+                                battleScene.currentPositionY++;
+                            } // D or d
+                            else if (int(pressedKey) == 69 || int(pressedKey) == 101) { // E or e
+
+                                if (battleSceneSideAction == "Main") {
+                                    if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                                        battleSceneSideAction = "Attacks";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 2) {
+                                        battleSceneSideAction = "Items";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 3) {
+                                        battleSceneSideAction = "Ability";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 4) {
+                                        battleSceneSideAction = "Swap";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Attacks") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    } else {
+                                        HeroCheckAttack();
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Items") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Ability") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                    else {
+                                        HeroCheckAbility();
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Swap") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                    if (battleScene.currentPositionY == 2) {
+                                        if (active.name == characterOne.name) {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterTwo.name;
+                                            active.effect =       characterTwo.effect;
+                                            active.fighterClass = characterTwo.fighterClass;
+                                            active.attackOne =    characterTwo.attackOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.attackThree =  characterTwo.attackThree;
+                                            active.abilityOne =   characterTwo.abilityOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.abilityThree = characterTwo.abilityThree;
+                                            active.hp =           characterTwo.hp;
+                                            active.arm =          characterTwo.arm;
+                                            active.atk =          characterTwo.atk;
+                                            active.bat =          characterTwo.bat;
+                                            active.dat =          characterTwo.dat;
+                                            active.active =       characterTwo.active;
+                                            active.picked =       characterTwo.picked;
+                                        }
+                                        else {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterOne.name;
+                                            active.effect =       characterOne.effect;
+                                            active.fighterClass = characterOne.fighterClass;
+                                            active.attackOne =    characterOne.attackOne;
+                                            active.abilityTwo =   characterOne.abilityTwo;
+                                            active.attackThree =  characterOne.attackThree;
+                                            active.abilityOne =   characterOne.abilityOne;
+                                            active.abilityTwo =   characterOne.abilityTwo;
+                                            active.abilityThree = characterOne.abilityThree;
+                                            active.hp =           characterOne.hp;
+                                            active.arm =          characterOne.arm;
+                                            active.atk =          characterOne.atk;
+                                            active.bat =          characterOne.bat;
+                                            active.dat =          characterOne.dat;
+                                            active.active =       characterOne.active;
+                                            active.picked =       characterOne.picked;
+                                        }
+
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                    if (battleScene.currentPositionY == 3) {
+                                        if (active.name == characterOne.name) {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterThree.name;
+                                            active.effect =       characterThree.effect;
+                                            active.fighterClass = characterThree.fighterClass;
+                                            active.attackOne =    characterThree.attackOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.attackThree =  characterThree.attackThree;
+                                            active.abilityOne =   characterThree.abilityOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.abilityThree = characterThree.abilityThree;
+                                            active.hp =           characterThree.hp;
+                                            active.arm =          characterThree.arm;
+                                            active.atk =          characterThree.atk;
+                                            active.bat =          characterThree.bat;
+                                            active.dat =          characterThree.dat;
+                                            active.active =       characterThree.active;
+                                            active.picked =       characterThree.picked;
+                                        }
+                                        else if (active.name == characterTwo.name) {
+                                            characterTwo.attackOne = active.attackOne;
+                                            characterTwo.abilityTwo = active.abilityTwo;
+                                            characterTwo.attackThree = active.attackThree;
+                                            characterTwo.abilityOne = active.abilityOne;
+                                            characterTwo.abilityTwo = active.abilityTwo;
+                                            characterTwo.abilityThree = active.abilityThree;
+                                            characterTwo.hp = active.hp;
+                                            characterTwo.arm = active.arm;
+                                            characterTwo.atk = active.atk;
+                                            characterTwo.bat = active.bat;
+                                            characterTwo.dat = active.dat;
+
+                                            active.name =         characterThree.name;
+                                            active.effect =       characterThree.effect;
+                                            active.fighterClass = characterThree.fighterClass;
+                                            active.attackOne =    characterThree.attackOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.attackThree =  characterThree.attackThree;
+                                            active.abilityOne =   characterThree.abilityOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.abilityThree = characterThree.abilityThree;
+                                            active.hp =           characterThree.hp;
+                                            active.arm =          characterThree.arm;
+                                            active.atk =          characterThree.atk;
+                                            active.bat =          characterThree.bat;
+                                            active.dat =          characterThree.dat;
+                                            active.active =       characterThree.active;
+                                            active.picked =       characterThree.picked;
+                                        }
+                                        else if (active.name == characterThree.name) {
+                                            characterThree.attackOne = active.attackOne;
+                                            characterThree.abilityTwo = active.abilityTwo;
+                                            characterThree.attackThree = active.attackThree;
+                                            characterThree.abilityOne = active.abilityOne;
+                                            characterThree.abilityTwo = active.abilityTwo;
+                                            characterThree.abilityThree = active.abilityThree;
+                                            characterThree.hp = active.hp;
+                                            characterThree.arm = active.arm;
+                                            characterThree.atk = active.atk;
+                                            characterThree.bat = active.bat;
+                                            characterThree.dat = active.dat;
+
+                                            active.name =         characterTwo.name;
+                                            active.effect =       characterTwo.effect;
+                                            active.fighterClass = characterTwo.fighterClass;
+                                            active.attackOne =    characterTwo.attackOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.attackThree =  characterTwo.attackThree;
+                                            active.abilityOne =   characterTwo.abilityOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.abilityThree = characterTwo.abilityThree;
+                                            active.hp =           characterTwo.hp;
+                                            active.arm =          characterTwo.arm;
+                                            active.atk =          characterTwo.atk;
+                                            active.bat =          characterTwo.bat;
+                                            active.dat =          characterTwo.dat;
+                                            active.active =       characterTwo.active;
+                                            active.picked =       characterTwo.picked;
+                                        }
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+
+                            } // E or e
+
+                            //temporary
+                            if (int(pressedKey) == 27) {
+                                return 0;
+                            }
+
+                            // clear
+                            Sleep(10);
+                            system("cls");
+
+                            // Calculations
+                            //round up the numbers
+                            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX >= 4) {
+                                battleScene.currentPositionX = 4;
+                            }
+                            else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX <= 1) {
+                                battleScene.currentPositionX = 1;
+                            }
+
+                            if (battleScene.currentPositionY <= 1) {
+                                battleScene.currentPositionY = 1;
+                            }
+                            else if (battleScene.currentPositionY >= 3) {
+                                battleScene.currentPositionY = 3;
+                            }
+                            if (battleSceneSideAction == "Main") {
+                                if (battleScene.currentPositionY <= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                                else if (battleScene.currentPositionY >= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                if (battleScene.currentPositionX <= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                                else if (battleScene.currentPositionX >= 18) {
+                                    battleScene.currentPositionX = 18;
+                                }
+
+                                if (battleScene.currentPositionY == 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                if (battleScene.currentPositionY <= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                                else if (battleScene.currentPositionY >= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                if (battleScene.currentPositionX <= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                                else if (battleScene.currentPositionX >= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                            }
+
+                            // change attack and ability file to suit our requirements
+                            if (battleSceneSideAction == "Attacks") {
+                                if (active.name == characterOne.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterOneAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterOneAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterOneAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterTwo.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterTwoAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterTwoAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterTwoAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterThree.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterThreeAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterThreeAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterThreeAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                if (active.name == characterOne.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterOneAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterOneAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterOneAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterTwo.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterTwoAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterTwoAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterTwoAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterThree.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterThreeAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterThreeAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterThreeAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+
+                            // renders
+                            if (battleSceneSideAction == "Main") {
+                                renderMainBattleScene();
+                            } else if (battleSceneSideAction == "Attacks") {
+                                renderAttacksBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                renderItemsBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                renderAbilitiesBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                renderSwapHeroBattleScene();
+                            }
+
+                            cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    swap active " << swapDelayActive << "    swap  delay " << swapDelay;
+                        }
+                    }
+                    else {
+                        heroTurnsSkip--;
+                        system("cls");
+                        battleWhoHasTheirTurn = "Enemy";
+                    }
+
+                    // delayed swap
+                    if (swapDelayActive == true) {
+                        swapDelay--;
+                        swapDelayActive = true;
+                        if (swapDelay == 0) {
+                            swapDelayActive = false;
+                            if (active.name == characterOne.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                            else if (active.name == characterTwo.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                            else if (active.name == characterThree.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                        }
+                    }
+
+                    // check shield
+                    if (shieldActiveEnemy == false || shieldHpEnemy <= 0) {
+                        shieldActiveEnemy = false;
+                        shieldHpEnemy = false;
+                    } // ensure that shield is reset
+
+                    // check bio shield
+                    if (bioShieldActiveEnemy ==  false || bioShieldHpEnemy <= 0) {
+                        bioShieldHpEnemy = 0;
+                        bioShieldActiveEnemy = false;
+                    } // ensure that bio shield is reset
+                    // if bio shield is active than regenerate one arm of the shield
+                    if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                        bioShieldHpEnemy++;
+                    }
+
+                    // activate effects
+                    if (activeCountdownEnemy > 0) {
+                        activeCountdownEnemy--;
+
+                        if (enemyImmuneBurning > 0) {
+                            enemyImmuneBurning--;
+                            enemy.effect = "Imn.(Burn.)";
+                        }
+                        else {
+                            if (enemyEffectBurningActive == true) {
+                                damageDone = damageDone + 2;
+                                enemy.effect = "Burning";
+                            }
+                        }
+
+                        if (enemyImmunePoison > 0) {
+                            enemyImmunePoison--;
+                            enemy.effect = "Imn.(Poison)";
+                        }
+                        else {
+                            if (enemyEffectPoisonActive == true) {
+                                damageDone++;
+                                enemy.effect = "Poison";
+                            }
+                        }
+
+                        if (enemyImmuneCrippled > 0) {
+                            enemy.effect = "Imn.(Cripl.)";
+                            enemyImmuneCrippled--;
+                        }
+                        else {
+                            if (enemyEffectCrippledActive == true) {
+                                enemy.atk = enemy.atk - effectCrippledStrengthEnemy;
+                                effectCrippledStrengthEnemy = 0;
+                                enemy.effect = "Crippled";
+                            }
+                        }
+
+                        if (enemyImmuneBleeding > 0) {
+                            enemy.effect = "Imn.(Bleed.)";
+                            enemyImmuneBleeding--;
+                        }
+                        else {
+                            if (enemyEffectBleedingActive == true) {
+                                enemy.hp = enemy.hp - 1;
+                                enemy.effect = "Bleeding";
+                            }
+                        }
+                    } // hope it all works
+
+                    if (enemyImmuneDraining > 0) {
+                        enemyImmuneDraining--;
+                        enemy.effect = "Imn.(Drain.)";
+                    }
+                    else {
+                        if (enemyEffectDrainingActive == true) {
+                            effectDrainingCountdownEnemy++;
+                            enemy.effect = "Draining";
+                        }
+                    }
+
+                    // deal damage to enemy
+                    if (damageDone > 0) {
+                        dealingDamageToEnemyStartOne: // goto to reset until nothing is activated
+
+                        if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                            if (damageDone >= bioShieldHpEnemy) {
+                                damageDone = damageDone - bioShieldHpEnemy; // lowers damage done by the strength of bio shield
+
+                                bioShieldSizesEnemy.push_back(bioShieldHpEnemy); // add the number to vector list if we want to regenerate it again
+
+                                bioShieldHpEnemy = 0; // reset bio shield
+                                bioShieldActiveEnemy = false;
+                            }
+                            else {
+                                bioShieldHpEnemy = bioShieldHpEnemy - damageDone; // lowers shield strength by the damage done and resets damage
+                                damageDone = 0;
+                            }
+                        }
+                        if (shieldActiveEnemy == true && shieldHpEnemy > 0) {
+                            if (damageDone >= shieldHpEnemy) {
+                                damageDone = damageDone - shieldHpEnemy;
+
+                                shieldHpEnemy = 0;
+                                shieldActiveEnemy = false;
+                            }
+                            else {
+                                shieldHpEnemy = shieldHpEnemy - damageDone;
+                                damageDone = 0;
+                            }
+                        }
+                        if (enemy.arm <= 0) {
+                            enemy.hp = enemy.hp - damageDone;
+                            damageDone = 0;
+                        }
+                        else {
+                            if (enemy.arm >= damageDone) {
+                                enemy.arm = enemy.arm - damageDone;
+                                damageDone = 0;
+                            }
+                            else {
+                                damageDone = damageDone - enemy.arm;
+                                enemy.arm = 0;
+                                goto dealingDamageToEnemyStartOne;
+                            }
+                        }
+                    } // hope it works
+
+                    // end battle if enemy.hp is 0 or is lower than 0, render win screen and give out money
+
+                    if (enemy.hp - damageDone <= 0 || enemy.hp <= 0) {
+                        battleEnded = true; // end battle
+
+                        system("cls"); // prep to load win screen
+
+                        playerInventory.money = playerInventory.money + 1000 + ((rand() % 50) * 10); // give money to hero
+
+                        loadFile("Visuals/battleSceneWin.txt"); //load win screen
+                        goto resetWhileOne; // reset at beginning so music stops and redirects us to map
+                    } // done
+
+                    // check if enemy skips their turn if yes skip it
+                    if (enemyTurnsSkip == 0) {
+                        while(battleWhoHasTheirTurn == "Enemy") {
+
+                            if (enemy.name == TheMask.name) {
+                                brainOfTheMask();
+                            }
+                            else {
+                                brainOfERr0R();
+                            }
+
+                            battleWhoHasTheirTurn = "Hero";
+                            battleSceneSideAction = "Main";
+                            battleScene.currentPositionX = 1;
+                            battleScene.currentPositionY = 1;
+                        }
+                    }
+                    else {
+                        battleSceneSideAction = "Main";
+                        battleScene.currentPositionX = 1;
+                        battleScene.currentPositionY = 1;
+                        enemyTurnsSkip--;
+                        battleWhoHasTheirTurn = "Hero";
+                    }
+
+                    // check shield
+
+                    // check bio shield
+
+                    // activate effects
+                    if (activeCountdownHero > 0) {
+                        activeCountdownHero--;
+
+                        if (heroImmuneBurning > 0) {
+                            heroImmuneBurning--;
+                            active.effect = "Imn.(Burn.)";
+                        }
+                        else {
+                            if (heroEffectBurningActive == true) {
+                                damageDone = damageDone + 2;
+                                active.effect = "Burning";
+                            }
+                        }
+
+                        if (heroImmunePoison > 0) {
+                            heroImmunePoison--;
+                            active.effect = "Imn.(Poison)";
+                        }
+                        else {
+                            if (heroEffectPoisonActive == true) {
+                                damageDone++;
+                                activePoison = true;
+                                active.effect = "Poison";
+                            }
+                        }
+
+                        if (heroImmuneCrippled > 0) {
+                            active.effect = "Imn.(Cripl.)";
+                            heroImmuneCrippled--;
+                        }
+                        else {
+                            if (heroEffectCrippledActive == true) {
+                                active.atk = active.atk - effectCrippledStrengthHero;
+                                effectCrippledStrengthHero = 0;
+                                active.effect = "Crippled";
+                            }
+                        }
+
+                        if (heroImmuneBleeding > 0) {
+                            active.effect = "Imn.(Bleed.)";
+                            heroImmuneBleeding--;
+                        }
+                        else {
+                            if (heroEffectBleedingActive == true) {
+                                active.hp = active.hp - 1;
+                                active.effect = "Bleeding";
+                            }
+                        }
+                    } // hope it all works
+
+                    if (heroImmuneDraining > 0) {
+                        heroImmuneDraining--;
+                        active.effect = "Imn.(Drain.)";
+                    }
+                    else {
+                        if (heroEffectDrainingActive == true) {
+                            effectDrainingCountdownHero++;
+                            active.effect = "Draining";
+                        }
+                    }
+
+                    if (activeCountdownHero == 0) {
+                        if (heroEffectBleedingActive == false) {
+                            if (heroImmuneBleeding == false) {
+                                if (heroEffectDrainingActive == false) {
+                                    if (heroImmuneDraining == false) {
+                                        resetEffectsOfHero();
+                                        active.effect = "Clear";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // deal damage to hero
+                    if (damageDone > 0) {
+                        dealingDamageToHeroStartOne: // goto to reset until nothing is activated
+
+                        if (bioShieldActiveHero == true && bioShieldHpHero > 0) {
+                            if (damageDone >= bioShieldHpHero) {
+                                damageDone = damageDone - bioShieldHpHero; // lowers damage done by the strength of bio shield
+
+                                bioShieldSizesHero.push_back(bioShieldHpHero); // add the number to vector list if we want to regenerate it again
+
+                                bioShieldHpHero = 0; // reset bio shield
+                                bioShieldActiveHero = false;
+                            }
+                            else {
+                                bioShieldHpHero = bioShieldHpHero - damageDone; // lowers shield strength by the damage done and resets damage
+                                damageDone = 0;
+                            }
+                        }
+                        if (shieldActiveHero == true && shieldHpHero > 0) {
+                            if (damageDone >= shieldHpHero) {
+                                damageDone = damageDone - shieldHpHero;
+
+                                shieldHpHero = 0;
+                                shieldActiveHero = false;
+                            }
+                            else {
+                                shieldHpHero = shieldHpHero - damageDone;
+                                damageDone = 0;
+                            }
+                        }
+                        if (active.arm <= 0) {
+                            active.hp = active.hp - damageDone;
+                            damageDone = 0;
+                        }
+                        else {
+                            if (active.arm >= damageDone) {
+                                active.arm = active.arm - damageDone;
+                                damageDone = 0;
+                            }
+                            else {
+                                damageDone = damageDone - active.arm;
+                                active.arm = 0;
+                                goto dealingDamageToHeroStartOne;
+                            }
+                        }
+                    } // hope it works
+
+                    // swap hero if one dies
+
+                    // if all heroes die load end screen and end game
+
+                    // voiceline Enemy
+                    system("cls");
+                    renderVoiceline();
+                    Sleep(10000);
+                    system("cls");
+
+                    messageOne = "";
+                    messageTwo = "";
+                    messageThree = "";
+                    messageFour = "";
+                    messageFive = "";
+
+                    if (refillCountdown >= 1) {
+                        refillCountdown--;
+                    }
+                    else {
+                        refillCountdown = 3;
+
+                        enemy.bat += 40;
+                        enemy.dat += 40;
+
+                        active.bat += 80;
+                        active.dat += 80;
+                    }
+
+                    if (active.hp <= 0) {
+                        if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else {
+                            system("cls");
+                            loadFile("Visuals/battleSceneLoose.txt");
+                            return 0;
+                        }
+                    }
+
+
+
+                }
+                musicThread.detach();
+
+                resetEffectsOfEnemy();
+                resetEffectsOfHero();
+
+                bioShieldSizesEnemy.clear();
+                bioShieldSizesHero.clear();
+
+                shieldHpEnemy = 0;
+                shieldActiveEnemy = false;
+
+                shieldHpHero = 0;
+                shieldActiveHero = false;
+
+                whatScreenWeSee = "Map";
+            }
         }
 
         while (whatScreenWeSee == "Final Boss") {
+            {
+                battleEnded = false; // start battle
+
+                // play music (can add more tracks)
+                filePath = "Sounds/Escape the Subway.wav";
+                thread musicThread(playMusic, filePath.c_str());
+                system("cls");
+
+                // actually do something
+                resetWhileTwo:
+                while (battleEnded != true) {
+                    if (firstTime == true) {
+                        //Generate enemy and all the good stuff
+                        switch (currentLevel) {
+                            case 2: {
+                                enemy.name = subject079.name;
+                                enemy.hp = subject079.hp;
+                                enemy.arm = subject079.arm;
+                                enemy.atk = subject079.atk;
+                                enemy.bat = subject079.bat;
+                                enemy.dat = subject079.dat;
+                                enemy.attackOne = subject079.attackOne;
+                                enemy.attackTwo = subject079.attackTwo;
+                                enemy.attackThree = subject079.attackThree;
+                                enemy.abilityOne = subject079.abilityOne;
+                                enemy.abilityTwo = subject079.abilityTwo;
+                                enemy.abilityThree = subject079.abilityThree;
+
+                                break;
+                            }
+
+                            case 3: {
+                                enemy.name = X001.name;
+                                enemy.hp = X001.hp;
+                                enemy.arm = X001.arm;
+                                enemy.atk = X001.atk;
+                                enemy.bat = X001.bat;
+                                enemy.dat = X001.dat;
+                                enemy.attackOne = X001.attackOne;
+                                enemy.attackTwo = X001.attackTwo;
+                                enemy.attackThree = X001.attackThree;
+                                enemy.abilityOne = X001.abilityOne;
+                                enemy.abilityTwo = X001.abilityTwo;
+                                enemy.abilityThree = X001.abilityThree;
+
+                                break;
+                            }
+
+                            case 5: {
+                                enemy.name = BioMechSlasher.name;
+                                enemy.hp = BioMechSlasher.hp;
+                                enemy.arm = BioMechSlasher.arm;
+                                enemy.atk = BioMechSlasher.atk;
+                                enemy.bat = BioMechSlasher.bat;
+                                enemy.dat = BioMechSlasher.dat;
+                                enemy.attackOne = BioMechSlasher.attackOne;
+                                enemy.attackTwo = BioMechSlasher.attackTwo;
+                                enemy.attackThree = BioMechSlasher.attackThree;
+                                enemy.abilityOne = BioMechSlasher.abilityOne;
+                                enemy.abilityTwo = BioMechSlasher.abilityTwo;
+                                enemy.abilityThree = BioMechSlasher.abilityThree;
+
+                                break;
+                            }
+
+                            case 6: {
+                                enemy.name = VortexDrone.name;
+                                enemy.hp = VortexDrone.hp;
+                                enemy.arm = VortexDrone.arm;
+                                enemy.atk = VortexDrone.atk;
+                                enemy.bat = VortexDrone.bat;
+                                enemy.dat = VortexDrone.dat;
+                                enemy.attackOne = VortexDrone.attackOne;
+                                enemy.attackTwo = VortexDrone.attackTwo;
+                                enemy.attackThree = VortexDrone.attackThree;
+                                enemy.abilityOne = VortexDrone.abilityOne;
+                                enemy.abilityTwo = VortexDrone.abilityTwo;
+                                enemy.abilityThree = VortexDrone.abilityThree;
+
+                                break;
+                            }
+
+                            case 9: {
+                                enemy.name = Cyberviper.name;
+                                enemy.hp = Cyberviper.hp;
+                                enemy.arm = Cyberviper.arm;
+                                enemy.atk = Cyberviper.atk;
+                                enemy.bat = Cyberviper.bat;
+                                enemy.dat = Cyberviper.dat;
+                                enemy.attackOne = Cyberviper.attackOne;
+                                enemy.attackTwo = Cyberviper.attackTwo;
+                                enemy.attackThree = Cyberviper.attackThree;
+                                enemy.abilityOne = Cyberviper.abilityOne;
+                                enemy.abilityTwo = Cyberviper.abilityTwo;
+                                enemy.abilityThree = Cyberviper.abilityThree;
+
+                                break;
+                            }
+
+                            case 10: {
+                                enemy.name = Techgeist.name;
+                                enemy.hp = Techgeist.hp;
+                                enemy.arm = Techgeist.arm;
+                                enemy.atk = Techgeist.atk;
+                                enemy.bat = Techgeist.bat;
+                                enemy.dat = Techgeist.dat;
+                                enemy.attackOne = Techgeist.attackOne;
+                                enemy.attackTwo = Techgeist.attackTwo;
+                                enemy.attackThree = Techgeist.attackThree;
+                                enemy.abilityOne = Techgeist.abilityOne;
+                                enemy.abilityTwo = Techgeist.abilityTwo;
+                                enemy.abilityThree = Techgeist.abilityThree;
+
+                                break;
+                            }
+
+                            case 11: {
+                                enemy.name = Pyrofreak.name;
+                                enemy.hp = Pyrofreak.hp;
+                                enemy.arm = Pyrofreak.arm;
+                                enemy.atk = Pyrofreak.atk;
+                                enemy.bat = Pyrofreak.bat;
+                                enemy.dat = Pyrofreak.dat;
+                                enemy.attackOne = Pyrofreak.attackOne;
+                                enemy.attackTwo = Pyrofreak.attackTwo;
+                                enemy.attackThree = Pyrofreak.attackThree;
+                                enemy.abilityOne = Pyrofreak.abilityOne;
+                                enemy.abilityTwo = Pyrofreak.abilityTwo;
+                                enemy.abilityThree = Pyrofreak.abilityThree;
+
+                                break;
+                            }
+
+                            case 13: {
+                                enemy.name = Shredder.name;
+                                enemy.hp = Shredder.hp;
+                                enemy.arm = Shredder.arm;
+                                enemy.atk = Shredder.atk;
+                                enemy.bat = Shredder.bat;
+                                enemy.dat = Shredder.dat;
+                                enemy.attackOne = Shredder.attackOne;
+                                enemy.attackTwo = Shredder.attackTwo;
+                                enemy.attackThree = Shredder.attackThree;
+                                enemy.abilityOne = Shredder.abilityOne;
+                                enemy.abilityTwo = Shredder.abilityTwo;
+                                enemy.abilityThree = Shredder.abilityThree;
+
+                                break;
+                            }
+
+                            case 14: {
+                                enemy.name = SAM.name;
+                                enemy.hp = SAM.hp;
+                                enemy.arm = SAM.arm;
+                                enemy.atk = SAM.atk;
+                                enemy.bat = SAM.bat;
+                                enemy.dat = SAM.dat;
+                                enemy.attackOne = SAM.attackOne;
+                                enemy.attackTwo = SAM.attackTwo;
+                                enemy.attackThree = SAM.attackThree;
+                                enemy.abilityOne = SAM.abilityOne;
+                                enemy.abilityTwo = SAM.abilityTwo;
+                                enemy.abilityThree = SAM.abilityThree;
+
+                                break;
+                            }
+
+                            case 17: {
+                                enemy.name = NanoZombie.name;
+                                enemy.hp = NanoZombie.hp;
+                                enemy.arm = NanoZombie.arm;
+                                enemy.atk = NanoZombie.atk;
+                                enemy.bat = NanoZombie.bat;
+                                enemy.dat = NanoZombie.dat;
+                                enemy.attackOne = NanoZombie.attackOne;
+                                enemy.attackTwo = NanoZombie.attackTwo;
+                                enemy.attackThree = NanoZombie.attackThree;
+                                enemy.abilityOne = NanoZombie.abilityOne;
+                                enemy.abilityTwo = NanoZombie.abilityTwo;
+                                enemy.abilityThree = NanoZombie.abilityThree;
+
+                                break;
+                            }
+
+                            case 18: {
+                                enemy.name = PlasmaticEnforcer.name;
+                                enemy.hp = PlasmaticEnforcer.hp;
+                                enemy.arm = PlasmaticEnforcer.arm;
+                                enemy.atk = PlasmaticEnforcer.atk;
+                                enemy.bat = PlasmaticEnforcer.bat;
+                                enemy.dat = PlasmaticEnforcer.dat;
+                                enemy.attackOne = PlasmaticEnforcer.attackOne;
+                                enemy.attackTwo = PlasmaticEnforcer.attackTwo;
+                                enemy.attackThree = PlasmaticEnforcer.attackThree;
+                                enemy.abilityOne = PlasmaticEnforcer.abilityOne;
+                                enemy.abilityTwo = PlasmaticEnforcer.abilityTwo;
+                                enemy.abilityThree = PlasmaticEnforcer.abilityThree;
+
+                                break;
+                            }
+
+                            case 19: {
+                                enemy.name = ShadowbladeBalerina.name;
+                                enemy.hp = ShadowbladeBalerina.hp;
+                                enemy.arm = ShadowbladeBalerina.arm;
+                                enemy.atk = ShadowbladeBalerina.atk;
+                                enemy.bat = ShadowbladeBalerina.bat;
+                                enemy.dat = ShadowbladeBalerina.dat;
+                                enemy.attackOne = ShadowbladeBalerina.attackOne;
+                                enemy.attackTwo = ShadowbladeBalerina.attackTwo;
+                                enemy.attackThree = ShadowbladeBalerina.attackThree;
+                                enemy.abilityOne = ShadowbladeBalerina.abilityOne;
+                                enemy.abilityTwo = ShadowbladeBalerina.abilityTwo;
+                                enemy.abilityThree = ShadowbladeBalerina.abilityThree;
+
+                                break;
+                            }
+
+                            case 20: {
+                                enemy.name = ToxinWraith.name;
+                                enemy.hp = ToxinWraith.hp;
+                                enemy.arm = ToxinWraith.arm;
+                                enemy.atk = ToxinWraith.atk;
+                                enemy.bat = ToxinWraith.bat;
+                                enemy.dat = ToxinWraith.dat;
+                                enemy.attackOne = ToxinWraith.attackOne;
+                                enemy.attackTwo = ToxinWraith.attackTwo;
+                                enemy.attackThree = ToxinWraith.attackThree;
+                                enemy.abilityOne = ToxinWraith.abilityOne;
+                                enemy.abilityTwo = ToxinWraith.abilityTwo;
+                                enemy.abilityThree = ToxinWraith.abilityThree;
+
+                                break;
+                            }
+
+                            case 22: {
+                                enemy.name = ScythebladeAugment.name;
+                                enemy.hp = ScythebladeAugment.hp;
+                                enemy.arm = ScythebladeAugment.arm;
+                                enemy.atk = ScythebladeAugment.atk;
+                                enemy.bat = ScythebladeAugment.bat;
+                                enemy.dat = ScythebladeAugment.dat;
+                                enemy.attackOne = ScythebladeAugment.attackOne;
+                                enemy.attackTwo = ScythebladeAugment.attackTwo;
+                                enemy.attackThree = ScythebladeAugment.attackThree;
+                                enemy.abilityOne = ScythebladeAugment.abilityOne;
+                                enemy.abilityTwo = ScythebladeAugment.abilityTwo;
+                                enemy.abilityThree = ScythebladeAugment.abilityThree;
+
+                                break;
+                            }
+
+                            case 23: {
+                                enemy.name = MutagenicBrute.name;
+                                enemy.hp = MutagenicBrute.hp;
+                                enemy.arm = MutagenicBrute.arm;
+                                enemy.atk = MutagenicBrute.atk;
+                                enemy.bat = MutagenicBrute.bat;
+                                enemy.dat = MutagenicBrute.dat;
+                                enemy.attackOne = MutagenicBrute.attackOne;
+                                enemy.attackTwo = MutagenicBrute.attackTwo;
+                                enemy.attackThree = MutagenicBrute.attackThree;
+                                enemy.abilityOne = MutagenicBrute.abilityOne;
+                                enemy.abilityTwo = MutagenicBrute.abilityTwo;
+                                enemy.abilityThree = MutagenicBrute.abilityThree;
+
+                                break;
+                            }
+
+                            case 25: {
+                                enemy.name = NeuralOverlord.name;
+                                enemy.hp = NeuralOverlord.hp;
+                                enemy.arm = NeuralOverlord.arm;
+                                enemy.atk = NeuralOverlord.atk;
+                                enemy.bat = NeuralOverlord.bat;
+                                enemy.dat = NeuralOverlord.dat;
+                                enemy.attackOne = NeuralOverlord.attackOne;
+                                enemy.attackTwo = NeuralOverlord.attackTwo;
+                                enemy.attackThree = NeuralOverlord.attackThree;
+                                enemy.abilityOne = NeuralOverlord.abilityOne;
+                                enemy.abilityTwo = NeuralOverlord.abilityTwo;
+                                enemy.abilityThree = NeuralOverlord.abilityThree;
+
+                                break;
+                            }
+
+                        }
+
+                        if (characterOne.hp > 0) {
+                            active.name = characterOne.name;
+                            active.hp = characterOne.hp;
+                            active.arm = characterOne.arm;
+                            active.atk = characterOne.atk;
+                            active.bat = characterOne.bat;
+                            active.dat = characterOne.dat;
+                            active.maxHp = characterOne.hp;
+                            active.maxArm = characterOne.arm;
+                            active.maxAtk = characterOne.atk;
+                            active.maxBat = characterOne.bat;
+                            active.maxDat = characterOne.dat;
+                            active.attackOne = characterOne.attackOne;
+                            active.attackTwo = characterOne.attackTwo;
+                            active.attackThree = characterOne.attackThree;
+                            active.abilityOne = characterOne.abilityOne;
+                            active.abilityTwo = characterOne.abilityTwo;
+                            active.abilityThree = characterOne.abilityThree;
+                        }
+                        if (characterTwo.hp > 0 && characterOne.hp <= 0) {
+                            active.name = characterTwo.name;
+                            active.hp = characterTwo.hp;
+                            active.arm = characterTwo.arm;
+                            active.atk = characterTwo.atk;
+                            active.bat = characterTwo.bat;
+                            active.dat = characterTwo.dat;
+                            active.maxHp = characterTwo.hp;
+                            active.maxArm = characterTwo.arm;
+                            active.maxAtk = characterTwo.atk;
+                            active.maxBat = characterTwo.bat;
+                            active.maxDat = characterTwo.dat;
+                            active.attackOne = characterTwo.attackOne;
+                            active.attackTwo = characterTwo.attackTwo;
+                            active.attackThree = characterTwo.attackThree;
+                            active.abilityOne = characterTwo.abilityOne;
+                            active.abilityTwo = characterTwo.abilityTwo;
+                            active.abilityThree = characterTwo.abilityThree;
+                        }
+                        if (characterThree.hp > 0 && characterOne.hp <= 0 && characterTwo.hp <= 0) {
+                            active.name = characterThree.name;
+                            active.hp = characterThree.hp;
+                            active.arm = characterThree.arm;
+                            active.atk = characterThree.atk;
+                            active.bat = characterThree.bat;
+                            active.dat = characterThree.dat;
+                            active.maxHp = characterThree.hp;
+                            active.maxArm = characterThree.arm;
+                            active.maxAtk = characterThree.atk;
+                            active.maxBat = characterThree.bat;
+                            active.maxDat = characterThree.dat;
+                            active.attackOne = characterThree.attackOne;
+                            active.attackTwo = characterThree.attackTwo;
+                            active.attackThree = characterThree.attackThree;
+                            active.abilityOne = characterThree.abilityOne;
+                            active.abilityTwo = characterThree.abilityTwo;
+                            active.abilityThree = characterThree.abilityThree;
+                        }
+
+                        // Generate the description
+                        renderEnemyDescription("Visuals/Cutscenes/" + enemy.name + ".txt");
+                        getch();
+
+                        firstTime = false;
+                    }
+
+                    //round up numbers hero
+                    if (active.hp <= 0) {
+                        active.hp = 0;
+                    }
+                    else if (active.arm <= 0) {
+                        active.arm = 0;
+                    }
+                    else if (active.bat <= 0) {
+                        active.bat = 0;
+                    }
+                    else if (active.dat <= 0) {
+                        active.dat = 0;
+                    }
+                    else if (active.atk <= 0) {
+                        active.atk = 0;
+                    }
+
+                    //round up numbers enemy
+                    if (enemy.hp <= 0) {
+                        enemy.hp = 0;
+                    }
+                    else if (enemy.arm <= 0) {
+                        enemy.arm = 0;
+                    }
+                    else if (enemy.dat <= 0) {
+                        enemy.dat = 0;
+                    }
+                    else if (enemy.bat <= 0) {
+                        enemy.bat = 0;
+                    }
+                    else if (enemy.atk <= 0) {
+                        enemy.atk = 0;
+                    }
+
+
+                    if (heroTurnsSkip == 0) {
+                        while (battleWhoHasTheirTurn == "Hero") {
+                            // clear
+                            system("cls");
+                            // First Render of hero
+                            if (battleSceneSideAction == "Main") {
+                                renderMainBattleScene();
+                            } else if (battleSceneSideAction == "Attacks") {
+                                renderAttacksBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                renderItemsBattleScene();
+                            } else if (battleSceneSideAction == "Ability") {
+                                renderAbilitiesBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                renderSwapHeroBattleScene();
+                            }
+
+                            // Key get
+                            pressedKey = getch();
+
+                            // Key check
+                            if (int(pressedKey) == 87 || int(pressedKey) == 119) { // W or w
+                                battleScene.currentPositionX--;
+                            } // W or w
+                            else if (int(pressedKey) == 83 || int(pressedKey) == 115) { // S or s
+                                battleScene.currentPositionX++;
+                            } // S or s
+                            else if (int(pressedKey) == 65 || int(pressedKey) == 97) { // A or a
+                                battleScene.currentPositionY--;
+                            } // A or a
+                            else if (int(pressedKey) == 68 || int(pressedKey) == 100) { // D or d
+                                battleScene.currentPositionY++;
+                            } // D or d
+                            else if (int(pressedKey) == 69 || int(pressedKey) == 101) { // E or e
+
+                                if (battleSceneSideAction == "Main") {
+                                    if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 1) {
+                                        battleSceneSideAction = "Attacks";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 2) {
+                                        battleSceneSideAction = "Items";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 3) {
+                                        battleSceneSideAction = "Ability";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    } else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX == 4) {
+                                        battleSceneSideAction = "Swap";
+                                        battleScene.currentPositionY = 1;
+                                        battleScene.currentPositionX = 1;
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Attacks") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    } else {
+                                        HeroCheckAttack();
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Items") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Ability") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                    else {
+                                        HeroCheckAbility();
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+                                else if (battleSceneSideAction == "Swap") {
+                                    if (battleScene.currentPositionX == 1 && battleScene.currentPositionY == 1) {
+                                        battleSceneSideAction = "Main";
+                                    }
+                                    if (battleScene.currentPositionY == 2) {
+                                        if (active.name == characterOne.name) {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterTwo.name;
+                                            active.effect =       characterTwo.effect;
+                                            active.fighterClass = characterTwo.fighterClass;
+                                            active.attackOne =    characterTwo.attackOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.attackThree =  characterTwo.attackThree;
+                                            active.abilityOne =   characterTwo.abilityOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.abilityThree = characterTwo.abilityThree;
+                                            active.hp =           characterTwo.hp;
+                                            active.arm =          characterTwo.arm;
+                                            active.atk =          characterTwo.atk;
+                                            active.bat =          characterTwo.bat;
+                                            active.dat =          characterTwo.dat;
+                                            active.active =       characterTwo.active;
+                                            active.picked =       characterTwo.picked;
+                                        }
+                                        else {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterOne.name;
+                                            active.effect =       characterOne.effect;
+                                            active.fighterClass = characterOne.fighterClass;
+                                            active.attackOne =    characterOne.attackOne;
+                                            active.abilityTwo =   characterOne.abilityTwo;
+                                            active.attackThree =  characterOne.attackThree;
+                                            active.abilityOne =   characterOne.abilityOne;
+                                            active.abilityTwo =   characterOne.abilityTwo;
+                                            active.abilityThree = characterOne.abilityThree;
+                                            active.hp =           characterOne.hp;
+                                            active.arm =          characterOne.arm;
+                                            active.atk =          characterOne.atk;
+                                            active.bat =          characterOne.bat;
+                                            active.dat =          characterOne.dat;
+                                            active.active =       characterOne.active;
+                                            active.picked =       characterOne.picked;
+                                        }
+
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                    if (battleScene.currentPositionY == 3) {
+                                        if (active.name == characterOne.name) {
+                                            characterOne.attackOne = active.attackOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.attackThree = active.attackThree;
+                                            characterOne.abilityOne = active.abilityOne;
+                                            characterOne.abilityTwo = active.abilityTwo;
+                                            characterOne.abilityThree = active.abilityThree;
+                                            characterOne.hp = active.hp;
+                                            characterOne.arm = active.arm;
+                                            characterOne.atk = active.atk;
+                                            characterOne.bat = active.bat;
+                                            characterOne.dat = active.dat;
+
+                                            active.name =         characterThree.name;
+                                            active.effect =       characterThree.effect;
+                                            active.fighterClass = characterThree.fighterClass;
+                                            active.attackOne =    characterThree.attackOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.attackThree =  characterThree.attackThree;
+                                            active.abilityOne =   characterThree.abilityOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.abilityThree = characterThree.abilityThree;
+                                            active.hp =           characterThree.hp;
+                                            active.arm =          characterThree.arm;
+                                            active.atk =          characterThree.atk;
+                                            active.bat =          characterThree.bat;
+                                            active.dat =          characterThree.dat;
+                                            active.active =       characterThree.active;
+                                            active.picked =       characterThree.picked;
+                                        }
+                                        else if (active.name == characterTwo.name) {
+                                            characterTwo.attackOne = active.attackOne;
+                                            characterTwo.abilityTwo = active.abilityTwo;
+                                            characterTwo.attackThree = active.attackThree;
+                                            characterTwo.abilityOne = active.abilityOne;
+                                            characterTwo.abilityTwo = active.abilityTwo;
+                                            characterTwo.abilityThree = active.abilityThree;
+                                            characterTwo.hp = active.hp;
+                                            characterTwo.arm = active.arm;
+                                            characterTwo.atk = active.atk;
+                                            characterTwo.bat = active.bat;
+                                            characterTwo.dat = active.dat;
+
+                                            active.name =         characterThree.name;
+                                            active.effect =       characterThree.effect;
+                                            active.fighterClass = characterThree.fighterClass;
+                                            active.attackOne =    characterThree.attackOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.attackThree =  characterThree.attackThree;
+                                            active.abilityOne =   characterThree.abilityOne;
+                                            active.abilityTwo =   characterThree.abilityTwo;
+                                            active.abilityThree = characterThree.abilityThree;
+                                            active.hp =           characterThree.hp;
+                                            active.arm =          characterThree.arm;
+                                            active.atk =          characterThree.atk;
+                                            active.bat =          characterThree.bat;
+                                            active.dat =          characterThree.dat;
+                                            active.active =       characterThree.active;
+                                            active.picked =       characterThree.picked;
+                                        }
+                                        else if (active.name == characterThree.name) {
+                                            characterThree.attackOne = active.attackOne;
+                                            characterThree.abilityTwo = active.abilityTwo;
+                                            characterThree.attackThree = active.attackThree;
+                                            characterThree.abilityOne = active.abilityOne;
+                                            characterThree.abilityTwo = active.abilityTwo;
+                                            characterThree.abilityThree = active.abilityThree;
+                                            characterThree.hp = active.hp;
+                                            characterThree.arm = active.arm;
+                                            characterThree.atk = active.atk;
+                                            characterThree.bat = active.bat;
+                                            characterThree.dat = active.dat;
+
+                                            active.name =         characterTwo.name;
+                                            active.effect =       characterTwo.effect;
+                                            active.fighterClass = characterTwo.fighterClass;
+                                            active.attackOne =    characterTwo.attackOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.attackThree =  characterTwo.attackThree;
+                                            active.abilityOne =   characterTwo.abilityOne;
+                                            active.abilityTwo =   characterTwo.abilityTwo;
+                                            active.abilityThree = characterTwo.abilityThree;
+                                            active.hp =           characterTwo.hp;
+                                            active.arm =          characterTwo.arm;
+                                            active.atk =          characterTwo.atk;
+                                            active.bat =          characterTwo.bat;
+                                            active.dat =          characterTwo.dat;
+                                            active.active =       characterTwo.active;
+                                            active.picked =       characterTwo.picked;
+                                        }
+                                        battleWhoHasTheirTurn = "Enemy";
+                                    }
+                                }
+
+                            } // E or e
+
+                            //temporary
+                            if (int(pressedKey) == 27) {
+                                return 0;
+                            }
+
+                            // clear
+                            Sleep(10);
+                            system("cls");
+
+                            // Calculations
+                            //round up the numbers
+                            if (battleScene.currentPositionY == 1 && battleScene.currentPositionX >= 4) {
+                                battleScene.currentPositionX = 4;
+                            }
+                            else if (battleScene.currentPositionY == 1 && battleScene.currentPositionX <= 1) {
+                                battleScene.currentPositionX = 1;
+                            }
+
+                            if (battleScene.currentPositionY <= 1) {
+                                battleScene.currentPositionY = 1;
+                            }
+                            else if (battleScene.currentPositionY >= 3) {
+                                battleScene.currentPositionY = 3;
+                            }
+                            if (battleSceneSideAction == "Main") {
+                                if (battleScene.currentPositionY <= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                                else if (battleScene.currentPositionY >= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                if (battleScene.currentPositionX <= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                                else if (battleScene.currentPositionX >= 18) {
+                                    battleScene.currentPositionX = 18;
+                                }
+
+                                if (battleScene.currentPositionY == 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                if (battleScene.currentPositionY <= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                                else if (battleScene.currentPositionY >= 1) {
+                                    battleScene.currentPositionY = 1;
+                                }
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                if (battleScene.currentPositionX <= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                                else if (battleScene.currentPositionX >= 1) {
+                                    battleScene.currentPositionX = 1;
+                                }
+                            }
+
+                            // change attack and ability file to suit our requirements
+                            if (battleSceneSideAction == "Attacks") {
+                                if (active.name == characterOne.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterOneAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterOneAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterOneAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterTwo.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterTwoAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterTwoAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterTwoAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterThree.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterThreeAttack.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterThreeAttack.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterThreeAttack.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                if (active.name == characterOne.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterOneAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterOneAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterOneAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterTwo.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterTwoAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterTwoAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterTwoAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                                else if (active.name == characterThree.name) {
+                                    file.open("Visuals/chooseCharacterAttackOne.txt");
+                                    clearFile("Visuals/chooseCharacterAttackOne.txt");
+                                    file << characterThreeAbilities.attackOneDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackTwo.txt");
+                                    clearFile("Visuals/chooseCharacterAttackTwo.txt");
+                                    file << characterThreeAbilities.attackTwoDescriptionChooseYourCharacter;
+                                    file.close();
+
+                                    file.open("Visuals/chooseCharacterAttackThree.txt");
+                                    clearFile("Visuals/chooseCharacterAttackThree.txt");
+                                    file << characterThreeAbilities.attackThreeDescriptionChooseYourCharacter;
+                                    file.close();
+                                }
+                            }
+
+                            // renders
+                            if (battleSceneSideAction == "Main") {
+                                renderMainBattleScene();
+                            } else if (battleSceneSideAction == "Attacks") {
+                                renderAttacksBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Items") {
+                                renderItemsBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Ability") {
+                                renderAbilitiesBattleScene();
+                            }
+                            else if (battleSceneSideAction == "Swap") {
+                                renderSwapHeroBattleScene();
+                            }
+
+                            cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    swap active " << swapDelayActive << "    swap  delay " << swapDelay;
+                        }
+                    }
+                    else {
+                        heroTurnsSkip--;
+                        system("cls");
+                        battleWhoHasTheirTurn = "Enemy";
+                    }
+
+                    // delayed swap
+                    if (swapDelayActive == true) {
+                        swapDelay--;
+                        swapDelayActive = true;
+                        if (swapDelay == 0) {
+                            swapDelayActive = false;
+                            if (active.name == characterOne.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                            else if (active.name == characterTwo.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                            else if (active.name == characterThree.name) {
+                                characterThree.attackOne = active.attackOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.attackThree = active.attackThree;
+                                characterThree.abilityOne = active.abilityOne;
+                                characterThree.abilityTwo = active.abilityTwo;
+                                characterThree.abilityThree = active.abilityThree;
+                                characterThree.hp = active.hp;
+                                characterThree.arm = active.arm;
+                                characterThree.atk = active.atk;
+                                characterThree.bat = active.bat;
+                                characterThree.dat = active.dat;
+
+                                if (chosenCharacterSwap == 1) {
+                                    active.name =         characterOne.name;
+                                    active.effect =       characterOne.effect;
+                                    active.fighterClass = characterOne.fighterClass;
+                                    active.attackOne =    characterOne.attackOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.attackThree =  characterOne.attackThree;
+                                    active.abilityOne =   characterOne.abilityOne;
+                                    active.abilityTwo =   characterOne.abilityTwo;
+                                    active.abilityThree = characterOne.abilityThree;
+                                    active.hp =           characterOne.hp;
+                                    active.arm =          characterOne.arm;
+                                    active.atk =          characterOne.atk;
+                                    active.bat =          characterOne.bat;
+                                    active.dat =          characterOne.dat;
+                                    active.active =       characterOne.active;
+                                    active.picked =       characterOne.picked;
+                                }
+                                if (chosenCharacterSwap == 2) {
+                                    active.name =         characterTwo.name;
+                                    active.effect =       characterTwo.effect;
+                                    active.fighterClass = characterTwo.fighterClass;
+                                    active.attackOne =    characterTwo.attackOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.attackThree =  characterTwo.attackThree;
+                                    active.abilityOne =   characterTwo.abilityOne;
+                                    active.abilityTwo =   characterTwo.abilityTwo;
+                                    active.abilityThree = characterTwo.abilityThree;
+                                    active.hp =           characterTwo.hp;
+                                    active.arm =          characterTwo.arm;
+                                    active.atk =          characterTwo.atk;
+                                    active.bat =          characterTwo.bat;
+                                    active.dat =          characterTwo.dat;
+                                    active.active =       characterTwo.active;
+                                    active.picked =       characterTwo.picked;
+                                }
+                                if (chosenCharacterSwap == 3) {
+                                    active.name =         characterThree.name;
+                                    active.effect =       characterThree.effect;
+                                    active.fighterClass = characterThree.fighterClass;
+                                    active.attackOne =    characterThree.attackOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.attackThree =  characterThree.attackThree;
+                                    active.abilityOne =   characterThree.abilityOne;
+                                    active.abilityTwo =   characterThree.abilityTwo;
+                                    active.abilityThree = characterThree.abilityThree;
+                                    active.hp =           characterThree.hp;
+                                    active.arm =          characterThree.arm;
+                                    active.atk =          characterThree.atk;
+                                    active.bat =          characterThree.bat;
+                                    active.dat =          characterThree.dat;
+                                    active.active =       characterThree.active;
+                                    active.picked =       characterThree.picked;
+                                }
+                            }
+                        }
+                    }
+
+                    // check shield
+                    if (shieldActiveEnemy == false || shieldHpEnemy <= 0) {
+                        shieldActiveEnemy = false;
+                        shieldHpEnemy = false;
+                    } // ensure that shield is reset
+
+                    // check bio shield
+                    if (bioShieldActiveEnemy ==  false || bioShieldHpEnemy <= 0) {
+                        bioShieldHpEnemy = 0;
+                        bioShieldActiveEnemy = false;
+                    } // ensure that bio shield is reset
+                    // if bio shield is active than regenerate one arm of the shield
+                    if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                        bioShieldHpEnemy++;
+                    }
+
+                    // activate effects
+                    if (activeCountdownEnemy > 0) {
+                        activeCountdownEnemy--;
+
+                        if (enemyImmuneBurning > 0) {
+                            enemyImmuneBurning--;
+                            enemy.effect = "Imn.(Burn.)";
+                        }
+                        else {
+                            if (enemyEffectBurningActive == true) {
+                                damageDone = damageDone + 2;
+                                enemy.effect = "Burning";
+                            }
+                        }
+
+                        if (enemyImmunePoison > 0) {
+                            enemyImmunePoison--;
+                            enemy.effect = "Imn.(Poison)";
+                        }
+                        else {
+                            if (enemyEffectPoisonActive == true) {
+                                damageDone++;
+                                enemy.effect = "Poison";
+                            }
+                        }
+
+                        if (enemyImmuneCrippled > 0) {
+                            enemy.effect = "Imn.(Cripl.)";
+                            enemyImmuneCrippled--;
+                        }
+                        else {
+                            if (enemyEffectCrippledActive == true) {
+                                enemy.atk = enemy.atk - effectCrippledStrengthEnemy;
+                                effectCrippledStrengthEnemy = 0;
+                                enemy.effect = "Crippled";
+                            }
+                        }
+
+                        if (enemyImmuneBleeding > 0) {
+                            enemy.effect = "Imn.(Bleed.)";
+                            enemyImmuneBleeding--;
+                        }
+                        else {
+                            if (enemyEffectBleedingActive == true) {
+                                enemy.hp = enemy.hp - 1;
+                                enemy.effect = "Bleeding";
+                            }
+                        }
+                    } // hope it all works
+
+                    if (enemyImmuneDraining > 0) {
+                        enemyImmuneDraining--;
+                        enemy.effect = "Imn.(Drain.)";
+                    }
+                    else {
+                        if (enemyEffectDrainingActive == true) {
+                            effectDrainingCountdownEnemy++;
+                            enemy.effect = "Draining";
+                        }
+                    }
+
+                    // deal damage to enemy
+                    if (damageDone > 0) {
+                        dealingDamageToEnemyStartTwo: // goto to reset until nothing is activated
+
+                        if (bioShieldActiveEnemy == true && bioShieldHpEnemy > 0) {
+                            if (damageDone >= bioShieldHpEnemy) {
+                                damageDone = damageDone - bioShieldHpEnemy; // lowers damage done by the strength of bio shield
+
+                                bioShieldSizesEnemy.push_back(bioShieldHpEnemy); // add the number to vector list if we want to regenerate it again
+
+                                bioShieldHpEnemy = 0; // reset bio shield
+                                bioShieldActiveEnemy = false;
+                            }
+                            else {
+                                bioShieldHpEnemy = bioShieldHpEnemy - damageDone; // lowers shield strength by the damage done and resets damage
+                                damageDone = 0;
+                            }
+                        }
+                        if (shieldActiveEnemy == true && shieldHpEnemy > 0) {
+                            if (damageDone >= shieldHpEnemy) {
+                                damageDone = damageDone - shieldHpEnemy;
+
+                                shieldHpEnemy = 0;
+                                shieldActiveEnemy = false;
+                            }
+                            else {
+                                shieldHpEnemy = shieldHpEnemy - damageDone;
+                                damageDone = 0;
+                            }
+                        }
+                        if (enemy.arm <= 0) {
+                            enemy.hp = enemy.hp - damageDone;
+                            damageDone = 0;
+                        }
+                        else {
+                            if (enemy.arm >= damageDone) {
+                                enemy.arm = enemy.arm - damageDone;
+                                damageDone = 0;
+                            }
+                            else {
+                                damageDone = damageDone - enemy.arm;
+                                enemy.arm = 0;
+                                goto dealingDamageToEnemyStartTwo;
+                            }
+                        }
+                    } // hope it works
+
+                    // end battle if enemy.hp is 0 or is lower than 0, render win screen and give out money
+
+                    if (enemy.hp - damageDone <= 0 || enemy.hp <= 0) {
+                        battleEnded = true; // end battle
+
+                        system("cls"); // prep to load win screen
+
+                        playerInventory.money = playerInventory.money + 100 + ((rand() % 50) * 10); // give money to hero
+
+                        loadFile("Visuals/battleSceneWin.txt"); //load win screen
+                        goto resetWhileTwo; // reset at beginning so music stops and redirects us to map
+                    } // done
+
+                    // check if enemy skips their turn if yes skip it
+                    if (enemyTurnsSkip == 0) {
+                        while(battleWhoHasTheirTurn == "Enemy") {
+
+                            enemyBrain();
+
+                            battleWhoHasTheirTurn = "Hero";
+                            battleSceneSideAction = "Main";
+                            battleScene.currentPositionX = 1;
+                            battleScene.currentPositionY = 1;
+                        }
+                    }
+                    else {
+                        battleSceneSideAction = "Main";
+                        battleScene.currentPositionX = 1;
+                        battleScene.currentPositionY = 1;
+                        enemyTurnsSkip--;
+                        battleWhoHasTheirTurn = "Hero";
+                    }
+
+                    // check shield
+
+                    // check bio shield
+
+                    // activate effects
+                    if (activeCountdownHero > 0) {
+                        activeCountdownHero--;
+
+                        if (heroImmuneBurning > 0) {
+                            heroImmuneBurning--;
+                            active.effect = "Imn.(Burn.)";
+                        }
+                        else {
+                            if (heroEffectBurningActive == true) {
+                                damageDone = damageDone + 2;
+                                active.effect = "Burning";
+                            }
+                        }
+
+                        if (heroImmunePoison > 0) {
+                            heroImmunePoison--;
+                            active.effect = "Imn.(Poison)";
+                        }
+                        else {
+                            if (heroEffectPoisonActive == true) {
+                                damageDone++;
+                                activePoison = true;
+                                active.effect = "Poison";
+                            }
+                        }
+
+                        if (heroImmuneCrippled > 0) {
+                            active.effect = "Imn.(Cripl.)";
+                            heroImmuneCrippled--;
+                        }
+                        else {
+                            if (heroEffectCrippledActive == true) {
+                                active.atk = active.atk - effectCrippledStrengthHero;
+                                effectCrippledStrengthHero = 0;
+                                active.effect = "Crippled";
+                            }
+                        }
+
+                        if (heroImmuneBleeding > 0) {
+                            active.effect = "Imn.(Bleed.)";
+                            heroImmuneBleeding--;
+                        }
+                        else {
+                            if (heroEffectBleedingActive == true) {
+                                active.hp = active.hp - 1;
+                                active.effect = "Bleeding";
+                            }
+                        }
+                    } // hope it all works
+
+                    if (heroImmuneDraining > 0) {
+                        heroImmuneDraining--;
+                        active.effect = "Imn.(Drain.)";
+                    }
+                    else {
+                        if (heroEffectDrainingActive == true) {
+                            effectDrainingCountdownHero++;
+                            active.effect = "Draining";
+                        }
+                    }
+
+                    if (activeCountdownHero == 0) {
+                        if (heroEffectBleedingActive == false) {
+                            if (heroImmuneBleeding == false) {
+                                if (heroEffectDrainingActive == false) {
+                                    if (heroImmuneDraining == false) {
+                                        resetEffectsOfHero();
+                                        active.effect = "Clear";
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // deal damage to hero
+                    if (damageDone > 0) {
+                        dealingDamageToHeroStartTwo: // goto to reset until nothing is activated
+
+                        if (bioShieldActiveHero == true && bioShieldHpHero > 0) {
+                            if (damageDone >= bioShieldHpHero) {
+                                damageDone = damageDone - bioShieldHpHero; // lowers damage done by the strength of bio shield
+
+                                bioShieldSizesHero.push_back(bioShieldHpHero); // add the number to vector list if we want to regenerate it again
+
+                                bioShieldHpHero = 0; // reset bio shield
+                                bioShieldActiveHero = false;
+                            }
+                            else {
+                                bioShieldHpHero = bioShieldHpHero - damageDone; // lowers shield strength by the damage done and resets damage
+                                damageDone = 0;
+                            }
+                        }
+                        if (shieldActiveHero == true && shieldHpHero > 0) {
+                            if (damageDone >= shieldHpHero) {
+                                damageDone = damageDone - shieldHpHero;
+
+                                shieldHpHero = 0;
+                                shieldActiveHero = false;
+                            }
+                            else {
+                                shieldHpHero = shieldHpHero - damageDone;
+                                damageDone = 0;
+                            }
+                        }
+                        if (active.arm <= 0) {
+                            active.hp = active.hp - damageDone;
+                            damageDone = 0;
+                        }
+                        else {
+                            if (active.arm >= damageDone) {
+                                active.arm = active.arm - damageDone;
+                                damageDone = 0;
+                            }
+                            else {
+                                damageDone = damageDone - active.arm;
+                                active.arm = 0;
+                                goto dealingDamageToHeroStartTwo;
+                            }
+                        }
+                    } // hope it works
+
+                    // swap hero if one dies
+
+                    // if all heroes die load end screen and end game
+
+                    // voiceline Enemy
+                    system("cls");
+                    renderVoiceline();
+                    Sleep(10000);
+                    system("cls");
+
+                    messageOne = "";
+                    messageTwo = "";
+                    messageThree = "";
+                    messageFour = "";
+                    messageFive = "";
+
+                    if (refillCountdown >= 1) {
+                        refillCountdown--;
+                    }
+                    else {
+                        refillCountdown = 3;
+
+                        enemy.bat += 40;
+                        enemy.dat += 40;
+
+                        active.bat += 80;
+                        active.dat += 80;
+                    }
+
+                    if (active.hp <= 0) {
+                        if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else if (active.name == characterOne.name) {
+                            characterOne.hp = 0;
+
+                            characterOne.arm = active.arm;
+                            characterOne.atk = active.atk;
+                            characterOne.bat = active.bat;
+                            characterOne.dat = active.dat;
+
+                            if (characterTwo.hp > 0) {
+                                active.name = characterTwo.name;
+                                active.hp = characterTwo.hp;
+                                active.arm = characterTwo.arm;
+                                active.atk = characterTwo.atk;
+                                active.bat = characterTwo.bat;
+                                active.dat = characterTwo.dat;
+                                active.maxHp = characterTwo.hp;
+                                active.maxArm = characterTwo.arm;
+                                active.maxAtk = characterTwo.atk;
+                                active.maxBat = characterTwo.bat;
+                                active.maxDat = characterTwo.dat;
+                                active.attackOne = characterTwo.attackOne;
+                                active.attackTwo = characterTwo.attackTwo;
+                                active.attackThree = characterTwo.attackThree;
+                                active.abilityOne = characterTwo.abilityOne;
+                                active.abilityTwo = characterTwo.abilityTwo;
+                                active.abilityThree = characterTwo.abilityThree;
+                            }
+                            else if (characterThree.hp > 0) {
+                                active.name = characterThree.name;
+                                active.hp = characterThree.hp;
+                                active.arm = characterThree.arm;
+                                active.atk = characterThree.atk;
+                                active.bat = characterThree.bat;
+                                active.dat = characterThree.dat;
+                                active.maxHp = characterThree.hp;
+                                active.maxArm = characterThree.arm;
+                                active.maxAtk = characterThree.atk;
+                                active.maxBat = characterThree.bat;
+                                active.maxDat = characterThree.dat;
+                                active.attackOne = characterThree.attackOne;
+                                active.attackTwo = characterThree.attackTwo;
+                                active.attackThree = characterThree.attackThree;
+                                active.abilityOne = characterThree.abilityOne;
+                                active.abilityTwo = characterThree.abilityTwo;
+                                active.abilityThree = characterThree.abilityThree;
+                            }
+                        }
+                        else {
+                            system("cls");
+                            loadFile("Visuals/battleSceneLoose.txt");
+                            return 0;
+                        }
+                    }
+
+
+
+                }
+                musicThread.detach();
+
+                resetEffectsOfEnemy();
+                resetEffectsOfHero();
+
+                bioShieldSizesEnemy.clear();
+                bioShieldSizesHero.clear();
+
+                shieldHpEnemy = 0;
+                shieldActiveEnemy = false;
+
+                shieldHpHero = 0;
+                shieldActiveHero = false;
+
+                whatScreenWeSee = "Map";
+            }
             return 0;
         }
 
@@ -2877,7 +5992,7 @@ int main() {
                 firstTime = false;
             }
             if (_kbhit()){
-startOfCycle:
+                startOfCycle:
                 // clear
                 system("cls");
                 // first render

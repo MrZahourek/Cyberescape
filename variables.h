@@ -30,6 +30,8 @@ string messageTwo = "";
 string messageThree = "";
 string messageFour = "";
 string messageFive = "";
+
+string voiceline = "Mirror, mirror on the wall, who's the craziest of them all? Oh, it's me! How delightful!";
 // int
 int characterSlots = 0; // fills up at three and sends us later, more of a stop for character picking
 int shopNumber = 0; // will store random variable that will decide what shop we will load
@@ -51,12 +53,10 @@ int bioShieldHpEnemy = 0;
 
 int activeCountdownHero = 0;
 int activeCountdownEnemy = 0;
+int refillCountdown = 3;
 
-int countdownShieldActiveHero = 0;
-int countdownShieldActiveEnemy = 0;
-
-int countdownBioShieldActiveHero = 0;
-int countdownBioShieldActiveEnemy = 0;
+int swapDelay = 0;
+int chosenCharacterSwap = 0;
 
 int effectDrainingCountdownHero = 0;
 int effectDrainingCountdownEnemy = 0;
@@ -76,11 +76,12 @@ int enemyImmuneDraining = 0;
 int enemyImmuneCrippled = 0;
 int enemyImmuneBleeding = 0;
 
+int heroTurnsSkip = 0;
+int enemyTurnsSkip = 0;
+
 vector<int> bioShieldSizesHero;
 vector<int> bioShieldSizesEnemy;
 
-int originalBioShieldHero = 0;
-int originalBioShieldEnemy = 0;
 // char
 char pressedKey;
 // bool
@@ -104,9 +105,9 @@ bool enemyEffectDrainingActive = false;
 bool enemyEffectCrippledActive = false;
 bool enemyEffectBleedingActive = false;
 
+bool swapDelayActive = false;
+
 bool battleEnded = false;
-bool heroSkipsTheirTurn = false;
-bool enemySkipsTheirTurn = false;
 
 // files
 ofstream file;
