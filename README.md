@@ -7,6 +7,8 @@ NEJNOVĚJŠÍ UPDATE:
 (tato verze je již po odevzdání učiteli)
 
 =================
-TUTORIAL
+
+► TUTORIAL ◄
+
 =================
 momentáoně jen řeknu aby jste používaly klávesy w,a,s,d pro pohyb v TUI a klávesu e pro výběr zvolené možnosti, pokud od vás bude očekávána jiná akce bude to na obrazovce zmíněno.
