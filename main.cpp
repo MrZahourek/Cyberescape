@@ -3242,7 +3242,7 @@ int main() {
             whatScreenWeSee = "Map";
         }
 
-        while (whatScreenWeSee == "Boss") {
+        while (whatScreenWeSee == "Boss")
             {
                 battleEnded = false; // start battle
 
@@ -3580,11 +3580,6 @@ int main() {
 
                             } // E or e
 
-                            //temporary
-                            if (int(pressedKey) == 27) {
-                                return 0;
-                            }
-
                             // clear
                             Sleep(10);
                             system("cls");
@@ -3758,8 +3753,6 @@ int main() {
                             else if (battleSceneSideAction == "Swap") {
                                 renderSwapHeroBattleScene();
                             }
-
-                            cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    swap active " << swapDelayActive << "    swap  delay " << swapDelay;
                         }
                     }
                     else {
@@ -4466,14 +4459,30 @@ int main() {
 
                 whatScreenWeSee = "Map";
             }
-        }
+
 
         while (whatScreenWeSee == "Final Boss") {
             {
                 battleEnded = false; // start battle
 
+                enemy.name = Boss.name;
+                enemy.hp = Boss.hp;
+                enemy.arm = Boss.arm;
+                enemy.atk = Boss.atk;
+                enemy.bat = Boss.bat;
+                enemy.dat = Boss.dat;
+                enemy.attackOne = Boss.attackOne;
+                enemy.attackTwo = Boss.attackTwo;
+                enemy.attackThree = Boss.attackThree;
+                enemy.abilityOne = Boss.abilityOne;
+                enemy.abilityTwo = Boss.abilityTwo;
+                enemy.abilityThree = Boss.abilityThree;
+
+                filePath = "Sounds/Final BOSS.wav";
+
+
+
                 // play music (can add more tracks)
-                filePath = "Sounds/Escape the Subway.wav";
                 thread musicThread(playMusic, filePath.c_str());
                 system("cls");
 
@@ -4481,281 +4490,6 @@ int main() {
                 resetWhileTwo:
                 while (battleEnded != true) {
                     if (firstTime == true) {
-                        //Generate enemy and all the good stuff
-                        switch (currentLevel) {
-                            case 2: {
-                                enemy.name = subject079.name;
-                                enemy.hp = subject079.hp;
-                                enemy.arm = subject079.arm;
-                                enemy.atk = subject079.atk;
-                                enemy.bat = subject079.bat;
-                                enemy.dat = subject079.dat;
-                                enemy.attackOne = subject079.attackOne;
-                                enemy.attackTwo = subject079.attackTwo;
-                                enemy.attackThree = subject079.attackThree;
-                                enemy.abilityOne = subject079.abilityOne;
-                                enemy.abilityTwo = subject079.abilityTwo;
-                                enemy.abilityThree = subject079.abilityThree;
-
-                                break;
-                            }
-
-                            case 3: {
-                                enemy.name = X001.name;
-                                enemy.hp = X001.hp;
-                                enemy.arm = X001.arm;
-                                enemy.atk = X001.atk;
-                                enemy.bat = X001.bat;
-                                enemy.dat = X001.dat;
-                                enemy.attackOne = X001.attackOne;
-                                enemy.attackTwo = X001.attackTwo;
-                                enemy.attackThree = X001.attackThree;
-                                enemy.abilityOne = X001.abilityOne;
-                                enemy.abilityTwo = X001.abilityTwo;
-                                enemy.abilityThree = X001.abilityThree;
-
-                                break;
-                            }
-
-                            case 5: {
-                                enemy.name = BioMechSlasher.name;
-                                enemy.hp = BioMechSlasher.hp;
-                                enemy.arm = BioMechSlasher.arm;
-                                enemy.atk = BioMechSlasher.atk;
-                                enemy.bat = BioMechSlasher.bat;
-                                enemy.dat = BioMechSlasher.dat;
-                                enemy.attackOne = BioMechSlasher.attackOne;
-                                enemy.attackTwo = BioMechSlasher.attackTwo;
-                                enemy.attackThree = BioMechSlasher.attackThree;
-                                enemy.abilityOne = BioMechSlasher.abilityOne;
-                                enemy.abilityTwo = BioMechSlasher.abilityTwo;
-                                enemy.abilityThree = BioMechSlasher.abilityThree;
-
-                                break;
-                            }
-
-                            case 6: {
-                                enemy.name = VortexDrone.name;
-                                enemy.hp = VortexDrone.hp;
-                                enemy.arm = VortexDrone.arm;
-                                enemy.atk = VortexDrone.atk;
-                                enemy.bat = VortexDrone.bat;
-                                enemy.dat = VortexDrone.dat;
-                                enemy.attackOne = VortexDrone.attackOne;
-                                enemy.attackTwo = VortexDrone.attackTwo;
-                                enemy.attackThree = VortexDrone.attackThree;
-                                enemy.abilityOne = VortexDrone.abilityOne;
-                                enemy.abilityTwo = VortexDrone.abilityTwo;
-                                enemy.abilityThree = VortexDrone.abilityThree;
-
-                                break;
-                            }
-
-                            case 9: {
-                                enemy.name = Cyberviper.name;
-                                enemy.hp = Cyberviper.hp;
-                                enemy.arm = Cyberviper.arm;
-                                enemy.atk = Cyberviper.atk;
-                                enemy.bat = Cyberviper.bat;
-                                enemy.dat = Cyberviper.dat;
-                                enemy.attackOne = Cyberviper.attackOne;
-                                enemy.attackTwo = Cyberviper.attackTwo;
-                                enemy.attackThree = Cyberviper.attackThree;
-                                enemy.abilityOne = Cyberviper.abilityOne;
-                                enemy.abilityTwo = Cyberviper.abilityTwo;
-                                enemy.abilityThree = Cyberviper.abilityThree;
-
-                                break;
-                            }
-
-                            case 10: {
-                                enemy.name = Techgeist.name;
-                                enemy.hp = Techgeist.hp;
-                                enemy.arm = Techgeist.arm;
-                                enemy.atk = Techgeist.atk;
-                                enemy.bat = Techgeist.bat;
-                                enemy.dat = Techgeist.dat;
-                                enemy.attackOne = Techgeist.attackOne;
-                                enemy.attackTwo = Techgeist.attackTwo;
-                                enemy.attackThree = Techgeist.attackThree;
-                                enemy.abilityOne = Techgeist.abilityOne;
-                                enemy.abilityTwo = Techgeist.abilityTwo;
-                                enemy.abilityThree = Techgeist.abilityThree;
-
-                                break;
-                            }
-
-                            case 11: {
-                                enemy.name = Pyrofreak.name;
-                                enemy.hp = Pyrofreak.hp;
-                                enemy.arm = Pyrofreak.arm;
-                                enemy.atk = Pyrofreak.atk;
-                                enemy.bat = Pyrofreak.bat;
-                                enemy.dat = Pyrofreak.dat;
-                                enemy.attackOne = Pyrofreak.attackOne;
-                                enemy.attackTwo = Pyrofreak.attackTwo;
-                                enemy.attackThree = Pyrofreak.attackThree;
-                                enemy.abilityOne = Pyrofreak.abilityOne;
-                                enemy.abilityTwo = Pyrofreak.abilityTwo;
-                                enemy.abilityThree = Pyrofreak.abilityThree;
-
-                                break;
-                            }
-
-                            case 13: {
-                                enemy.name = Shredder.name;
-                                enemy.hp = Shredder.hp;
-                                enemy.arm = Shredder.arm;
-                                enemy.atk = Shredder.atk;
-                                enemy.bat = Shredder.bat;
-                                enemy.dat = Shredder.dat;
-                                enemy.attackOne = Shredder.attackOne;
-                                enemy.attackTwo = Shredder.attackTwo;
-                                enemy.attackThree = Shredder.attackThree;
-                                enemy.abilityOne = Shredder.abilityOne;
-                                enemy.abilityTwo = Shredder.abilityTwo;
-                                enemy.abilityThree = Shredder.abilityThree;
-
-                                break;
-                            }
-
-                            case 14: {
-                                enemy.name = SAM.name;
-                                enemy.hp = SAM.hp;
-                                enemy.arm = SAM.arm;
-                                enemy.atk = SAM.atk;
-                                enemy.bat = SAM.bat;
-                                enemy.dat = SAM.dat;
-                                enemy.attackOne = SAM.attackOne;
-                                enemy.attackTwo = SAM.attackTwo;
-                                enemy.attackThree = SAM.attackThree;
-                                enemy.abilityOne = SAM.abilityOne;
-                                enemy.abilityTwo = SAM.abilityTwo;
-                                enemy.abilityThree = SAM.abilityThree;
-
-                                break;
-                            }
-
-                            case 17: {
-                                enemy.name = NanoZombie.name;
-                                enemy.hp = NanoZombie.hp;
-                                enemy.arm = NanoZombie.arm;
-                                enemy.atk = NanoZombie.atk;
-                                enemy.bat = NanoZombie.bat;
-                                enemy.dat = NanoZombie.dat;
-                                enemy.attackOne = NanoZombie.attackOne;
-                                enemy.attackTwo = NanoZombie.attackTwo;
-                                enemy.attackThree = NanoZombie.attackThree;
-                                enemy.abilityOne = NanoZombie.abilityOne;
-                                enemy.abilityTwo = NanoZombie.abilityTwo;
-                                enemy.abilityThree = NanoZombie.abilityThree;
-
-                                break;
-                            }
-
-                            case 18: {
-                                enemy.name = PlasmaticEnforcer.name;
-                                enemy.hp = PlasmaticEnforcer.hp;
-                                enemy.arm = PlasmaticEnforcer.arm;
-                                enemy.atk = PlasmaticEnforcer.atk;
-                                enemy.bat = PlasmaticEnforcer.bat;
-                                enemy.dat = PlasmaticEnforcer.dat;
-                                enemy.attackOne = PlasmaticEnforcer.attackOne;
-                                enemy.attackTwo = PlasmaticEnforcer.attackTwo;
-                                enemy.attackThree = PlasmaticEnforcer.attackThree;
-                                enemy.abilityOne = PlasmaticEnforcer.abilityOne;
-                                enemy.abilityTwo = PlasmaticEnforcer.abilityTwo;
-                                enemy.abilityThree = PlasmaticEnforcer.abilityThree;
-
-                                break;
-                            }
-
-                            case 19: {
-                                enemy.name = ShadowbladeBalerina.name;
-                                enemy.hp = ShadowbladeBalerina.hp;
-                                enemy.arm = ShadowbladeBalerina.arm;
-                                enemy.atk = ShadowbladeBalerina.atk;
-                                enemy.bat = ShadowbladeBalerina.bat;
-                                enemy.dat = ShadowbladeBalerina.dat;
-                                enemy.attackOne = ShadowbladeBalerina.attackOne;
-                                enemy.attackTwo = ShadowbladeBalerina.attackTwo;
-                                enemy.attackThree = ShadowbladeBalerina.attackThree;
-                                enemy.abilityOne = ShadowbladeBalerina.abilityOne;
-                                enemy.abilityTwo = ShadowbladeBalerina.abilityTwo;
-                                enemy.abilityThree = ShadowbladeBalerina.abilityThree;
-
-                                break;
-                            }
-
-                            case 20: {
-                                enemy.name = ToxinWraith.name;
-                                enemy.hp = ToxinWraith.hp;
-                                enemy.arm = ToxinWraith.arm;
-                                enemy.atk = ToxinWraith.atk;
-                                enemy.bat = ToxinWraith.bat;
-                                enemy.dat = ToxinWraith.dat;
-                                enemy.attackOne = ToxinWraith.attackOne;
-                                enemy.attackTwo = ToxinWraith.attackTwo;
-                                enemy.attackThree = ToxinWraith.attackThree;
-                                enemy.abilityOne = ToxinWraith.abilityOne;
-                                enemy.abilityTwo = ToxinWraith.abilityTwo;
-                                enemy.abilityThree = ToxinWraith.abilityThree;
-
-                                break;
-                            }
-
-                            case 22: {
-                                enemy.name = ScythebladeAugment.name;
-                                enemy.hp = ScythebladeAugment.hp;
-                                enemy.arm = ScythebladeAugment.arm;
-                                enemy.atk = ScythebladeAugment.atk;
-                                enemy.bat = ScythebladeAugment.bat;
-                                enemy.dat = ScythebladeAugment.dat;
-                                enemy.attackOne = ScythebladeAugment.attackOne;
-                                enemy.attackTwo = ScythebladeAugment.attackTwo;
-                                enemy.attackThree = ScythebladeAugment.attackThree;
-                                enemy.abilityOne = ScythebladeAugment.abilityOne;
-                                enemy.abilityTwo = ScythebladeAugment.abilityTwo;
-                                enemy.abilityThree = ScythebladeAugment.abilityThree;
-
-                                break;
-                            }
-
-                            case 23: {
-                                enemy.name = MutagenicBrute.name;
-                                enemy.hp = MutagenicBrute.hp;
-                                enemy.arm = MutagenicBrute.arm;
-                                enemy.atk = MutagenicBrute.atk;
-                                enemy.bat = MutagenicBrute.bat;
-                                enemy.dat = MutagenicBrute.dat;
-                                enemy.attackOne = MutagenicBrute.attackOne;
-                                enemy.attackTwo = MutagenicBrute.attackTwo;
-                                enemy.attackThree = MutagenicBrute.attackThree;
-                                enemy.abilityOne = MutagenicBrute.abilityOne;
-                                enemy.abilityTwo = MutagenicBrute.abilityTwo;
-                                enemy.abilityThree = MutagenicBrute.abilityThree;
-
-                                break;
-                            }
-
-                            case 25: {
-                                enemy.name = NeuralOverlord.name;
-                                enemy.hp = NeuralOverlord.hp;
-                                enemy.arm = NeuralOverlord.arm;
-                                enemy.atk = NeuralOverlord.atk;
-                                enemy.bat = NeuralOverlord.bat;
-                                enemy.dat = NeuralOverlord.dat;
-                                enemy.attackOne = NeuralOverlord.attackOne;
-                                enemy.attackTwo = NeuralOverlord.attackTwo;
-                                enemy.attackThree = NeuralOverlord.attackThree;
-                                enemy.abilityOne = NeuralOverlord.abilityOne;
-                                enemy.abilityTwo = NeuralOverlord.abilityTwo;
-                                enemy.abilityThree = NeuralOverlord.abilityThree;
-
-                                break;
-                            }
-
-                        }
 
                         if (characterOne.hp > 0) {
                             active.name = characterOne.name;
@@ -5100,11 +4834,6 @@ int main() {
 
                             } // E or e
 
-                            //temporary
-                            if (int(pressedKey) == 27) {
-                                return 0;
-                            }
-
                             // clear
                             Sleep(10);
                             system("cls");
@@ -5278,8 +5007,6 @@ int main() {
                             else if (battleSceneSideAction == "Swap") {
                                 renderSwapHeroBattleScene();
                             }
-
-                            cout << "Y: " << battleScene.currentPositionY << "    X: " << battleScene.currentPositionX << "    Action:" << battleSceneSideAction << "   Pressed Key:" << pressedKey << "   Code: " << int(pressedKey) << "    Active: " << active.name << "    swap active " << swapDelayActive << "    swap  delay " << swapDelay;
                         }
                     }
                     else {
@@ -5642,7 +5369,7 @@ int main() {
                     if (enemyTurnsSkip == 0) {
                         while(battleWhoHasTheirTurn == "Enemy") {
 
-                            enemyBrain();
+                            brainOfTheBoss();
 
                             battleWhoHasTheirTurn = "Hero";
                             battleSceneSideAction = "Main";

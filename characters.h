@@ -105,29 +105,33 @@ characters         plagy("       Plagy       ", "Clear", "                      
 characters         amper("       Amper       ", "Clear", "                      Supporter", "Trojan bug", "Virtual punch", "Brute force attack", "Reload Hp", "Reload Arm", "Receive Hp", 15, 0, 3, 150, 150, false, false);
 
 // Enemies
-characters arian("Arian", 10, 5, 1, 100, 100, "Example attack", "", "", "Fast Recharge", "", "");
-characters subject079 ("Subject #079",20, 2, 3, 150, 50, "Double bite", "", "", "Swapping disorder", "", "");
-characters X001  ("X-001", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters BioMechSlasher  ("Bio-Mech Slasher", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters VortexDrone  ("Vortex Drone", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters Cyberviper  ("Cyberviper", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters Techgeist  ("Techgeist", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters Pyrofreak  ("Pyrofreak", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters Shredder  ("Shredder", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters SAM  ("S.A.M. (Sentient Autonomous Machine)", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters NanoZombie  ("Nano-Zombie", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters PlasmaticEnforcer  ("Plasmatic Enforcer", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters ShadowbladeBalerina  ("Shadowblade Balerina", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters ToxinWraith  ("Toxin Wraith", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters ScythebladeAugment  ("Scytheblade Augment", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters MutagenicBrute  ("Mutagenic Brute", 0, 0, 0, 0, 0, "", "", "", "", "", "");
-characters NeuralOverlord  ("Neural Overlord", 0, 0, 0, 0, 0, "", "", "", "", "", "");
+characters subject079 ("Subject #079",20, 2, 3, 150, 50, "Double bite", "", "", "", "", "");
+characters X001  ("X-001", 15, 15, 4, 150, 150, "Full body attack", "", "", "", "", "");
+characters BioMechSlasher  ("Bio-Mech Slasher", 20, 10, 8, 200, 80, "Smash!", "", "", "", "", "");
+characters VortexDrone  ("Vortex Drone", 25, 0, 6, 150, 150, "Targeted shot", "", "", "", "", "");
+characters Cyberviper  ("Cyberviper", 10, 15, 5, 150, 100, "Poison blade", "", "", "", "", "");
+characters Techgeist  ("Techgeist", 20, 5, 5, 150, 150, "Circuit cripple", "", "", "", "", "");
+characters Pyrofreak  ("Pyrofreak", 35, 0, 7, 200, 180, "Napalm shower", "Artificial hell", "", "", "", "");
+characters Shredder  ("Shredder", 40, 0, 8, 100, 100, "Bone crush", "Flesh ripping protocol", "", "", "", "");
+characters SAM  ("S.A.M. (Sentient Autonomous Machine)", 30, 10, 5, 200, 200, "Surgery (no anaesthesia)", "Hand-saw", "", "", "", "");
+characters NanoZombie  ("Nano-Zombie", 10, 35, 7, 150, 250, "Ugly bite", "Horde", "", "", "", "");
+characters PlasmaticEnforcer  ("Plasmatic Enforcer", 25, 15, 7, 150, 150, "Human BBQ", "Plasma inferno", "", "", "", "");
+characters ShadowbladeBalerina  ("Shadowblade Balerina", 35, 15, 6, 200, 200, "Shadow blade", "Scream", "Shadowlash", "", "", "");
+characters ToxinWraith  ("Toxin Wraith", 50, 5, 8, 250, 180, "Venomous Grasp", "Noxious Cloud", "Lethal Exhalation", "", "", "");
+characters ScythebladeAugment  ("Scytheblade Augment", 40, 15, 8, 180, 180, "Crippling Harvest", "Phantom Blade Barrage", "Reaping Strike", "", "", "");
+characters MutagenicBrute  ("Mutagenic Brute", 55, 0, 8, 180, 200, "Venomous Grasp", "Feral Rampage", "Biohazard Slam", "", "", "");
+characters NeuralOverlord  ("Neural Overlord", 50, 10, 6, 200, 200, "Mind Control Surge", "Psychic Assault", "Neural Collapse", "", "", "");
 // Special
-characters active("char One", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-characters characterOne("char One", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-characters characterTwo("char Two", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-characters characterThree("char Three", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters active("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterOne("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterTwo("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+characters characterThree("", "", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 characters enemy("", "Clear", "", "", "", "", "", "", "", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
+// boss
+characters TheMask ("Dr. [REDACTED] - The Mask", 30, 10, 7, 200, 200, "Nightmare Fuel","Triple Attack","Artificial Lighting","Shield Of Darkness","Manipulation","Refill");
+characters ERr0R ("Dr. [REDACTED] - ERr0R", 50, 25, 10, 333, 333, "Razor Sword", "Flame Rain", "9th Circle Of Hell", "Stamina Steal", "Bleeding Heart Transplant", "Telepot");
+characters Boss ("The BOSS", 100, 0, 15, 400, 400, "Mini-gun!", "Flame Rain", "9th Circle Of Hell", "Stamina Steal", "Bleeding Heart Transplant", "Telepot");
 
 
 class playerInventory{

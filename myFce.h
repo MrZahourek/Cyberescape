@@ -2837,6 +2837,7 @@ void HeroCheckAbility() {
 } // checks for all abilities based on hero name and position in battle screen - done
 
 
+
 void enemyBrain() {
 // first stage
 if (enemy.name == subject079.name) {
@@ -2896,7 +2897,7 @@ if (enemy.name == subject079.name) {
             break;
         }
     }
-}
+} // done
 else if (enemy.name == X001.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 1;
@@ -2959,7 +2960,7 @@ else if (enemy.name == X001.name) {
             break;
         }
     }
-}
+} // done
 else if (enemy.name == BioMechSlasher.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 1;
@@ -3017,7 +3018,7 @@ else if (enemy.name == BioMechSlasher.name) {
             break;
         }
     }
-}
+} // done
 else if (enemy.name == VortexDrone.name) {
 
     if (enemy.bat >= 25 && enemy.dat >= 25) {
@@ -3061,7 +3062,7 @@ else if (enemy.name == VortexDrone.name) {
                 voiceline = "I will never miss, same as nobody will ever miss you";
             }
         }
-    }
+    } // done
 else if (enemy.name == Cyberviper.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 1;
@@ -3133,7 +3134,7 @@ else if (enemy.name == Cyberviper.name) {
             break;
         }
     }
-}
+} // done
 else if (enemy.name == Techgeist.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 1;
@@ -3150,9 +3151,9 @@ else if (enemy.name == Techgeist.name) {
                 if (chanceInSwitch == 1) {
                     resetEffectsOfHero();
 
-                    effectCrippledStrengthEnemy = 2;
-                    enemyEffectCrippledActive = true;
-                    activeCountdownEnemy = 2;
+                    effectCrippledStrengthHero = 2;
+                    heroEffectCrippledActive = true;
+                    activeCountdownHero = 2;
 
                     fillMessage("Enemy damaged your circuits");
                 }
@@ -3196,7 +3197,7 @@ else if (enemy.name == Techgeist.name) {
             break;
         }
     }
-}
+} // done - corrected
 // second stage
 else if (enemy.name == Pyrofreak.name) {
     srand((unsigned) time(NULL));
@@ -3230,8 +3231,8 @@ else if (enemy.name == Pyrofreak.name) {
                 if (chanceInSwitch == 1) {
                     resetEffectsOfHero();
 
-                    enemyEffectBurningActive = true;
-                    activeCountdownEnemy = 100;
+                    heroEffectBurningActive = true;
+                    activeCountdownHero = 100;
 
                     fillMessage("Fire from hell burns ethereally, better put it out soon");
                 }
@@ -3293,18 +3294,18 @@ else if (enemy.name == Shredder.name) {
                 if (chanceInSwitch == 1) {
                     resetEffectsOfHero();
 
-                    effectCrippledStrengthEnemy = 3;
-                    enemyEffectCrippledActive = true;
-                    activeCountdownEnemy = 2;
+                    effectCrippledStrengthHero = 3;
+                    heroEffectCrippledActive = true;
+                    activeCountdownHero = 2;
 
                     fillMessage("I can see your bone, and i think part is missing");
                 }
                 else {
                     resetEffectsOfHero();
 
-                    effectCrippledStrengthEnemy = 2;
-                    enemyEffectCrippledActive = true;
-                    activeCountdownEnemy = 2;
+                    effectCrippledStrengthHero = 2;
+                    heroEffectCrippledActive = true;
+                    activeCountdownHero = 2;
 
                     fillMessage("I think he broke your bone");
                 }
@@ -3326,8 +3327,8 @@ else if (enemy.name == Shredder.name) {
                 if (chanceInSwitch == 1) {
                     resetEffectsOfHero();
 
-                    enemyEffectBleedingActive = true;
-                    activeCountdownEnemy = 4;
+                    heroEffectBleedingActive = true;
+                    activeCountdownHero = 4;
 
                     fillMessage("That is lot of blood that you are loosing");
                 }
@@ -3389,17 +3390,17 @@ else if (enemy.name == SAM.name) {
                 if (chanceInSwitch == 1) {
                     resetEffectsOfHero();
 
-                    effectCrippledStrengthEnemy = 1;
-                    enemyEffectCrippledActive = true;
-                    activeCountdownEnemy = 2;
+                    effectCrippledStrengthHero = 1;
+                    heroEffectCrippledActive = true;
+                    activeCountdownHero = 2;
 
                     fillMessage("Ehm... that's gonna leave a mark ");
                 }
                 else {
                     resetEffectsOfHero();
 
-                    enemyEffectBleedingActive = true;
-                    activeCountdownEnemy = 3;
+                    heroEffectBleedingActive = true;
+                    activeCountdownHero = 3;
 
                     fillMessage("That part isn't stitched properly");
                 }
@@ -3468,8 +3469,8 @@ else if (enemy.name == NanoZombie.name) {
 
                 resetEffectsOfHero();
 
-                enemyEffectPoisonActive = true;
-                activeCountdownEnemy = 3;
+                heroEffectPoisonActive = true;
+                activeCountdownHero = 3;
 
                 enemy.bat -= 10;
                 enemy.dat -= 10;
