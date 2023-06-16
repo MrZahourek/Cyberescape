@@ -41,7 +41,7 @@ int highestPointInChoosingHeroes = 8;
 
 int chosenCharacter; // decides the chosen character
 
-int currentLevel = 6; // for now, it should be 0
+int currentLevel = 1; // for now, it should be 0
 
 int damageDone = 0;
 
