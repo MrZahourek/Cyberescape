@@ -2842,11 +2842,9 @@ void enemyBrain() {
 // first stage
 if (enemy.name == subject079.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 1;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 15 && enemy.dat >= 5) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+        if (enemy.bat >= 15 && enemy.dat >= 5) {
                 damageDone = enemy.atk;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -2861,13 +2859,11 @@ if (enemy.name == subject079.name) {
                 enemy.bat -= 15;
                 enemy.dat -= 15;
             }
-            break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -2900,11 +2896,9 @@ if (enemy.name == subject079.name) {
 } // done
 else if (enemy.name == X001.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 1;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 40 && enemy.dat >= 5) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+        if (enemy.bat >= 40 && enemy.dat >= 5) {
                 damageDone = enemy.atk;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -2924,13 +2918,11 @@ else if (enemy.name == X001.name) {
                 enemy.bat -= 40;
                 enemy.dat -= 15;
             }
-            break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -2963,11 +2955,9 @@ else if (enemy.name == X001.name) {
 } // done
 else if (enemy.name == BioMechSlasher.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 1;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 50 && enemy.dat >= 10) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+        if (enemy.bat >= 50 && enemy.dat >= 10) {
                 damageDone = enemy.atk;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -2982,13 +2972,11 @@ else if (enemy.name == BioMechSlasher.name) {
                 enemy.bat -= 50;
                 enemy.dat -= 10;
             }
-            break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3065,11 +3053,9 @@ else if (enemy.name == VortexDrone.name) {
     } // done
 else if (enemy.name == Cyberviper.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 1;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 30 && enemy.dat >= 10) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+        if (enemy.bat >= 30 && enemy.dat >= 10) {
                 damageDone = enemy.atk;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -3098,13 +3084,11 @@ else if (enemy.name == Cyberviper.name) {
                 enemy.bat -= 30;
                 enemy.dat -= 10;
             }
-            break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3137,11 +3121,9 @@ else if (enemy.name == Cyberviper.name) {
 } // done
 else if (enemy.name == Techgeist.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 1;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 15 && enemy.dat >= 20) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+        if (enemy.bat >= 15 && enemy.dat >= 20) {
                 damageDone = enemy.atk;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -3161,13 +3143,11 @@ else if (enemy.name == Techgeist.name) {
                 enemy.bat -= 15;
                 enemy.dat -= 20;
             }
-            break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3201,9 +3181,12 @@ else if (enemy.name == Techgeist.name) {
 // second stage
 else if (enemy.name == Pyrofreak.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 2;
-    switch (chance) {
-        case 1:
+    int chance = rand() % 3;
+    if (chance > 0) {
+      srand((unsigned) time(NULL));
+        int chanceInIf = rand() % 1;
+        switch (chanceInIf) {
+        case 0:
         {
             if (enemy.bat >= 25 && enemy.dat >= 20) {
                 damageDone = enemy.atk - 1;
@@ -3219,9 +3202,10 @@ else if (enemy.name == Pyrofreak.name) {
             }
             break;
         }
-        case 2:
-        {
-            if (enemy.bat >= 45 && enemy.dat >= 45) {
+
+        case 1:
+            {
+              if (enemy.bat >= 45 && enemy.dat >= 45) {
                 damageDone = enemy.atk + 1;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -3241,13 +3225,13 @@ else if (enemy.name == Pyrofreak.name) {
                 enemy.dat -= 45;
             }
             break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
-        }
+            }
     }
+        }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3280,11 +3264,14 @@ else if (enemy.name == Pyrofreak.name) {
 }
 else if (enemy.name == Shredder.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 2;
-    switch (chance) {
-        case 1:
-        {
-            if (enemy.bat >= 30 && enemy.dat >= 30) {
+    int chance = rand() % 3;
+    if (chance > 0) {
+      srand((unsigned) time(NULL));
+        int chanceInIf = rand() % 1;
+        switch (chanceInIf) {
+        case 0:
+            {
+               if (enemy.bat >= 30 && enemy.dat >= 30) {
                 damageDone = enemy.atk - 2;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -3314,10 +3301,10 @@ else if (enemy.name == Shredder.name) {
                 enemy.dat -= 30;
             }
             break;
-        }
-        case 2:
-        {
-            if (enemy.bat >= 45 && enemy.dat >= 45) {
+            }
+        case 1:
+            {
+             if (enemy.bat >= 45 && enemy.dat >= 45) {
                 damageDone = enemy.atk + 1;
                 fillMessage("Enemy Used: " + enemy.attackOne);
 
@@ -3337,13 +3324,13 @@ else if (enemy.name == Shredder.name) {
                 enemy.dat -= 45;
             }
             break;
-        }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
+            }
         }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3376,9 +3363,12 @@ else if (enemy.name == Shredder.name) {
 }
 else if (enemy.name == SAM.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 2;
-    switch (chance) {
-        case 1:
+    int chance = rand() % 3;
+    if (chance > 0) {
+      srand((unsigned) time(NULL));
+        int chanceInIf = rand() % 1;
+        switch (chanceInIf) {
+            case 0:
         {
             if (enemy.bat >= 10 && enemy.dat >= 10) {
                 damageDone = enemy.atk;
@@ -3410,7 +3400,7 @@ else if (enemy.name == SAM.name) {
             }
             break;
         }
-        case 2:
+        case 1:
         {
             if (enemy.bat >= 20 && enemy.dat >= 20) {
                 damageDone = enemy.atk + 3;
@@ -3421,12 +3411,12 @@ else if (enemy.name == SAM.name) {
             }
             break;
         }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
         }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3459,9 +3449,12 @@ else if (enemy.name == SAM.name) {
 }
 else if (enemy.name == NanoZombie.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 2;
-    switch (chance) {
-        case 1:
+    int chance = rand() % 3;
+    if (chance > 0) {
+      srand((unsigned) time(NULL));
+        int chanceInIf = rand() % 1;
+        switch (chanceInIf) {
+            case 0:
         {
             if (enemy.bat >= 10 && enemy.dat >= 10) {
                 damageDone = enemy.atk;
@@ -3477,7 +3470,8 @@ else if (enemy.name == NanoZombie.name) {
             }
             break;
         }
-        case 2:
+
+        case 1:
         {
             if (enemy.bat >= 25 && enemy.dat >= 25) {
                 damageDone = 1;
@@ -3490,12 +3484,12 @@ else if (enemy.name == NanoZombie.name) {
             }
             break;
         }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
         }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3528,9 +3522,12 @@ else if (enemy.name == NanoZombie.name) {
 }
 else if (enemy.name == PlasmaticEnforcer.name) {
     srand((unsigned) time(NULL));
-    int chance = rand() % 2;
-    switch (chance) {
-        case 1:
+    int chance = rand() % 3;
+    if (chance > 0) {
+      srand((unsigned) time(NULL));
+        int chanceInIf = rand() % 1;
+        switch (chanceInIf) {
+            case 0:
         {
             if (enemy.bat >= 10 && enemy.dat >= 10) {
                 damageDone = enemy.atk;
@@ -3590,7 +3587,8 @@ else if (enemy.name == PlasmaticEnforcer.name) {
             }
             break;
         }
-        case 2:
+
+        case 1:
         {
             if (enemy.bat >= 25 && enemy.dat >= 25) {
                 damageDone = enemy.atk + 2;
@@ -3605,6 +3603,14 @@ else if (enemy.name == PlasmaticEnforcer.name) {
             }
             break;
         }
+        }
+    }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+    switch (chance) {
+
+
         case 0:
         {
             fillMessage("Enemy stayed calm this turn");
@@ -3650,7 +3656,8 @@ else if (enemy.name == PlasmaticEnforcer.name) {
 else if (enemy.name == ShadowbladeBalerina.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
-    switch (chance) {
+    if (chance > 3) {
+        switch (chance) {
         case 1:
         {
             if (enemy.bat >= 40 && enemy.dat >= 40) {
@@ -3709,12 +3716,13 @@ else if (enemy.name == ShadowbladeBalerina.name) {
             }
             break;
         }
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
+
         }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 5) + 1;
     switch (voice) {
@@ -3754,7 +3762,8 @@ else if (enemy.name == ShadowbladeBalerina.name) {
 else if (enemy.name == ToxinWraith.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
-    switch (chance) {
+    if (chance > 0) {
+        switch (chance) {
         case 1:
         {
             if (enemy.bat >= 40 && enemy.dat >= 40) {
@@ -3811,18 +3820,17 @@ else if (enemy.name == ToxinWraith.name) {
             }
             break;
         }
-
-        case 0:
-        {
-            if (heroEffectDrainingActive == true && effectDrainingCountdownHero >= 3) {
+        }
+    }
+    else {
+        if (heroEffectDrainingActive == true && effectDrainingCountdownHero >= 3) {
                 fillMessage("Enemy drained your Hp");
             }
             else {
                 fillMessage("Enemy stayed calm this turn");
             }
-            break;
-        }
     }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3856,7 +3864,8 @@ else if (enemy.name == ToxinWraith.name) {
 else if (enemy.name == ScythebladeAugment.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
-    switch (chance) {
+    if (chance > 3) {
+        switch (chance) {
         case 1:
         {
             if (enemy.bat >= 40 && enemy.dat >= 40) {
@@ -3917,13 +3926,12 @@ else if (enemy.name == ScythebladeAugment.name) {
             }
             break;
         }
-
-        case 0:
-        {
-                fillMessage("Enemy stayed calm this turn");
-            break;
         }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
@@ -3957,7 +3965,8 @@ else if (enemy.name == ScythebladeAugment.name) {
 else if (enemy.name == MutagenicBrute.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
-    switch (chance) {
+    if (chance > 0) {
+        switch (chance) {
         case 1:
         {
             if (enemy.bat >= 25 && enemy.dat >= 25) {
@@ -4002,13 +4011,11 @@ else if (enemy.name == MutagenicBrute.name) {
             }
             break;
         }
-
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
-        }
     }
+    else {
+        fillMessage("Enemy stayed calm this turn");
+    }
+
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
     switch (voice) {
