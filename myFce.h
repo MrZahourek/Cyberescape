@@ -4012,6 +4012,7 @@ else if (enemy.name == MutagenicBrute.name) {
             break;
         }
     }
+    }
     else {
         fillMessage("Enemy stayed calm this turn");
     }
@@ -4046,11 +4047,11 @@ else if (enemy.name == MutagenicBrute.name) {
         }
     }
 }
-}
 else if (enemy.name == NeuralOverlord.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
-    switch (chance) {
+    if (chance > 3) {
+        switch (chance) {
         case 1:
         {
             if (enemy.bat >= 25 && enemy.dat >= 25) {
@@ -4093,12 +4094,10 @@ else if (enemy.name == NeuralOverlord.name) {
             }
             break;
         }
-
-        case 0:
-        {
-            fillMessage("Enemy stayed calm this turn");
-            break;
-        }
+    }
+    }
+    else {
+        fillMessage("Enemy stayed calm this turn");
     }
     srand((unsigned) time(NULL));
     int voice = (rand() % 4) + 1;
