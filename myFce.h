@@ -4046,6 +4046,7 @@ else if (enemy.name == MutagenicBrute.name) {
         }
     }
 }
+}
 else if (enemy.name == NeuralOverlord.name) {
     srand((unsigned) time(NULL));
     int chance = rand() % 3;
