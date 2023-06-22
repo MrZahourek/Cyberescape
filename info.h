@@ -1,6 +1,8 @@
 #ifndef GAME_INFO_H
 #define GAME_INFO_H
 
+#include <string>
+
 using namespace std;
 
 class levelInfo {

@@ -1,7 +1,9 @@
+#ifndef MUSIC_H
+#define MUSIC_H
+
 #include <windows.h>
 #include <mmsystem.h>
 #include <iostream>
-#include <string>
 #include <thread>
 
 #include "variables.h"
@@ -10,7 +12,7 @@ typedef BOOL(WINAPI *PlaySoundFunc)(LPCTSTR, HMODULE, DWORD);
 
 void playMusic(const CHAR* pathToFile)
 {
-    HMODULE winmm = LoadLibrary("winmm.dll");
+    HMODULE winmm = LoadLibrary("winmm.dll"); //tady jsem musel pøetytovat const char* na LPCWSTR manuálnì, ale nevim, jak proc to nefunguje, takze pokud ti to netrowuje nejakej error, tak je to asi fajne, btw jsem to zmenil na HMODULE winmm = LoadLibrary((LPCWSTR)"winmm.dll");  - Antonín Šonka 22.6.2023
     if (winmm == nullptr)
     {
         std::cerr << "Failed to load winmm.dll" << std::endl;
@@ -23,8 +25,7 @@ void playMusic(const CHAR* pathToFile)
         std::cerr << "Failed to retrieve PlaySound function" << std::endl;
         return;
     }
-
-    playSound(pathToFile, nullptr, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    playSound(pathToFile, nullptr, SND_FILENAME | SND_ASYNC | SND_LOOP); //tady jsem musel pøetytovat manuálnì 'pathToFile' na LPCTSTR, zmenil jsem to u sebe na playSound((LPCTSTR)pathToFile, nullptr, SND_FILENAME | SND_ASYNC | SND_LOOP);, ale pokud to tobì funguje, tak fajne - Antonín Šonka 22.6.2023
     std::cout << "Playing Music\n";
 
     // Keep the music playing until stopped
@@ -53,3 +54,4 @@ void playMusic(const CHAR* pathToFile)
     // Signal the music thread to stop
     musicThread.detach();
     */
+#endif

@@ -1,5 +1,7 @@
-#ifndef GAME_SHOPS_H
+﻿#ifndef GAME_SHOPS_H
 #define GAME_SHOPS_H
+
+#include <string>
 
 using namespace std;
 
