@@ -1,16 +1,9 @@
-//
+﻿//
 // Created by AP Studio on 19/05/2023.
 //
 
 #ifndef GAME_MYFCE_H
 #define GAME_MYFCE_H
-
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <conio.h>
-#include <windows.h>
-#include <stdlib.h>
 
 #include "attacks.h"
 #include "abilities.h"
@@ -19,7 +12,6 @@
 #include "info.h"
 #include "variables.h"
 #include "renders.h"
-#include "myFce.h"
 
 using namespace std;
 
@@ -1360,7 +1352,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -1394,7 +1386,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -1616,7 +1608,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -1671,7 +1663,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -1902,7 +1894,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -1950,7 +1942,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2085,7 +2077,7 @@ void HeroCheckAbility() {
 
                         renderTUIForTwo();
 
-                        char pressedKey = getch();
+                        char pressedKey = _getch();
 
                         if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                             battleScene.currentPositionX++;
@@ -2152,7 +2144,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2224,7 +2216,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2272,7 +2264,7 @@ void HeroCheckAbility() {
 
                             renderTUIForThree();
 
-                            pressedKey = getch();
+                            pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2446,7 +2438,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2501,7 +2493,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2574,7 +2566,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2629,7 +2621,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2699,7 +2691,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;
@@ -2754,7 +2746,7 @@ void HeroCheckAbility() {
 
                             renderTUIForTwo();
 
-                            char pressedKey = getch();
+                            char pressedKey = _getch();
 
                             if (int(pressedKey) == 68 || int(pressedKey) == 100) {
                                 battleScene.currentPositionX++;

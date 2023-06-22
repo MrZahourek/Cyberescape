@@ -1,6 +1,8 @@
 #ifndef GAME_CHARACTERS_H
 #define GAME_CHARACTERS_H
 
+#include <string>
+
 using namespace std;
 
 class characters{
