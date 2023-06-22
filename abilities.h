@@ -2,6 +2,8 @@
 #ifndef GAME_ABILITIES_H
 #define GAME_ABILITIES_H
 
+#include <string>
+
 using namespace std;
 
 class abilities {
